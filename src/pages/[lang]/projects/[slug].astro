@@ -1,0 +1,14 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { productsWithDetail } from '../../../data/projects.ts';
+import { PREFIXED_LOCALES } from '../../../i18n/index.ts';
+import ProductView from '../../../views/ProductView.astro';
+
+export const getStaticPaths = (() =>
+  PREFIXED_LOCALES.flatMap((l) =>
+    productsWithDetail.map((project) => ({ params: { lang: l.path, slug: project.slug }, props: { lang: l.code, project } })),
+  )) satisfies GetStaticPaths;
+
+const { lang, project } = Astro.props;
+---
+<ProductView project={project} lang={lang} />

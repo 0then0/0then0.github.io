@@ -1,0 +1,32 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">DBReduce</title>
+  <desc
+    id="desc"
+  >A large dashed database cylinder reduced to a small solid one that keeps a single highlighted row.</desc>
+  <g
+    fill="none"
+    stroke="#4f6975"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <g stroke-width="2.4" stroke-dasharray="0.1 4.6">
+      <ellipse cx="32" cy="12" rx="26" ry="7" />
+      <path d="M6 12v38a26 7 0 0 0 52 0V12" />
+    </g>
+    <g stroke-width="3">
+      <ellipse cx="32" cy="31" rx="13" ry="4.5" />
+      <path d="M19 31v16a13 4.5 0 0 0 26 0V31" />
+    </g>
+    <path
+      d="M19 39a13 4.5 0 0 0 26 0"
+      stroke="#d86b4a"
+      stroke-linecap="butt"
+      stroke-width="3"
+    />
+  </g>
+</svg>

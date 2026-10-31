@@ -1,0 +1,271 @@
+---
+import { getImage, Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Downloads from '../components/Downloads.astro';
+import ProjectIcon from '../components/ProjectIcon.astro';
+import Terminal from '../components/Terminal.astro';
+import { DEFAULT_LANG, fmt, formatDate, type Lang, localePath, messages, projectText, templateParts, term } from '../i18n/index.ts';
+import Base from '../layouts/Base.astro';
+import { downloadPlan, latestRelease, repoUrl } from '../lib/catalog.ts';
+import type { CatalogEntry, Evidence, ProductDetail } from '../lib/types.ts';
+
+interface Props {
+  project: CatalogEntry & { detail: ProductDetail };
+  lang: Lang;
+}
+
+const { project, lang } = Astro.props;
+const m = messages(lang);
+const p = m.product;
+const text = projectText(lang, project);
+const detail = project.detail;
+/** Product page bodies are written in English; mark them so browsers and screen readers use English rules. */
+const english = lang === DEFAULT_LANG ? {} : { lang: 'en' };
+const plan = downloadPlan(project);
+if (!plan) throw new Error(`${project.slug} has no detail page data`);
+const release = latestRelease(project);
+
+const screenshots = import.meta.glob<ImageMetadata>('../assets/screenshots/*', { eager: true, import: 'default' });
+const media = detail.media.map((item) => {
+  if (item.kind !== 'screenshot') return item;
+  const image = screenshots[`../assets/screenshots/${item.file}`];
+  if (!image) throw new Error(`Missing screenshot ${item.file} for ${project.slug}`);
+  return { ...item, image };
+});
+const firstShot = media.find((item) => item.kind === 'screenshot');
+const ogImage = firstShot && 'image' in firstShot ? (await getImage({ src: firstShot.image, width: 1200, format: 'jpg' })).src : undefined;
+
+const hasRecommended = plan.byOs.some((g) => g.items.some((i) => i.kind === 'recommended'));
+let primary: { href: string; label: string };
+if (detail.primary.kind === 'download') {
+  primary = hasRecommended
+    ? { href: '#download', label: text.primary ?? detail.primary.label }
+    : { href: repoUrl(project, '#readme'), label: p.getStartedSource };
+} else {
+  if (!detail.primary.href) throw new Error(`${project.slug}: primary action needs href`);
+  primary = { href: detail.primary.href, label: text.primary ?? detail.primary.label };
+}
+const secondary = (detail.secondary ?? []).map((s, i) => ({ ...s, ...(text.secondary?.[i] ?? {}) }));
+
+const evidenceClass = (e: Evidence) => (e === 'runtime-verified' ? 'tag tag-ok' : e === 'declared' ? 'tag tag-warn' : 'tag');
+const links = [
+  { label: p.docs, href: detail.links.docs },
+  { label: p.sourceCode, href: repoUrl(project) },
+  { label: p.issues, href: repoUrl(project, '/issues') },
+  { label: fmt(p.licenseLink, { license: term(lang, project.license) }), href: repoUrl(project, '/blob/HEAD/LICENSE') },
+  ...(detail.links.changelog ? [{ label: p.changelog, href: detail.links.changelog }] : []),
+  { label: p.releases, href: repoUrl(project, '/releases') },
+];
+const tagline = text.tagline ?? detail.tagline;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: project.name,
+  description: text.task,
+  inLanguage: lang,
+  url: new URL(Astro.url.pathname, Astro.site).href,
+  codeRepository: repoUrl(project),
+  license: repoUrl(project, '/blob/HEAD/LICENSE'),
+  applicationCategory: project.audience === 'developers' ? 'DeveloperApplication' : 'UtilitiesApplication',
+  operatingSystem: detail.support.map((s) => s.platform).join(', '),
+  ...(release ? { softwareVersion: release.tag.replace(/^v/, ''), datePublished: release.publishedAt.slice(0, 10) } : {}),
+  isAccessibleForFree: true,
+};
+---
+<Base
+  lang={lang}
+  title={`${text.name}: ${tagline.replace(/[.。]$/, '')}`}
+  description={text.task}
+  {...ogImage ? { image: ogImage, imageAlt: firstShot?.alt ?? '' } : {}}
+  type="article"
+  jsonLd={jsonLd}
+>
+  <div class="container">
+    <nav class="breadcrumb" aria-label={p.breadcrumb}>
+      <ol>
+        <li><a href={localePath(lang, '/')}>{p.home}</a></li>
+        <li><a href={localePath(lang, '/projects/')}>{m.nav.catalog}</a></li>
+        <li><span aria-current="page">{text.name}</span></li>
+      </ol>
+    </nav>
+
+    <header class="product-hero">
+      <div class="product-title">
+        <ProjectIcon project={project} size={56} />
+        <div>
+          <p class="eyebrow">{m.labels.categories[project.category]}</p>
+          <h1>{text.name}</h1>
+        </div>
+      </div>
+      <p class="lede">{tagline}{m.meta.sentenceGap}{text.task}</p>
+      <dl class="facts">
+        <div>
+          <dt>{p.release}</dt>
+          <dd>{release ? `${release.tag}, ${formatDate(lang, release.publishedAt)}` : p.noRelease}</dd>
+        </div>
+        <div><dt>{p.runsOn}</dt><dd>{text.environment}</dd></div>
+        <div><dt>{p.license}</dt><dd>{term(lang, project.license)}</dd></div>
+        {
+          project.maturity && (
+            <div>
+              <dt>{p.status}</dt>
+              <dd>
+                <span class="tag tag-warn">{m.labels.maturity[project.maturity]}</span>
+              </dd>
+            </div>
+          )
+        }
+      </dl>
+      {
+        project.fork && (
+          <p class="small muted">
+            {templateParts(p.forkOf).map((part) =>
+              'text' in part ? part.text : <a href={`https://github.com/${project.fork?.upstream}`}>{project.fork?.upstream}</a>,
+            )}{' '}
+            {text.forkNote}
+          </p>
+        )
+      }
+      <div class="actions">
+        <a class="btn btn-primary" href={primary.href}>{primary.label}</a>
+        {secondary.map((s) => <a class="btn" href={s.href}>{s.label}</a>)}
+        <a class="btn" href={repoUrl(project)}>{p.viewSource}</a>
+      </div>
+      {secondary.filter((s) => s.note).map((s) => <p class="small muted">{s.label}: {s.note}</p>)}
+      {lang !== DEFAULT_LANG && <p class="small muted">{p.englishNote}</p>}
+    </header>
+
+    <section class="section" aria-labelledby="look-title">
+      <h2 id="look-title" class="visually-hidden">{p.lookHeading}</h2>
+      <div class="stack">
+        {
+          media.map((item) =>
+            item.kind === 'screenshot' && 'image' in item ? (
+              <figure class:list={['figure', { portrait: item.image.height > item.image.width }]} {...english}>
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  widths={[640, 960, 1400]}
+                  sizes={item.image.height > item.image.width ? '(min-width: 36rem) 34rem, 100vw' : '(min-width: 72rem) 68rem, 100vw'}
+                  loading="eager"
+                />
+                <figcaption>
+                  {item.caption}{' '}
+                  <a href={item.image.src} lang={lang}>
+                    {p.openFull}
+                    <span class="visually-hidden"> {fmt(p.screenshotOf, { name: text.name })}</span>
+                  </a>
+                </figcaption>
+              </figure>
+            ) : item.kind === 'terminal' ? (
+              <figure class="figure">
+                <Terminal
+                  command={item.command}
+                  output={item.output}
+                  label={fmt(item.command ? p.commandExample : p.documentedResult, { name: text.name })}
+                />
+                <figcaption {...english}>{item.caption}</figcaption>
+              </figure>
+            ) : null,
+          )
+        }
+      </div>
+    </section>
+
+    <section class="section two-col" aria-labelledby="what-title">
+      <div class="stack prose">
+        <h2 id="what-title">{p.whatHeading}</h2>
+        <p {...english}>{detail.summary}</p>
+        <h3>{p.whoHeading}</h3>
+        <ul class="list" {...english}>
+          {detail.audience.map((a) => <li>{a}</li>)}
+        </ul>
+      </div>
+      <div class="stack">
+        <h2 id="limits-title">{p.limitsHeading}</h2>
+        <ul class="list" {...english}>
+          {detail.limitations.map((l) => <li>{l}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="uses-title">
+      <h2 id="uses-title" class="section-head">{p.usesHeading}</h2>
+      <div class="scenarios" {...english}>
+        {
+          detail.scenarios.map((s) => (
+            <div class="card stack" style="--flow: 0.5rem">
+              <h3>{s.title}</h3>
+              <p class="muted">{s.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <Downloads project={project} detail={detail} plan={plan} lang={lang} text={text} />
+
+    <section class="section two-col">
+      <div class="stack" aria-labelledby="start-title">
+        <h2 id="start-title">{p.firstRunHeading}</h2>
+        <ol class="steps" {...english}>
+          {
+            detail.firstRun.map((step) => (
+              <li>
+                <div>
+                  <p>{step.text}</p>
+                  {step.code && <Terminal command={step.code} label={p.terminal} />}
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+      <div class="stack" aria-labelledby="support-title">
+        <h2 id="support-title">{p.supportHeading}</h2>
+        <ul class="support">
+          {
+            detail.support.map((s) => (
+              <li>
+                <div class="row">
+                  <strong {...english}>{s.platform}</strong>
+                  <span class={evidenceClass(s.evidence)}>{m.labels.evidence[s.evidence]}</span>
+                </div>
+                <p class="small muted" {...english}>
+                  {s.note}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="links-title">
+      <h2 id="links-title" class="section-head">{p.linksHeading}</h2>
+      <ul class="link-list">
+        {
+          links.map((l) => (
+            <li>
+              <a href={l.href}>{l.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="small muted" style="margin-top: 1rem">
+        {
+          templateParts(p.supportText).map((part) =>
+            'text' in part ? (
+              part.text
+            ) : part.slot === 'issues' ? (
+              <a href={repoUrl(project, '/issues')}>{p.issueTracker}</a>
+            ) : (
+              <a href={repoUrl(project, '/blob/HEAD/SECURITY.md')}>{p.securityPolicy}</a>
+            ),
+          )
+        }
+      </p>
+    </section>
+  </div>
+</Base>

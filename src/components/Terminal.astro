@@ -1,0 +1,12 @@
+---
+interface Props {
+  command?: string | undefined;
+  output?: string | undefined;
+  label: string;
+}
+const { command, output, label } = Astro.props;
+---
+<div class="terminal" role="group" aria-label={label}>
+  {command && <pre class="cmd"><code>{command}</code></pre>}
+  {output && <pre class:list={['out', { only: !command }]}><code>{output}</code></pre>}
+</div>

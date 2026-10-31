@@ -1,0 +1,25 @@
+---
+import type { ImageMetadata } from 'astro';
+import type { CatalogEntry } from '../lib/types.ts';
+
+interface Props {
+  project: Pick<CatalogEntry, 'icon' | 'name'>;
+  size?: number;
+}
+
+const icons = import.meta.glob<ImageMetadata>('../assets/icons/*.svg', { eager: true, import: 'default' });
+const { project, size = 40 } = Astro.props;
+const icon = project.icon ? icons[`../assets/icons/${project.icon}.svg`] : undefined;
+if (project.icon && !icon) throw new Error(`Missing icon file for ${project.name}: ${project.icon}.svg`);
+const initials = project.name
+  .replace(/[^A-Za-z0-9 ]/g, '')
+  .split(/\s+/)
+  .map((w) => w[0])
+  .join('')
+  .slice(0, 2);
+---
+{icon ? (
+  <img class="project-icon" src={icon.src} width={size} height={size} alt="" loading="lazy" decoding="async" />
+) : (
+  <span class="project-icon placeholder" aria-hidden="true">{initials}</span>
+)}

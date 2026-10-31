@@ -1,0 +1,191 @@
+---
+import { DEFAULT_LANG, fmt, formatBytes, formatDate, type Lang, messages, type ProjectText, templateParts, term } from '../i18n/index.ts';
+import { snapshot } from '../lib/catalog.ts';
+import type { DownloadPlan, ResolvedDownload } from '../lib/downloads.ts';
+import type { CatalogEntry, ProductDetail } from '../lib/types.ts';
+import Terminal from './Terminal.astro';
+
+interface Props {
+  project: CatalogEntry;
+  detail: ProductDetail;
+  plan: DownloadPlan;
+  lang: Lang;
+  text: ProjectText;
+}
+
+const { project, detail, plan, lang, text } = Astro.props;
+const m = messages(lang);
+const d = m.downloads;
+const english = lang === DEFAULT_LANG ? {} : { lang: 'en' };
+const release = plan.release;
+const releasesUrl = `https://github.com/${project.repo}/releases`;
+const groups = plan.byOs.map((g) => ({
+  ...g,
+  id: `dl-${g.os}`,
+  recommended: g.items.filter((i) => i.kind === 'recommended'),
+  alternatives: g.items.filter((i) => i.kind === 'alternative'),
+  tests: g.items.filter((i) => i.kind === 'test'),
+}));
+const cautious = (item: ResolvedDownload) => item.rule.signing === 'unsigned' || item.rule.signing === 'ad-hoc';
+const title = plan.byOs.length > 0 ? d.download : d.install;
+const osLabel = (os: keyof typeof m.labels.os) => m.labels.os[os];
+const developerParts = templateParts(d.developers);
+const verifyParts = templateParts(d.verifyText);
+const latestParts = templateParts(d.latest);
+---
+<section class="section" id="download" aria-labelledby="download-title">
+  <div class="stack">
+    <h2 id="download-title">{title}</h2>
+    <p class="release-info">
+      {
+        release ? (
+          <>
+            {latestParts.map((part) =>
+              'text' in part ? part.text : part.slot === 'tag' ? <strong>{release.tag}</strong> : formatDate(lang, release.publishedAt),
+            )}{' '}
+            <a href={release.htmlUrl}>
+              {d.releaseNotes}
+              <span class="visually-hidden"> {fmt(d.releaseNotesFor, { tag: release.tag })}</span>
+            </a>
+            .
+          </>
+        ) : (
+          <>{d.noStable} </>
+        )
+      }{' '}
+      <span class="muted">{fmt(d.checked, { date: formatDate(lang, snapshot.checkedAt) })}</span>
+    </p>
+
+    {
+      groups.length > 1 && (
+        <div class="os-picker" data-os-picker hidden role="group" aria-label={d.showFor}>
+          {groups.map((g) => (
+            <button type="button" data-os={g.os} aria-controls={g.id} aria-pressed="false">
+              {osLabel(g.os)}
+            </button>
+          ))}
+        </div>
+      )
+    }
+
+    {
+      groups.map((g) => (
+        <div class="os-panel" id={g.id} data-os-panel={g.os}>
+          <h3>{osLabel(g.os)}</h3>
+          {g.recommended.map((item, index) => (
+            <div class="download-item">
+              <a class:list={['btn', { 'btn-primary': index === 0 }]} href={item.asset.downloadUrl}>
+                {fmt(d.downloadLabel, { label: term(lang, item.rule.label) })}
+                <span class="visually-hidden">
+                  , {osLabel(g.os)} {term(lang, item.rule.arch)},
+                </span>{' '}
+                <small>{formatBytes(lang, item.asset.size)}</small>
+              </a>
+              <ul class="meta download-meta" aria-label={d.buildDetails}>
+                <li class="tag">{term(lang, item.rule.arch)}</li>
+                {item.rule.requires && <li class="tag">{term(lang, item.rule.requires)}</li>}
+                <li class:list={['tag', { 'tag-warn': cautious(item) }]}>{m.labels.signing[item.rule.signing]}</li>
+              </ul>
+              <ol class="list small" {...english}>
+                {item.rule.steps.map((s) => (
+                  <li>{s}</li>
+                ))}
+              </ol>
+            </div>
+          ))}
+          {g.alternatives.length > 0 && (
+            <details class="alt-downloads" open={g.recommended.length === 0}>
+              <summary>{fmt(g.recommended.length > 0 ? d.otherFormats : d.availableFiles, { n: g.alternatives.length })}</summary>
+              <ul>
+                {g.alternatives.map((item) => (
+                  <li>
+                    <a href={item.asset.downloadUrl}>
+                      {term(lang, item.rule.label)}
+                      <span class="visually-hidden">
+                        , {osLabel(g.os)} {term(lang, item.rule.arch)}
+                      </span>
+                    </a>{' '}
+                    <span class="muted">
+                      · {term(lang, item.rule.arch)} · {formatBytes(lang, item.asset.size)} · {m.labels.signing[item.rule.signing]}
+                    </span>
+                    <br />
+                    <span class="small" {...english}>
+                      {item.rule.steps.join(' ')}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
+          {g.tests.length > 0 && (
+            <div class="notice">
+              <p>
+                <strong>{d.notRegular}</strong> {fmt(d.onlyThese, { os: osLabel(g.os) })}
+              </p>
+              <ul class="list">
+                {g.tests.map((item) => (
+                  <li>
+                    <code>{item.asset.name}</code>: {m.labels.signing[item.rule.signing]}.{' '}
+                    <span {...english}>{item.rule.steps.join(' ')}</span>
+                  </li>
+                ))}
+              </ul>
+              <p>
+                {developerParts.map((part) =>
+                  'text' in part ? (
+                    part.text
+                  ) : part.slot === 'releasePage' ? (
+                    <a href={release?.htmlUrl ?? releasesUrl}>{d.releasePage}</a>
+                  ) : (
+                    <a href={`https://github.com/${project.repo}`}>{d.source}</a>
+                  ),
+                )}
+              </p>
+            </div>
+          )}
+        </div>
+      ))
+    }
+
+    {lang !== DEFAULT_LANG && plan.byOs.length > 0 && <p class="small muted">{d.stepsInEnglish}</p>}
+    {text.downloadNote && plan.byOs.length > 0 && <p class="small muted">{text.downloadNote}</p>}
+
+    {
+      detail.packageInstall && (
+        <div class="stack" style="--flow: 0.5rem">
+          <h3>{fmt(d.installFrom, { registry: detail.packageInstall.registry })}</h3>
+          <Terminal command={detail.packageInstall.command} label={fmt(d.installCommand, { name: text.name ?? project.name })} />
+          <p class="small muted">
+            {d.packagePage} <a href={detail.packageInstall.url}>{detail.packageInstall.url.replace(/^https:\/\//, '')}</a>
+          </p>
+        </div>
+      )
+    }
+
+    {
+      plan.checksum && release && (
+        <div class="stack small" style="--flow: 0.5rem">
+          <h3>{d.verifyHeading}</h3>
+          <p>
+            {verifyParts.map((part) =>
+              'text' in part ? part.text : <a href={plan.checksum?.downloadUrl}>{plan.checksum?.name}</a>,
+            )}
+          </p>
+          <Terminal
+            command={
+              plan.checksum.name.endsWith('.sha256')
+                ? `shasum -a 256 ${plan.checksum.name.replace(/\.sha256$/, '')}`
+                : `shasum -a 256 -c --ignore-missing ${plan.checksum.name}`
+            }
+            label={d.checksumCommand}
+          />
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<script>
+  import { initOsPicker } from '../scripts/os-picker.ts';
+  initOsPicker();
+</script>

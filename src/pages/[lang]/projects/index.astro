@@ -1,0 +1,11 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { PREFIXED_LOCALES } from '../../../i18n/index.ts';
+import CatalogView from '../../../views/CatalogView.astro';
+
+export const getStaticPaths = (() =>
+  PREFIXED_LOCALES.map((l) => ({ params: { lang: l.path }, props: { lang: l.code } }))) satisfies GetStaticPaths;
+
+const { lang } = Astro.props;
+---
+<CatalogView lang={lang} />

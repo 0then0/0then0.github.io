@@ -1,0 +1,11 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { productsWithDetail } from '../../data/projects.ts';
+import ProductView from '../../views/ProductView.astro';
+
+export const getStaticPaths = (() =>
+  productsWithDetail.map((project) => ({ params: { slug: project.slug }, props: { project } }))) satisfies GetStaticPaths;
+
+const { project } = Astro.props;
+---
+<ProductView project={project} lang="en" />

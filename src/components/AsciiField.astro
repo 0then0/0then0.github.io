@@ -1,0 +1,31 @@
+---
+/**
+ * Decorative glyph field behind the home hero (src/scripts/ascii-field.ts).
+ * It fills the whole hero block, under the text, and follows the site theme.
+ */
+---
+<div class="ascii-field" aria-hidden="true">
+  <canvas class="ascii-field__canvas" data-ascii-field></canvas>
+</div>
+
+<script>
+  import { initAsciiField } from '../scripts/ascii-field.ts';
+
+  const canvas = document.querySelector('[data-ascii-field]');
+  if (canvas instanceof HTMLCanvasElement) initAsciiField({ canvas });
+</script>
+
+<style>
+  .ascii-field {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .ascii-field__canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+</style>

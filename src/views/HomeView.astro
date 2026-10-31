@@ -1,0 +1,83 @@
+---
+import AsciiField from '../components/AsciiField.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { ownProjects, productsWithDetail } from '../data/projects.ts';
+import { type Lang, localePath, messages, plural } from '../i18n/index.ts';
+import Base from '../layouts/Base.astro';
+import { CATEGORIES, type Category } from '../lib/types.ts';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const m = messages(lang);
+const h = m.home;
+const everyday = productsWithDetail.filter((p) => p.audience === 'everyone');
+const devFeatured = productsWithDetail.filter((p) => p.audience === 'developers');
+const tasks = (Object.keys(CATEGORIES) as Category[])
+  .map((c) => ({ category: c, label: m.labels.categories[c], count: ownProjects.filter((p) => p.category === c).length }))
+  .filter((t) => t.count > 0);
+const devCount = ownProjects.filter((p) => p.audience === 'developers').length;
+const catalog = localePath(lang, '/projects/');
+---
+<Base lang={lang} title={h.title} description={h.description}>
+  <div class="hero-backdrop">
+    <AsciiField />
+    <div class="container">
+      <header class="hero stack" style="--flow: 1.25rem">
+        <p class="eyebrow">{h.eyebrow}</p>
+        <h1>{h.heading}</h1>
+        <p class="lede">{h.lede}</p>
+        <div class="actions">
+          <a class="btn btn-primary" href={catalog}>{h.browse}</a>
+          <a class="btn" href="#tasks">{h.findByTask}</a>
+        </div>
+      </header>
+    </div>
+  </div>
+  <div class="container">
+    <section class="section" id="tasks" aria-labelledby="tasks-title">
+      <div class="section-head">
+        <h2 id="tasks-title">{h.tasksHeading}</h2>
+      </div>
+      <ul class="task-links">
+        {
+          tasks.map((t) => (
+            <li>
+              <a href={`${catalog}?category=${t.category}`}>
+                <span>{t.label}</span>
+                <span class="count">
+                  <span aria-hidden="true">{t.count}</span>
+                  <span class="visually-hidden">{plural(lang, h.taskCount, t.count)}</span>
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="apps-title">
+      <div class="section-head">
+        <div class="stack" style="--flow: 0.5rem">
+          <p class="eyebrow">{h.appsEyebrow}</p>
+          <h2 id="apps-title">{h.appsHeading}</h2>
+        </div>
+        <a href={`${catalog}?audience=everyone`}>{h.allApps}</a>
+      </div>
+      <div class="grid">{everyday.map((p) => <ProjectCard project={p} lang={lang} />)}</div>
+    </section>
+
+    <section class="section" aria-labelledby="dev-title">
+      <div class="section-head">
+        <div class="stack" style="--flow: 0.5rem">
+          <p class="eyebrow">{h.devEyebrow}</p>
+          <h2 id="dev-title">{h.devHeading}</h2>
+        </div>
+        <a href={`${catalog}?audience=developers`}>{plural(lang, h.allDevTools, devCount)}</a>
+      </div>
+      <div class="grid">{devFeatured.map((p) => <ProjectCard project={p} lang={lang} />)}</div>
+    </section>
+  </div>
+</Base>

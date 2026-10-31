@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Problem with a listed project
+    url: https://github.com/0then0?tab=repositories
+    about: Open the issue in the project's own repository. Its product page links to the issue tracker.
+  - name: Security problem in this site
+    url: https://github.com/0then0/0then0.github.io/security/policy
+    about: Do not open a public issue for vulnerabilities.

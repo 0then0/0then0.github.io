@@ -1,0 +1,50 @@
+---
+import { type Lang, messages, templateParts } from '../i18n/index.ts';
+import Base from '../layouts/Base.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const a = messages(lang).about;
+const link = (template: string, href: string, label: string) =>
+  templateParts(template).map((part) => ('text' in part ? part.text : { href, label }));
+const contact = link(a.contact, 'https://github.com/0then0', 'github.com/0then0');
+const site = link(a.site, 'https://github.com/0then0/0then0.github.io', a.siteRepo);
+---
+<Base lang={lang} title={a.title} description={a.description}>
+  <div class="container">
+    <header class="hero stack">
+      <h1>{a.heading}</h1>
+      <p class="lede">{a.lede}</p>
+    </header>
+
+    <div class="section prose" style="--section: 2.5rem">
+      <h2>{a.principlesHeading}</h2>
+      <ul class="list">
+        {
+          a.principles.map(([lead, rest]) => (
+            <li>
+              <strong>{lead}</strong> {rest}
+            </li>
+          ))
+        }
+      </ul>
+
+      <h2>{a.downloadsHeading}</h2>
+      <p>{a.downloads1}</p>
+      <p>{a.downloads2}</p>
+
+      <h2>{a.notListedHeading}</h2>
+      <p>{a.notListed}</p>
+
+      <h2>{a.contactHeading}</h2>
+      <p>{contact.map((part) => (typeof part === 'string' ? part : <a href={part.href}>{part.label}</a>))}</p>
+
+      <h2>{a.siteHeading}</h2>
+      <p>{site.map((part) => (typeof part === 'string' ? part : <a href={part.href}>{part.label}</a>))}</p>
+      <p>{a.languages}</p>
+    </div>
+  </div>
+</Base>

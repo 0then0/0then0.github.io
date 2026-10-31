@@ -1,0 +1,209 @@
+---
+import ProjectIcon from '../components/ProjectIcon.astro';
+import { forkProjects, ownProjects } from '../data/projects.ts';
+import { fmt, type Lang, localePath, messages, plural, projectText, templateParts, term } from '../i18n/index.ts';
+import Base from '../layouts/Base.astro';
+import { repoUrl, statusLabel } from '../lib/catalog.ts';
+import {
+  AUDIENCES,
+  type Audience,
+  AVAILABILITY,
+  type Availability,
+  CATEGORIES,
+  type CatalogEntry,
+  type Category,
+  PLATFORMS,
+  type Platform,
+} from '../lib/types.ts';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const m = messages(lang);
+const c = m.catalog;
+const keys = <T extends string>(record: Record<T, string>) => Object.keys(record) as T[];
+
+const sorted = [...ownProjects].sort((a, b) => Number(Boolean(b.detail)) - Number(Boolean(a.detail)) || a.name.localeCompare(b.name));
+const usedCategories = keys<Category>(CATEGORIES).filter((cat) => ownProjects.some((p) => p.category === cat));
+const platformText = (p: CatalogEntry) =>
+  [
+    p.platforms.map((x) => m.labels.platforms[x]).join(', '),
+    p.previewPlatforms?.length
+      ? fmt(m.status.previewPlatforms, { platforms: p.previewPlatforms.map((x) => m.labels.platforms[x]).join(', ') })
+      : '',
+  ]
+    .filter(Boolean)
+    .join('; ');
+// Search covers the localized texts and the English originals, so either language finds a project.
+const searchText = (p: CatalogEntry) => {
+  const text = projectText(lang, p);
+  return [
+    p.name,
+    text.name,
+    text.task,
+    p.task,
+    text.environment,
+    m.labels.categories[p.category],
+    ...p.platforms.map((x) => m.labels.platforms[x]),
+  ]
+    .join(' ')
+    .toLocaleLowerCase(lang);
+};
+const countI18n = JSON.stringify({ lang, count: c.count, countFiltered: c.countFiltered });
+const notListedParts = templateParts(c.notListed);
+---
+<Base lang={lang} title={c.title} description={c.description}>
+  <div class="container">
+    <header class="hero stack">
+      <h1>{c.title}</h1>
+      <p class="lede">{plural(lang, c.total, ownProjects.length)}{m.meta.sentenceGap}{c.lede}</p>
+    </header>
+
+    <section class="section" aria-labelledby="results-title" style="--section: 2rem">
+      <h2 id="results-title" class="visually-hidden">{c.projectsHeading}</h2>
+      <form class="filters" data-filters hidden role="search" aria-label={c.filters}>
+        <div class="field field-search">
+          <label for="q">{c.search}</label>
+          <input id="q" name="q" type="search" autocomplete="off" placeholder={c.searchPlaceholder} />
+        </div>
+        <div class="field">
+          <label for="audience">{c.audience}</label>
+          <select id="audience" name="audience">
+            <option value="">{c.anyAudience}</option>
+            {keys<Audience>(AUDIENCES).map((value) => <option value={value}>{m.labels.audiences[value]}</option>)}
+          </select>
+        </div>
+        <div class="field">
+          <label for="category">{c.task}</label>
+          <select id="category" name="category">
+            <option value="">{c.anyTask}</option>
+            {usedCategories.map((value) => <option value={value}>{m.labels.categories[value]}</option>)}
+          </select>
+        </div>
+        <div class="field">
+          <label for="platform">{c.platform}</label>
+          <select id="platform" name="platform">
+            <option value="">{c.anyPlatform}</option>
+            {keys<Platform>(PLATFORMS).map((value) => <option value={value}>{m.labels.platforms[value]}</option>)}
+          </select>
+        </div>
+        <div class="field">
+          <label for="availability">{c.availability}</label>
+          <select id="availability" name="availability">
+            <option value="">{c.anyAvailability}</option>
+            {keys<Availability>(AVAILABILITY).map((value) => <option value={value}>{m.labels.availability[value]}</option>)}
+          </select>
+        </div>
+      </form>
+      <div class="filter-status" data-filter-status hidden>
+        <p aria-live="polite" data-count data-i18n={countI18n}>{plural(lang, c.count, ownProjects.length)}</p>
+        <button type="button" class="btn" data-reset>{c.clear}</button>
+      </div>
+
+      <ul class="catalog-list" data-catalog>
+        {
+          sorted.map((p) => {
+            const text = projectText(lang, p);
+            return (
+              <li
+                class="catalog-row"
+                data-audience={p.audience}
+                data-category={p.category}
+                data-platforms={p.platforms.join(' ')}
+                data-availability={p.availability.join(' ')}
+                data-search={searchText(p)}
+              >
+                <ProjectIcon project={p} />
+                <h3>
+                  {p.detail ? <a href={localePath(lang, `/projects/${p.slug}/`)}>{text.name}</a> : <span>{text.name}</span>}
+                  <span class:list={['tag', 'tag-status', { 'tag-warn': p.maturity }]}>{statusLabel(p, lang)}</span>
+                </h3>
+                <p>{text.task}</p>
+                <p class="small muted">
+                  {m.labels.categories[p.category]} · {platformText(p)} · {text.environment}
+                  {p.fork && (
+                    <>
+                      {' · '}
+                      {templateParts(c.forkOf).map((part) =>
+                        'text' in part ? part.text : <a href={`https://github.com/${p.fork?.upstream}`}>{p.fork?.upstream}</a>,
+                      )}
+                    </>
+                  )}
+                </p>
+                <p class="links">
+                  {p.detail && (
+                    <a href={localePath(lang, `/projects/${p.slug}/`)}>
+                      {c.detailsFor}
+                      <span class="visually-hidden">: {text.name}</span>
+                    </a>
+                  )}
+                  {!p.detail && p.homepage && (
+                    <a href={p.homepage}>
+                      {p.homepage.includes('pypi.org') ? c.pypi : c.openApp}
+                      <span class="visually-hidden">: {text.name}</span>
+                    </a>
+                  )}
+                  <a href={repoUrl(p)}>
+                    {c.source}
+                    <span class="visually-hidden">: {text.name}</span>
+                  </a>
+                </p>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <p class="empty-state" data-empty hidden>
+        {c.empty} <a href={localePath(lang, '/projects/')}>{c.showAll}</a>
+      </p>
+    </section>
+
+    <section class="section stack" aria-labelledby="forks-title">
+      <h2 id="forks-title">{c.forksHeading}</h2>
+      <p class="muted prose">{c.forksText}</p>
+      <ul class="catalog-list">
+        {
+          forkProjects.map((p) => {
+            const text = projectText(lang, p);
+            return (
+              <li class="catalog-row">
+                <ProjectIcon project={p} />
+                <h3>
+                  <span>{text.name}</span>
+                  <span class="tag tag-status">{statusLabel(p, lang)}</span>
+                </h3>
+                <p>{text.task}</p>
+                <p class="small muted">
+                  {templateParts(c.forkOf).map((part) =>
+                    'text' in part ? part.text : <a href={`https://github.com/${p.fork?.upstream}`}>{p.fork?.upstream}</a>,
+                  )}{' '}
+                  · {platformText(p)} · {text.environment} · {term(lang, p.license)}
+                </p>
+                <p class="links">
+                  <a href={repoUrl(p)}>
+                    {c.source}
+                    <span class="visually-hidden">: {text.name}</span>
+                  </a>
+                </p>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <p class="small muted prose">
+        {
+          notListedParts.map((part) =>
+            'text' in part ? part.text : <a href="https://github.com/0then0?tab=repositories">{c.githubProfile}</a>,
+          )
+        }
+      </p>
+    </section>
+  </div>
+</Base>
+
+<script>
+  import { initCatalogFilters } from '../scripts/catalog-filter.ts';
+  initCatalogFilters();
+</script>

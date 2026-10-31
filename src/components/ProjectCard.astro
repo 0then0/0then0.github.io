@@ -1,0 +1,33 @@
+---
+import { fmt, type Lang, localePath, messages, projectText } from '../i18n/index.ts';
+import { repoUrl, statusLabel } from '../lib/catalog.ts';
+import type { CatalogEntry } from '../lib/types.ts';
+import ProjectIcon from './ProjectIcon.astro';
+
+interface Props {
+  project: CatalogEntry;
+  lang: Lang;
+  headingLevel?: 'h2' | 'h3';
+}
+const { project, lang, headingLevel = 'h3' } = Astro.props;
+const m = messages(lang);
+const text = projectText(lang, project);
+const Heading = headingLevel;
+const href = project.detail ? localePath(lang, `/projects/${project.slug}/`) : repoUrl(project);
+---
+<article class="card project-card">
+  <div class="project-head">
+    <ProjectIcon project={project} />
+    <Heading><a href={href}>{text.name}</a></Heading>
+  </div>
+  <p class="task">{text.task}</p>
+  <ul class="meta" aria-label={m.status.details}>
+    <li class:list={['tag', 'tag-status', { 'tag-warn': project.maturity }]}>{statusLabel(project, lang)}</li>
+    {project.platforms.map((p) => <li class="tag">{m.labels.platforms[p]}</li>)}
+    {
+      project.previewPlatforms?.map((p) => (
+        <li class="tag tag-muted">{fmt(m.status.previewPlatform, { platform: m.labels.platforms[p] })}</li>
+      ))
+    }
+  </ul>
+</article>

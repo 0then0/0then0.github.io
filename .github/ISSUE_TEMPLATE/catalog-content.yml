@@ -1,0 +1,17 @@
+name: Wrong or outdated project information
+description: A version, download, platform claim or description that does not match the project.
+labels: [content]
+body:
+  - type: input
+    id: project
+    attributes:
+      label: Project
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong
+      description: Quote the text or name the download button, and link to the source that shows the correct information.
+    validations:
+      required: true

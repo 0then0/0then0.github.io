@@ -1,0 +1,144 @@
+---
+import '../styles/global.css';
+import Wordmark from '../components/Wordmark.astro';
+import { DEFAULT_LANG, type Lang, LOCALES, localeInfo, localePath, messages, splitLocalePath } from '../i18n/index.ts';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  /** Absolute or root-relative URL of an Open Graph image. */
+  image?: string;
+  imageAlt?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown>;
+}
+
+const { lang, title, description, image = '/og-default.png', imageAlt, type = 'website', noindex = false, jsonLd } = Astro.props;
+const m = messages(lang);
+const site = Astro.site ?? new URL('https://0then0.github.io');
+const { path: neutralPath } = splitLocalePath(Astro.url.pathname);
+const canonical = new URL(Astro.url.pathname, site).href;
+const imageUrl = new URL(image, site).href;
+const isHome = neutralPath === '/';
+const fullTitle = isHome ? title : `${title} · 0then0`;
+const home = localePath(lang, '/');
+const current = localeInfo(lang);
+const ogLocale = lang.replace('-', '_');
+
+const nav = [
+  { href: localePath(lang, '/projects/'), label: m.nav.catalog },
+  { href: localePath(lang, '/about/'), label: m.nav.about },
+  { href: 'https://github.com/0then0', label: m.nav.github },
+];
+// Pages without a localized twin (the 404 page) switch to the other language's home page.
+const switchPath = noindex ? '/' : neutralPath;
+// Structured data includes release metadata from the API; escape "<" so no value can close the script element.
+const safeJson = (value: unknown) => JSON.stringify(value).replace(/</g, '\\u003c');
+const short = (code: string) => code.split('-')[0]?.toUpperCase() ?? code;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+    {
+      !noindex &&
+        LOCALES.map((l) => <link rel="alternate" hreflang={l.code} href={new URL(localePath(l.code, neutralPath), site).href} />)
+    }
+    {!noindex && <link rel="alternate" hreflang="x-default" href={new URL(localePath(DEFAULT_LANG, neutralPath), site).href} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e0e0e" media="(prefers-color-scheme: dark)" />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="0then0" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content={imageAlt ?? m.meta.ogImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    {jsonLd && <script type="application/ld+json" set:html={safeJson(jsonLd)} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{m.nav.skip}</a>
+    <header class="site-header">
+      <div class="container">
+        <a class="wordmark" href={home} aria-label={m.nav.home}><Wordmark /></a>
+        <div class="header-end">
+          <nav class="site-nav" aria-label={m.nav.main}>
+            <ul>
+              {
+                nav.map((item) => (
+                  <li>
+                    <a href={item.href} aria-current={Astro.url.pathname.startsWith(item.href) ? 'page' : undefined}>
+                      {item.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+          <details class="lang-switch" data-lang-switch>
+            <summary>
+              <span class="visually-hidden">{m.nav.language}: </span>
+              <span lang={lang}>{short(lang)}</span>
+            </summary>
+            <ul>
+              {
+                LOCALES.map((l) => (
+                  <li>
+                    <a
+                      href={localePath(l.code, switchPath)}
+                      hreflang={l.code}
+                      lang={l.code}
+                      aria-current={l.code === current.code ? 'true' : undefined}
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </details>
+        </div>
+      </div>
+    </header>
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <ul>
+          <li><a href={localePath(lang, '/projects/')}>{m.footer.allProjects}</a></li>
+          <li><a href={localePath(lang, '/about/')}>{m.footer.about}</a></li>
+          <li><a href="https://github.com/0then0/0then0.github.io">{m.footer.source}</a></li>
+          <li><a href="https://github.com/0then0/0then0.github.io/blob/main/LICENSE">Apache-2.0</a></li>
+        </ul>
+        <p>{m.footer.privacy}</p>
+      </div>
+    </footer>
+    <script>
+      // Close the language menu on outside click or Escape; without JavaScript it still opens and closes via its summary.
+      const menu = document.querySelector<HTMLDetailsElement>('[data-lang-switch]');
+      if (menu) {
+        document.addEventListener('click', (event) => {
+          if (menu.open && event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+        });
+        menu.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && menu.open) {
+            menu.open = false;
+            menu.querySelector('summary')?.focus();
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

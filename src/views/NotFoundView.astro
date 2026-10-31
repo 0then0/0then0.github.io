@@ -1,0 +1,49 @@
+---
+import { productsWithDetail } from '../data/projects.ts';
+import { type Lang, LOCALES, localePath, messages, projectText } from '../i18n/index.ts';
+import Base from '../layouts/Base.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const n = messages(lang).notFound;
+---
+<Base lang={lang} title={n.title} description={n.description} noindex>
+  <div class="container">
+    <header class="hero stack">
+      <p class="eyebrow">{n.eyebrow}</p>
+      <h1>{n.heading}</h1>
+      <p class="lede">{n.lede}</p>
+      <div class="actions">
+        <a class="btn btn-primary" href={localePath(lang, '/projects/')}>{n.catalog}</a>
+        <a class="btn" href={localePath(lang, '/')}>{n.home}</a>
+      </div>
+    </header>
+    <section class="section stack" aria-labelledby="pages-title" style="--section: 2.5rem">
+      <h2 id="pages-title">{n.products}</h2>
+      <ul class="link-list">
+        {
+          productsWithDetail.map((p) => (
+            <li>
+              <a href={localePath(lang, `/projects/${p.slug}/`)}>{p.name}</a>{' '}
+              <span class="muted">· {projectText(lang, p).task}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <ul class="lang-list" aria-label={messages(lang).nav.language}>
+        {
+          LOCALES.map((l) => (
+            <li>
+              <a href={localePath(l.code, '/')} lang={l.code} hreflang={l.code}>
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</Base>

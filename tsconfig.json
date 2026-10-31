@@ -1,0 +1,19 @@
+{
+  "extends": "astro/tsconfigs/strictest",
+  "compilerOptions": {
+    "erasableSyntaxOnly": true,
+    "rewriteRelativeImportExtensions": false,
+    "types": ["node"]
+  },
+  "include": [
+    ".astro/types.d.ts",
+    "src/**/*.ts",
+    "scripts/**/*.ts",
+    "tests/**/*.ts",
+    "e2e/**/*.ts",
+    "astro.config.ts",
+    "playwright.config.ts",
+    "vitest.config.ts"
+  ],
+  "exclude": ["dist", "node_modules"]
+}
