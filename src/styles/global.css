@@ -1059,9 +1059,18 @@ main {
   }
 }
 
-/* Long compound words (German, Russian and others) break at syllables instead of overflowing. */
-html:not([lang="en"]) :is(h1, h2, h3, .btn, .tag) {
+/*
+ * Long compound words (German, Russian and others) break at syllables instead of
+ * overflowing, but only on narrow screens where a whole word may not fit.
+ */
+html:not([lang="en"]) :is(.btn, .tag) {
   hyphens: auto;
+}
+
+@media (max-width: 40rem) {
+  html:not([lang="en"]) :is(h1, h2, h3) {
+    hyphens: auto;
+  }
 }
 
 /* Japanese: a CJK-capable font stack, no negative tracking, phrase-aware line breaks. */
