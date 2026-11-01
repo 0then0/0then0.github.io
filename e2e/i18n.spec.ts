@@ -50,6 +50,29 @@ for (const locale of translated) {
   });
 }
 
+for (const locale of LOCALES) {
+  test(`task counts stay on one line and cards share row height (${locale.code})`, async ({ page }) => {
+    await page.goto(localePath(locale.code, '/'));
+    const result = await page.evaluate(() => {
+      const links = [...document.querySelectorAll<HTMLElement>('.task-links a')];
+      const wrapped = links
+        .map((a) => a.querySelector<HTMLElement>('.count'))
+        .filter((c): c is HTMLElement => c !== null)
+        .filter((c) => c.getBoundingClientRect().height > parseFloat(getComputedStyle(c).lineHeight) * 1.5)
+        .map((c) => c.textContent);
+      const rows = new Map<number, number[]>();
+      for (const a of links) {
+        const box = a.getBoundingClientRect();
+        rows.set(Math.round(box.top), [...(rows.get(Math.round(box.top)) ?? []), Math.round(box.height)]);
+      }
+      const uneven = [...rows.values()].filter((heights) => new Set(heights).size > 1);
+      return { wrapped, uneven };
+    });
+    expect(result.wrapped).toEqual([]);
+    expect(result.uneven).toEqual([]);
+  });
+}
+
 test('the language menu keeps the current page', async ({ page }) => {
   await page.goto('/projects/spacemosaic/');
   await page.locator('[data-lang-switch] summary').click();
