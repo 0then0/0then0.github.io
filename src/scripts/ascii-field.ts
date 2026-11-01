@@ -238,7 +238,9 @@ export interface FieldElements {
 
 /** Glyph color and strength per site theme; kept faint so the hero text stays primary. */
 const THEMES = {
-  light: { ink: [0.09, 0.09, 0.09], gain: 0.6, still: 'rgba(23,23,23,' },
+  // Dark ink on paper reads stronger than light ink on black at the same opacity,
+  // so light mode uses a mid grey (dense overlaps stay grey, not black) and less gain.
+  light: { ink: [0.38, 0.38, 0.4], gain: 0.5, still: 'rgba(97,97,102,' },
   dark: { ink: [0.86, 0.87, 0.89], gain: 0.62, still: 'rgba(219,222,227,' },
 } as const;
 const darkScheme = () => window.matchMedia('(prefers-color-scheme: dark)');
