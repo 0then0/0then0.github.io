@@ -135,7 +135,7 @@ export const es: ProjectTexts = {
     environment: 'App estática para el navegador servida en local; los archivos no salen de tu equipo',
   },
   agentkcal: {
-    task: 'Guarda un historial local y privado del uso de agentes de IA para programar, con estimaciones de energía transparentes.',
+    task: 'Guarda un historial local y privado del uso de agentes de IA para programar, con estimaciones de energía que puedes revisar.',
     environment: 'CLI de Node.js 24.12+',
   },
   'ultimate-geography': {

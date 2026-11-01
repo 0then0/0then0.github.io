@@ -37,7 +37,7 @@ export const projects: readonly CatalogEntry[] = [
           text: 'Scan a project, Downloads or a media folder and follow the largest tiles down the map. Double-click a folder to zoom in; small items are grouped into a searchable list.',
         },
         {
-          title: 'Read the numbers honestly',
+          title: 'Unknown stays unknown',
           text: 'Unreadable folders and unknown sizes are marked as Unknown instead of 0 B. Logical size and allocated space are shown separately, and a partial scan says why it is partial.',
         },
         {
@@ -574,7 +574,7 @@ export const projects: readonly CatalogEntry[] = [
     detail: {
       tagline: 'Charge limits on your terms, within your hardware’s limits.',
       summary:
-        'Many laptops spend the whole day on the charger at 100%. BatteryBridge sets a charge limit through the interface your laptop actually exposes, keeps it applied with a background service, and tells you plainly when a feature is unsupported or unverified on your device.',
+        'Many laptops spend the whole day on the charger at 100%. BatteryBridge sets a charge limit through the charge-control interface your laptop exposes, keeps it applied with a background service, and tells you plainly when a feature is unsupported or unverified on your device.',
       audience: [
         'Laptop owners who keep the machine on a charger most of the day.',
         'Linux users whose kernel exposes charge thresholds and who want a GUI and schedules on top.',
@@ -1165,7 +1165,7 @@ export const projects: readonly CatalogEntry[] = [
     slug: 'agentkcal',
     name: 'AgentKcal',
     repo: '0then0/agentkcal',
-    task: 'Keep a private local history of AI coding agent usage with transparent energy estimates.',
+    task: 'Keep a private local history of AI coding agent usage, with energy estimates you can inspect.',
     category: 'metrics',
     audience: 'developers',
     platforms: ['linux', 'macos', 'windows'],

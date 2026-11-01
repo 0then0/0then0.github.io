@@ -135,7 +135,7 @@ export const ptBR: ProjectTexts = {
     environment: 'App estático para navegador servido localmente; os arquivos ficam no seu computador',
   },
   agentkcal: {
-    task: 'Mantenha um histórico local e privado do uso de agentes de IA para programar, com estimativas de energia transparentes.',
+    task: 'Mantenha um histórico local e privado do uso de agentes de IA para programar, com estimativas de energia que você pode conferir.',
     environment: 'CLI em Node.js 24.12+',
   },
   'ultimate-geography': {

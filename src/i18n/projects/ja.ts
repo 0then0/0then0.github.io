@@ -135,7 +135,7 @@ export const ja: ProjectTexts = {
     environment: 'ローカルで配信する静的ブラウザーアプリ。ファイルは手元のコンピューターから出ません',
   },
   agentkcal: {
-    task: 'AI コーディングエージェントの利用履歴を手元に非公開で記録し、エネルギーの推定を透明に示します。',
+    task: 'AI コーディングエージェントの利用履歴を手元に非公開で記録し、エネルギー消費の推定も確認できます。',
     environment: 'Node.js 24.12 以降の CLI',
   },
   'ultimate-geography': {
