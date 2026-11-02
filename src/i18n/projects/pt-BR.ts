@@ -537,13 +537,13 @@ export const ptBR: ProjectTexts = {
   },
   overflowlens: {
     task: 'Calcule a taxa de erro possível quando o OpenTelemetry juntou atributos de requisições em uma série de overflow.',
-    environment: 'App de navegador com processamento local; publicação pendente, arquivo autônomo disponível',
+    environment: 'App de navegador com processamento local; arquivo autônomo disponível',
     tagline: 'Limites exatos quando o estouro de cardinalidade oculta os resultados.',
-    primary: 'Abrir app (publicação pendente)',
+    primary: 'Abrir app',
     secondary: [
       {
         label: 'Baixar arquivo autônomo',
-        note: 'A URL pública está preparada, mas o app ainda não foi publicado. O arquivo v0.2.1 publicado já pode ser servido localmente.',
+        note: 'O app está disponível no navegador. O arquivo v0.2.1 também pode ser servido localmente.',
       },
     ],
     detail: {
@@ -557,7 +557,7 @@ export const ptBR: ProjectTexts = {
         },
         {
           title: 'Comparar snapshots cumulativos',
-          text: 'Escolha exportações de antes e depois de um mesmo histórico contínuo do contador. A distribuição de navegador preparada inclui um par sintético do laboratório SDK.',
+          text: 'Escolha exportações de antes e depois de um mesmo histórico contínuo do contador. A distribuição de navegador inclui um par sintético do laboratório SDK.',
         },
       ],
       media: [
@@ -568,7 +568,7 @@ export const ptBR: ProjectTexts = {
       support: [
         {
           platform: 'Navegador moderno',
-          note: 'Aplicação estática. A publicação no GitHub Pages está pendente; o arquivo exige um servidor HTTP, não file://.',
+          note: 'Aplicação estática no GitHub Pages; o arquivo autônomo exige um servidor HTTP, não file://.',
         },
       ],
       limitations: [
@@ -577,7 +577,7 @@ export const ptBR: ProjectTexts = {
         'As premissas de origem precisam ser confirmadas. Um arquivo não prova que o processamento preservou todas as contagens e pontos de estouro.',
       ],
       firstRun: [
-        'Após a publicação, abra o app e escolha o exemplo delta ou cumulativo. SDK e arquivos próprios não são necessários.',
+        'Abra o app e escolha o exemplo delta ou cumulativo. SDK e arquivos próprios não são necessários.',
         'Para a versão independente já publicada, baixe o ZIP, extraia e inicie um servidor HTTP estático dentro de overflowlens-0.2.1:',
         'Abra http://127.0.0.1:8080, escolha o modo, confirme as premissas de origem e defina a porcentagem máxima de erros. Exporte JSON para salvar a explicação.',
       ],

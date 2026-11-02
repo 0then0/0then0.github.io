@@ -543,13 +543,13 @@ export const de: ProjectTexts = {
   },
   overflowlens: {
     task: 'Die mögliche Fehlerrate berechnen, wenn OpenTelemetry Anfrageattribute in eine Overflow-Reihe zusammengefasst hat.',
-    environment: 'Browser-App mit lokaler Dateiverarbeitung; Veröffentlichung ausstehend, eigenständiges Archiv verfügbar',
+    environment: 'Browser-App mit lokaler Dateiverarbeitung; eigenständiges Archiv verfügbar',
     tagline: 'Exakte Grenzen, wenn Kardinalitätsüberlauf Anfrageergebnisse verbirgt.',
-    primary: 'App öffnen (Veröffentlichung ausstehend)',
+    primary: 'App öffnen',
     secondary: [
       {
         label: 'Eigenständiges Archiv herunterladen',
-        note: 'Die öffentliche App-URL ist vorbereitet, aber noch nicht bereitgestellt. Das veröffentlichte Archiv v0.2.1 lässt sich bereits lokal bereitstellen.',
+        note: 'Die App ist im Browser verfügbar. Das Archiv v0.2.1 lässt sich auch lokal bereitstellen.',
       },
     ],
     detail: {
@@ -563,7 +563,7 @@ export const de: ProjectTexts = {
         },
         {
           title: 'Kumulative Snapshots vergleichen',
-          text: 'Wähle Vorher- und Nachher-Exporte derselben durchgängigen Zählerhistorie. Die vorbereitete Browser-Distribution enthält ein synthetisches Paar aus dem SDK-Labor.',
+          text: 'Wähle Vorher- und Nachher-Exporte derselben durchgängigen Zählerhistorie. Die Browser-Distribution enthält ein synthetisches Paar aus dem SDK-Labor.',
         },
       ],
       media: [
@@ -574,7 +574,7 @@ export const de: ProjectTexts = {
       support: [
         {
           platform: 'Moderner Webbrowser',
-          note: 'Statische Anwendung. Die Veröffentlichung auf GitHub Pages steht aus; das Archiv erfordert einen HTTP-Server statt file://.',
+          note: 'Statische Anwendung auf GitHub Pages; das eigenständige Archiv erfordert einen HTTP-Server statt file://.',
         },
       ],
       limitations: [
@@ -583,7 +583,7 @@ export const de: ProjectTexts = {
         'Annahmen zur Herkunft müssen bestätigt werden. Eine Datei beweist nicht, dass die Verarbeitung alle Zählwerte und Überlaufpunkte erhalten hat.',
       ],
       firstRun: [
-        'Öffne nach der Veröffentlichung die App und wähle das Delta- oder kumulative Beispiel. SDK und eigene Dateien sind nicht nötig.',
+        'Öffne die App und wähle das Delta- oder kumulative Beispiel. SDK und eigene Dateien sind nicht nötig.',
         'Lade für den bereits veröffentlichten eigenständigen Build das ZIP herunter, entpacke es und starte einen statischen HTTP-Server in overflowlens-0.2.1:',
         'Öffne http://127.0.0.1:8080, wähle den Modus, bestätige die Herkunftsannahmen und setze den maximalen Fehlerprozentsatz. Exportiere JSON, um die Erklärung zu speichern.',
       ],

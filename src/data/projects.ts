@@ -1156,8 +1156,8 @@ export const projects: readonly CatalogEntry[] = [
     category: 'metrics',
     audience: 'developers',
     platforms: ['web'],
-    environment: 'Browser app with local file processing; public deployment pending, standalone archive available',
-    availability: ['download', 'source'],
+    environment: 'Browser app with local file processing; standalone archive available',
+    availability: ['web', 'download', 'source'],
     license: 'Apache-2.0',
     icon: 'overflowlens',
     homepage: 'https://0then0.github.io/overflowlens/',
@@ -1173,7 +1173,7 @@ export const projects: readonly CatalogEntry[] = [
         },
         {
           title: 'Compare cumulative snapshots',
-          text: 'Choose Before and After exports of the same continuous counter history. The prepared browser distribution includes a synthetic pair from the SDK lab.',
+          text: 'Choose Before and After exports of the same continuous counter history. The browser distribution includes a synthetic pair from the SDK lab.',
         },
       ],
       media: [
@@ -1185,19 +1185,19 @@ export const projects: readonly CatalogEntry[] = [
             'Documented result of the bundled synthetic delta example at a 1% threshold; not a measurement from a production system.',
         },
       ],
-      primary: { kind: 'try', label: 'Open app (deployment pending)', href: 'https://0then0.github.io/overflowlens/' },
+      primary: { kind: 'try', label: 'Open app', href: 'https://0then0.github.io/overflowlens/' },
       secondary: [
         {
           label: 'Download standalone archive',
           href: '#download',
-          note: 'The public app URL is prepared but is not deployed yet. The published v0.2.1 archive can be served locally now.',
+          note: 'The app is available in your browser. The published v0.2.1 archive can also be served locally.',
         },
       ],
       support: [
         {
           platform: 'Modern web browser',
           evidence: 'declared',
-          note: 'Static application. Public GitHub Pages deployment is pending; the archive requires an HTTP server, not file://.',
+          note: 'Static application on GitHub Pages; the standalone archive requires an HTTP server, not file://.',
         },
       ],
       limitations: [
@@ -1206,7 +1206,7 @@ export const projects: readonly CatalogEntry[] = [
         'Provenance assumptions require confirmation. A file cannot prove that a pipeline preserved all counts and overflow points.',
       ],
       firstRun: [
-        { text: 'Once deployed, open the browser app and choose the delta or cumulative example. No SDK or personal files are needed.' },
+        { text: 'Open the browser app and choose the delta or cumulative example. No SDK or personal files are needed.' },
         {
           text: 'For the currently published standalone build, download the ZIP, extract it and run a static HTTP server inside overflowlens-0.2.1:',
           code: 'python3 -m http.server 8080 --bind 127.0.0.1',

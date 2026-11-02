@@ -544,13 +544,13 @@ export const fr: ProjectTexts = {
   },
   overflowlens: {
     task: 'Calculer le taux d’erreur possible quand OpenTelemetry a fusionné des attributs de requêtes dans une série de débordement.',
-    environment: 'Application web avec traitement local ; publication en attente, archive autonome disponible',
+    environment: 'Application web avec traitement local ; archive autonome disponible',
     tagline: 'Des bornes exactes quand le dépassement de cardinalité masque les résultats.',
-    primary: 'Ouvrir l’application (publication en attente)',
+    primary: 'Ouvrir l’application',
     secondary: [
       {
         label: 'Télécharger l’archive autonome',
-        note: 'L’URL publique est préparée, mais l’application n’est pas encore publiée. L’archive v0.2.1 publiée peut déjà être servie en local.',
+        note: 'L’application est disponible dans le navigateur. L’archive v0.2.1 peut aussi être servie en local.',
       },
     ],
     detail: {
@@ -564,7 +564,7 @@ export const fr: ProjectTexts = {
         },
         {
           title: 'Comparer des instantanés cumulatifs',
-          text: 'Choisissez les exports avant et après d’un même historique continu de compteur. La distribution de navigateur préparée inclut une paire synthétique issue du laboratoire SDK.',
+          text: 'Choisissez les exports avant et après d’un même historique continu de compteur. La distribution de navigateur inclut une paire synthétique issue du laboratoire SDK.',
         },
       ],
       media: [
@@ -575,7 +575,7 @@ export const fr: ProjectTexts = {
       support: [
         {
           platform: 'Navigateur moderne',
-          note: 'Application statique. Le déploiement GitHub Pages est en attente ; l’archive nécessite un serveur HTTP, pas file://.',
+          note: 'Application statique sur GitHub Pages ; l’archive autonome nécessite un serveur HTTP, pas file://.',
         },
       ],
       limitations: [
@@ -584,7 +584,7 @@ export const fr: ProjectTexts = {
         'Les hypothèses de provenance doivent être confirmées. Un fichier ne prouve pas que le traitement a préservé tous les comptes et points de dépassement.',
       ],
       firstRun: [
-        'Après le déploiement, ouvrez l’application et choisissez l’exemple delta ou cumulatif. Ni SDK ni fichiers personnels ne sont nécessaires.',
+        'Ouvrez l’application et choisissez l’exemple delta ou cumulatif. Ni SDK ni fichiers personnels ne sont nécessaires.',
         'Pour la version autonome déjà publiée, téléchargez le ZIP, extrayez-le et démarrez un serveur HTTP statique dans overflowlens-0.2.1 :',
         'Ouvrez http://127.0.0.1:8080, choisissez un mode, confirmez les hypothèses de provenance et fixez le pourcentage maximal d’erreurs. Exportez le JSON pour conserver l’explication.',
       ],

@@ -539,13 +539,13 @@ export const es: ProjectTexts = {
   },
   overflowlens: {
     task: 'Calcula la tasa de error posible cuando OpenTelemetry ha fusionado atributos de peticiones en una serie de desbordamiento.',
-    environment: 'App para navegador con procesamiento local; publicación pendiente, archivo autónomo disponible',
+    environment: 'App para navegador con procesamiento local; archivo autónomo disponible',
     tagline: 'Límites exactos cuando el desbordamiento de cardinalidad oculta los resultados.',
-    primary: 'Abrir app (publicación pendiente)',
+    primary: 'Abrir app',
     secondary: [
       {
         label: 'Descargar archivo autónomo',
-        note: 'La URL de la app pública está preparada, pero aún no está publicada. El archivo v0.2.1 publicado ya se puede servir en local.',
+        note: 'La aplicación está disponible en el navegador. El archivo v0.2.1 también se puede servir en local.',
       },
     ],
     detail: {
@@ -559,7 +559,7 @@ export const es: ProjectTexts = {
         },
         {
           title: 'Comparar instantáneas acumulativas',
-          text: 'Elige exportaciones de antes y después de un mismo historial continuo del contador. La distribución de navegador preparada incluye una pareja sintética del laboratorio SDK.',
+          text: 'Elige exportaciones de antes y después de un mismo historial continuo del contador. La distribución de navegador incluye una pareja sintética del laboratorio SDK.',
         },
       ],
       media: [
@@ -570,7 +570,7 @@ export const es: ProjectTexts = {
       support: [
         {
           platform: 'Navegador moderno',
-          note: 'Aplicación estática. La publicación en GitHub Pages está pendiente; el archivo requiere un servidor HTTP, no file://.',
+          note: 'Aplicación estática en GitHub Pages; el archivo autónomo requiere un servidor HTTP, no file://.',
         },
       ],
       limitations: [
@@ -579,7 +579,7 @@ export const es: ProjectTexts = {
         'Hay que confirmar los supuestos sobre el origen. Un archivo no demuestra que el procesamiento haya conservado todos los recuentos y puntos de desbordamiento.',
       ],
       firstRun: [
-        'Tras la publicación, abre la aplicación y elige el ejemplo delta o acumulativo. No necesitas SDK ni archivos propios.',
+        'Abre la aplicación y elige el ejemplo delta o acumulativo. No necesitas SDK ni archivos propios.',
         'Para la versión independiente ya publicada, descarga el ZIP, extráelo e inicia un servidor HTTP estático dentro de overflowlens-0.2.1:',
         'Abre http://127.0.0.1:8080, elige un modo, confirma los supuestos de procedencia y fija el porcentaje máximo de errores. Exporta JSON para guardar la explicación.',
       ],
