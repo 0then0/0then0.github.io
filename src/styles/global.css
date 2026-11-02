@@ -182,11 +182,12 @@ pre {
   padding-inline: var(--gutter);
 }
 
-.stack > * + * {
+/* Keep flow spacing stronger than component margin resets (lists, steps, figures). */
+.stack > :not(:first-child) {
   margin-top: var(--flow, 1rem);
 }
 
-.stack > * + h3 {
+.stack > h3:not(:first-child) {
   margin-top: 2rem;
 }
 
@@ -784,21 +785,25 @@ main {
 
 .facts div {
   display: flex;
-  gap: 0.35rem;
+  align-items: baseline;
+  gap: 0.5rem;
 }
 
 .facts dt {
   flex: none;
   color: var(--text-3);
+  font-weight: 500;
   white-space: nowrap;
+}
+
+.facts dt::after {
+  content: ":";
 }
 
 .facts dd {
   min-width: 0;
-}
-
-.facts dd {
   margin: 0;
+  color: var(--text);
 }
 
 .two-col {
