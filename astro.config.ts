@@ -14,6 +14,7 @@ export default defineConfig({
   build: { format: 'directory' },
   integrations: [
     sitemap({
+      filter: (page) => !/\/404(?:\.html|\/)$/.test(new URL(page).pathname),
       i18n: {
         defaultLocale: 'en',
         locales: { en: 'en', ru: 'ru', es: 'es', de: 'de', fr: 'fr', ja: 'ja', 'pt-br': 'pt-BR' },

@@ -36,3 +36,8 @@ export function splitLocalePath(pathname: string): { lang: Lang; path: string } 
   if (lang === DEFAULT_LANG) return { lang, path: pathname };
   return { lang, path: match?.[2] ?? '/' };
 }
+
+/** GitHub Pages reserves /404.html for the fallback; translated pages are ordinary routes. */
+export function notFoundPath(lang: Lang): string {
+  return lang === DEFAULT_LANG ? '/404.html' : localePath(lang, '/404/');
+}

@@ -1,0 +1,21 @@
+---
+import { type Lang, localePath, messages } from '../i18n/index.ts';
+
+interface Props {
+  lang: Lang;
+  fallback?: boolean;
+}
+const { lang, fallback = false } = Astro.props;
+const m = messages(lang);
+---
+    <footer class="site-footer" data-error-lang={fallback ? lang : undefined} hidden={fallback && lang !== 'en'}>
+      <div class="container">
+        <ul>
+          <li><a href={localePath(lang, '/projects/')}>{m.footer.allProjects}</a></li>
+          <li><a href={localePath(lang, '/about/')}>{m.footer.about}</a></li>
+          <li><a href="https://github.com/0then0/0then0.github.io">{m.footer.source}</a></li>
+          <li><a href="https://github.com/0then0/0then0.github.io/blob/main/LICENSE">Apache-2.0</a></li>
+        </ul>
+        <p>{m.footer.privacy}</p>
+      </div>
+    </footer>

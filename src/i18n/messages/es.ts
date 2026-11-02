@@ -176,7 +176,6 @@ export const es: Messages = {
     forkOf: 'Fork de {link}.',
     viewSource: 'Ver el código',
     getStartedSource: 'Empezar desde el código',
-    englishNote: 'La descripción del proyecto que sigue está en inglés.',
     lookHeading: 'Cómo se ve',
     openFull: 'Ver a tamaño completo',
     screenshotOf: 'captura de {name}',
@@ -226,7 +225,6 @@ export const es: Messages = {
     verifyText:
       '{file} contiene los hashes SHA-256 de los archivos de la versión. Si el hash coincide, tu archivo es idéntico al publicado. Es una suma de verificación, no una firma del autor: no demuestra quién compiló el archivo.',
     checksumCommand: 'Comando de verificación',
-    stepsInEnglish: 'Los pasos de instalación están en inglés.',
   },
   about: {
     title: 'Acerca de y principios',
@@ -272,7 +270,7 @@ export const es: Messages = {
     site: 'El sitio es un conjunto de páginas estáticas creado con Astro y alojado en GitHub Pages. No usa cookies ni carga analítica o scripts de terceros. Las versiones se leen de una instantánea guardada en el {link}, así que tu navegador no consulta la API de GitHub mientras exploras el catálogo.',
     siteRepo: 'repositorio del sitio',
     languages:
-      'La interfaz está disponible en siete idiomas. Las descripciones de las páginas de producto están en inglés, el idioma de los proyectos y de su documentación.',
+      'La interfaz y las descripciones completas están disponibles en siete idiomas. Los comandos, nombres de archivo y salidas registradas conservan su forma original; la documentación de los proyectos está principalmente en inglés.',
   },
   notFound: {
     title: 'Página no encontrada',

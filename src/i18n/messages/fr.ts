@@ -180,7 +180,6 @@ export const fr: Messages = {
     forkOf: 'Fork de {link}.',
     viewSource: 'Voir les sources',
     getStartedSource: 'Démarrer depuis les sources',
-    englishNote: 'La description du projet ci-dessous est en anglais.',
     lookHeading: 'Aperçu',
     openFull: 'Ouvrir en taille réelle',
     screenshotOf: 'capture d’écran de {name}',
@@ -230,7 +229,6 @@ export const fr: Messages = {
     verifyText:
       '{file} liste les empreintes SHA-256 des fichiers de la version. Une empreinte identique montre que votre fichier est le même que celui publié. C’est une somme de contrôle, pas une signature de l’auteur : elle ne prouve pas qui a compilé le fichier.',
     checksumCommand: 'Commande de vérification',
-    stepsInEnglish: 'Les étapes d’installation sont en anglais.',
   },
   about: {
     title: 'À propos et principes',
@@ -276,7 +274,7 @@ export const fr: Messages = {
     site: 'Le site est un ensemble de pages statiques créé avec Astro et hébergé sur GitHub Pages. Il ne dépose aucun cookie et ne charge ni outil d’analyse ni script tiers. Les versions proviennent d’un instantané enregistré dans le {link} : votre navigateur n’interroge donc pas l’API GitHub quand vous parcourez le catalogue.',
     siteRepo: 'dépôt du site',
     languages:
-      'L’interface est disponible en sept langues. Les descriptions des pages produits sont rédigées en anglais, la langue des projets et de leur documentation.',
+      'L’interface et les descriptions complètes sont disponibles en sept langues. Les commandes, noms de fichiers et sorties enregistrées restent dans leur forme d’origine ; la documentation des projets est principalement en anglais.',
   },
   notFound: {
     title: 'Page introuvable',

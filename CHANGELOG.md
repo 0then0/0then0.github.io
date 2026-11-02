@@ -7,11 +7,11 @@ All notable changes to this site are documented here. The format follows
 
 ### Added
 
-- Home page with task shortcuts and the six projects that have product pages.
-- Catalog of 28 projects with search and filters for audience, task,
+- Home page with task shortcuts and the projects that have product pages.
+- Catalog of 30 projects with search and filters for audience, task,
   platform and availability; filter state is kept in the URL.
 - Product pages for SpaceMosaic, Cambridge Dictionary Audio, MarginCarry,
-  BatteryBridge, Form Forge and DBReduce, with screenshots or command
+  BatteryBridge, Form Forge, DBReduce and OverflowLens, with screenshots or command
   examples, platform evidence, limitations, first-run steps and downloads.
 - Download selection rules that exclude prereleases, drafts, debug,
   unsigned Android and iOS builds from download buttons.
@@ -25,5 +25,9 @@ All notable changes to this site are documented here. The format follows
   and no-JavaScript fallbacks.
 - Interface in seven languages (English, Russian, Spanish, German, French,
   Japanese, Brazilian Portuguese) with a language menu, `hreflang` links and
-  localized catalog texts; product descriptions remain in English.
+  localized catalog texts and full product descriptions, including captions,
+  platform notes and installation instructions.
+- Localized error pages in all seven languages, with URL-prefix language
+  selection in the shared GitHub Pages 404 fallback and no-JavaScript links.
+- Translation checks for every product-description field and original commands.
 - Biome for formatting and linting, run in CI and by `npm run verify`.

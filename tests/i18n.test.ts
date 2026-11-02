@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { projects } from '../src/data/projects.ts';
-import { englishProjectText, type Lang, LOCALES, MESSAGES, PROJECT_TEXTS } from '../src/i18n/index.ts';
+import { englishProjectText, type Lang, LOCALES, MESSAGES, PROJECT_TEXTS, productDetail } from '../src/i18n/index.ts';
 
 const placeholders = (s: string) => [...s.matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort();
 const isPlural = (v: unknown): v is Record<string, string> => typeof v === 'object' && v !== null && 'other' in v;
@@ -79,5 +79,45 @@ describe.each(LOCALES.map((l) => l.code).filter((c) => c !== 'en'))('%s translat
 describe('English terms', () => {
   it('lists every download format label so translators see it', () => {
     expect([...ruleTerms].filter((label) => !(label in MESSAGES.en.terms))).toEqual([]);
+  });
+});
+
+function textShape(value: unknown): unknown {
+  if (typeof value === 'string') return 'text';
+  if (Array.isArray(value)) return value.map(textShape);
+  if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([key, v]) => [key, textShape(v)]));
+  return value;
+}
+
+describe.each(LOCALES.filter((l) => l.code !== 'en'))('$code product descriptions', ({ code }) => {
+  it('translates every prose field, caption, alt text and installation step', () => {
+    for (const project of projects.filter((p) => p.detail)) {
+      const en = englishProjectText(project).detail;
+      const translated = PROJECT_TEXTS[code as Exclude<Lang, 'en'>][project.slug]?.detail;
+      expect(textShape(translated), project.slug).toEqual(textShape(en));
+      for (const [path, source, target] of pairs(en, translated)) {
+        expect(typeof target === 'string' && target.trim().length > 0, `${project.slug}${path}`).toBe(true);
+        // Technical platform names and pure commands may match the source.
+        if (/\.(summary|caption|note)$/.test(path)) expect(target, `${project.slug}${path}`).not.toBe(source);
+      }
+    }
+  });
+});
+
+describe.each(LOCALES)('$code protected product data', ({ code }) => {
+  it('preserves commands, output, asset rules, evidence levels and source data', () => {
+    for (const project of projects) {
+      if (!project.detail) continue;
+      const original = structuredClone(project);
+      const detail = productDetail(code, { ...project, detail: project.detail });
+      expect(detail.firstRun.map((s) => s.code)).toEqual(project.detail.firstRun.map((s) => s.code));
+      expect(detail.media.map((m) => (m.kind === 'terminal' ? [m.command, m.output] : m.file))).toEqual(
+        project.detail.media.map((m) => (m.kind === 'terminal' ? [m.command, m.output] : m.file)),
+      );
+      expect(detail.support.map((s) => s.evidence)).toEqual(project.detail.support.map((s) => s.evidence));
+      expect(detail.downloads?.map(({ steps, ...rule }) => rule)).toEqual(project.detail.downloads?.map(({ steps, ...rule }) => rule));
+      expect(detail.packageInstall).toEqual(project.detail.packageInstall);
+      expect(project).toEqual(original);
+    }
   });
 });

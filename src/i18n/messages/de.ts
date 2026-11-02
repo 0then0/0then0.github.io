@@ -176,7 +176,6 @@ export const de: Messages = {
     forkOf: 'Fork von {link}.',
     viewSource: 'Quellcode ansehen',
     getStartedSource: 'Mit dem Quellcode beginnen',
-    englishNote: 'Die folgende Projektbeschreibung ist auf Englisch.',
     lookHeading: 'So sieht es aus',
     openFull: 'In voller Größe öffnen',
     screenshotOf: 'Screenshot von {name}',
@@ -226,7 +225,6 @@ export const de: Messages = {
     verifyText:
       '{file} enthält SHA-256-Hashes der Release-Dateien. Stimmt der Hash überein, ist Ihre Datei identisch mit der veröffentlichten. Das ist eine Prüfsumme, keine Signatur des Autors: Sie belegt nicht, wer die Datei gebaut hat.',
     checksumCommand: 'Befehl zur Prüfsumme',
-    stepsInEnglish: 'Die Installationsschritte sind auf Englisch.',
   },
   about: {
     title: 'Über das Projekt und Grundsätze',
@@ -272,7 +270,7 @@ export const de: Messages = {
     site: 'Die Website besteht aus statischen Seiten, gebaut mit Astro und gehostet auf GitHub Pages. Sie setzt keine Cookies und lädt keine Analyse- oder Drittanbieter-Skripte. Versionsangaben stammen aus einem Snapshot im {link}; Ihr Browser fragt beim Stöbern im Katalog also nicht die GitHub-API ab.',
     siteRepo: 'Repository der Website',
     languages:
-      'Die Oberfläche gibt es in sieben Sprachen. Die Projektbeschreibungen auf den Produktseiten sind auf Englisch, der Sprache der Projekte und ihrer Dokumentation.',
+      'Oberfläche und vollständige Projektbeschreibungen gibt es in sieben Sprachen. Befehle, Dateinamen und aufgezeichnete Ausgaben bleiben im Original; die Projektdokumentation ist überwiegend auf Englisch.',
   },
   notFound: {
     title: 'Seite nicht gefunden',

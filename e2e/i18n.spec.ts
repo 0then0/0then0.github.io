@@ -1,6 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, type Page, test } from '@playwright/test';
-import { LOCALES, localePath } from '../src/i18n/locales.ts';
+import { productsWithDetail } from '../src/data/projects.ts';
+import { LOCALES, localePath, messages, notFoundPath, productDetail } from '../src/i18n/index.ts';
 
 const translated = LOCALES.filter((l) => l.code !== 'en');
 const pages = ['/', '/projects/', '/about/', '/projects/cambridge-dictionary-audio/', '/projects/batterybridge/'];
@@ -108,9 +109,75 @@ test('catalog counter uses Japanese wording', async ({ page }) => {
   await expect(page.getByText(/^\d+ 件中 \d+ 件$/)).toBeVisible();
 });
 
-test('product pages mark English descriptions as English', async ({ page }) => {
+test('product pages translate their descriptions', async ({ page }) => {
   await page.goto('/fr/projects/margincarry/');
   await expect(page.getByRole('heading', { level: 2, name: 'Ce qu’il fait' })).toBeVisible();
-  await expect(page.locator('.prose p[lang="en"]').first()).toBeVisible();
+  await expect(page.locator('.prose p').first()).toContainText('Quand un préprint');
+  await expect(page.locator('.prose [lang="en"]')).toHaveCount(0);
   await expect(page.getByRole('link', { name: /Télécharger/ }).first()).toBeVisible();
+});
+
+for (const locale of LOCALES) {
+  test(`missing URLs keep their status and language (${locale.code})`, async ({ page }) => {
+    const path = localePath(locale.code, '/projects/does-not-exist/');
+    const response = await page.goto(path);
+    expect(response?.status()).toBe(404);
+    await expect(page).toHaveURL(new RegExp(`${path}$`));
+    await expect(page.locator('html')).toHaveAttribute('lang', locale.code);
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(messages(locale.code).notFound.heading);
+    await expect(page.getByRole('link', { name: messages(locale.code).notFound.catalog, exact: true })).toHaveAttribute(
+      'href',
+      localePath(locale.code, '/projects/'),
+    );
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex');
+    const axe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
+    expect(axe.violations.map((v) => v.id)).toEqual([]);
+    const fit = await overflowing(page);
+    expect(fit.pageOverflow).toBeLessThanOrEqual(1);
+    expect(fit.clipped).toEqual([]);
+    if (locale.code === 'ru') await page.screenshot({ path: `test-results/error-ru-${test.info().project.name}.png`, fullPage: true });
+    await page.locator('.lang-switch:visible summary').click();
+    await expect(page.locator('.lang-switch:visible a[hreflang="ru"]')).toHaveAttribute('href', '/ru/404/');
+  });
+
+  test(`complete product descriptions (${locale.code})`, async ({ page }) => {
+    for (const project of productsWithDetail) {
+      await page.goto(localePath(locale.code, `/projects/${project.slug}/`));
+      const detail = productDetail(locale.code, project);
+      await expect(page.locator('.prose > p').first()).toHaveText(detail.summary);
+      await expect(page.locator('.steps li p').first()).toHaveText(detail.firstRun[0]?.text ?? '');
+      await expect(page.locator('.figure figcaption').first()).toContainText(detail.media[0]?.caption ?? '');
+      await expect(page.locator('.support li p').first()).toHaveText(detail.support[0]?.note ?? '');
+      await expect(page.locator('main :is(p, ul, ol, figure, figcaption, strong, .scenarios)[lang="en"]')).toHaveCount(0);
+      if (detail.downloads?.length) {
+        await page
+          .locator('[data-os-panel]')
+          .first()
+          .evaluate((el) => {
+            (el as HTMLElement).hidden = false;
+          });
+        const step = detail.downloads[0]?.steps[0] ?? '';
+        expect(await page.locator('#download').textContent()).toContain(step);
+      }
+      if (['ru', 'ja'].includes(locale.code) && project.slug === 'spacemosaic')
+        await page.screenshot({ path: `test-results/product-${locale.code}-${test.info().project.name}.png`, fullPage: true });
+      const fit = await overflowing(page);
+      expect(fit.pageOverflow, project.slug).toBeLessThanOrEqual(1);
+      expect(fit.clipped, project.slug).toEqual([]);
+      await page.addStyleTag({ content: 'html { font-size: 200% !important; }' });
+      expect((await overflowing(page)).pageOverflow, project.slug).toBeLessThanOrEqual(1);
+    }
+  });
+}
+
+test.describe('translated errors without JavaScript', () => {
+  test.use({ javaScriptEnabled: false });
+  for (const locale of LOCALES) {
+    test(`error page ${locale.code}`, async ({ page }) => {
+      await page.goto(notFoundPath(locale.code));
+      await expect(page.locator('html')).toHaveAttribute('lang', locale.code);
+      await expect(page.getByRole('heading', { level: 1 })).toHaveText(messages(locale.code).notFound.heading);
+      await expect(page.locator('.lang-list:visible a[hreflang="en"]')).toHaveAttribute('href', '/404.html');
+    });
+  }
 });

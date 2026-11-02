@@ -1,7 +1,8 @@
 ---
 import '../styles/global.css';
-import Wordmark from '../components/Wordmark.astro';
-import { DEFAULT_LANG, type Lang, LOCALES, localeInfo, localePath, messages, splitLocalePath } from '../i18n/index.ts';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { DEFAULT_LANG, type Lang, LOCALES, localePath, messages, splitLocalePath } from '../i18n/index.ts';
 
 interface Props {
   lang: Lang;
@@ -12,31 +13,33 @@ interface Props {
   imageAlt?: string;
   type?: 'website' | 'article';
   noindex?: boolean;
+  fallback404?: boolean;
   jsonLd?: Record<string, unknown>;
 }
 
-const { lang, title, description, image = '/og-default.png', imageAlt, type = 'website', noindex = false, jsonLd } = Astro.props;
+const {
+  lang,
+  title,
+  description,
+  image = '/og-default.png',
+  imageAlt,
+  type = 'website',
+  noindex = false,
+  fallback404 = false,
+  jsonLd,
+} = Astro.props;
 const m = messages(lang);
 const site = Astro.site ?? new URL('https://0then0.github.io');
 const { path: neutralPath } = splitLocalePath(Astro.url.pathname);
 const canonical = new URL(Astro.url.pathname, site).href;
 const imageUrl = new URL(image, site).href;
+const ogLocale = lang.replace('-', '_');
 const isHome = neutralPath === '/';
 const fullTitle = isHome ? title : `${title} · 0then0`;
-const home = localePath(lang, '/');
-const current = localeInfo(lang);
-const ogLocale = lang.replace('-', '_');
-
-const nav = [
-  { href: localePath(lang, '/projects/'), label: m.nav.catalog },
-  { href: localePath(lang, '/about/'), label: m.nav.about },
-  { href: 'https://github.com/0then0', label: m.nav.github },
-];
-// Pages without a localized twin (the 404 page) switch to the other language's home page.
-const switchPath = noindex ? '/' : neutralPath;
+const chromeLanguages = fallback404 ? LOCALES.map((l) => l.code) : [lang];
+const switchPath = noindex ? '/404/' : neutralPath;
 // Structured data includes release metadata from the API; escape "<" so no value can close the script element.
 const safeJson = (value: unknown) => JSON.stringify(value).replace(/</g, '\\u003c');
-const short = (code: string) => code.split('-')[0]?.toUpperCase() ?? code;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -68,67 +71,16 @@ const short = (code: string) => code.split('-')[0]?.toUpperCase() ?? code;
     {jsonLd && <script type="application/ld+json" set:html={safeJson(jsonLd)} />}
   </head>
   <body>
-    <a class="skip-link" href="#main">{m.nav.skip}</a>
-    <header class="site-header">
-      <div class="container">
-        <a class="wordmark" href={home} aria-label={m.nav.home}><Wordmark /></a>
-        <div class="header-end">
-          <nav class="site-nav" aria-label={m.nav.main}>
-            <ul>
-              {
-                nav.map((item) => (
-                  <li>
-                    <a href={item.href} aria-current={Astro.url.pathname.startsWith(item.href) ? 'page' : undefined}>
-                      {item.label}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </nav>
-          <details class="lang-switch" data-lang-switch>
-            <summary>
-              <span class="visually-hidden">{m.nav.language}: </span>
-              <span lang={lang}>{short(lang)}</span>
-            </summary>
-            <ul>
-              {
-                LOCALES.map((l) => (
-                  <li>
-                    <a
-                      href={localePath(l.code, switchPath)}
-                      hreflang={l.code}
-                      lang={l.code}
-                      aria-current={l.code === current.code ? 'true' : undefined}
-                    >
-                      {l.label}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </details>
-        </div>
-      </div>
-    </header>
+    <!-- The shared error document selects one complete language, including navigation. -->
+    {chromeLanguages.map((code) => <a class="skip-link" href="#main" data-error-lang={fallback404 ? code : undefined} hidden={fallback404 && code !== 'en'}>{messages(code).nav.skip}</a>)}
+    {chromeLanguages.map((code) => <SiteHeader lang={code} fallback={fallback404} switchPath={switchPath} />)}
     <main id="main" tabindex="-1">
       <slot />
     </main>
-    <footer class="site-footer">
-      <div class="container">
-        <ul>
-          <li><a href={localePath(lang, '/projects/')}>{m.footer.allProjects}</a></li>
-          <li><a href={localePath(lang, '/about/')}>{m.footer.about}</a></li>
-          <li><a href="https://github.com/0then0/0then0.github.io">{m.footer.source}</a></li>
-          <li><a href="https://github.com/0then0/0then0.github.io/blob/main/LICENSE">Apache-2.0</a></li>
-        </ul>
-        <p>{m.footer.privacy}</p>
-      </div>
-    </footer>
+    {chromeLanguages.map((code) => <SiteFooter lang={code} fallback={fallback404} />)}
     <script>
       // Close the language menu on outside click or Escape; without JavaScript it still opens and closes via its summary.
-      const menu = document.querySelector<HTMLDetailsElement>('[data-lang-switch]');
-      if (menu) {
+      for (const menu of document.querySelectorAll<HTMLDetailsElement>('[data-lang-switch]')) {
         document.addEventListener('click', (event) => {
           if (menu.open && event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
         });

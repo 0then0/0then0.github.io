@@ -6,7 +6,7 @@ import { existsSync, statSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { productsWithDetail } from '../src/data/projects.ts';
-import { LOCALES, localePath, splitLocalePath } from '../src/i18n/locales.ts';
+import { LOCALES, localePath, notFoundPath, splitLocalePath } from '../src/i18n/locales.ts';
 import { ids, readPages, references } from './lib-html.ts';
 
 const dist = fileURLToPath(new URL('../dist/', import.meta.url));
@@ -17,7 +17,11 @@ const pages = await readPages(dist);
 const byRoute = new Map(pages.map((p) => [p.route, p]));
 
 const neutralRoutes = ['/', '/projects/', '/about/', ...productsWithDetail.map((p) => `/projects/${p.slug}/`)];
-const requiredRoutes = ['/404.html', ...LOCALES.flatMap((l) => neutralRoutes.map((r) => localePath(l.code, r)))];
+const requiredRoutes = [
+  '/404.html',
+  ...LOCALES.map((l) => notFoundPath(l.code)),
+  ...LOCALES.flatMap((l) => neutralRoutes.map((r) => localePath(l.code, r))),
+];
 for (const route of requiredRoutes) if (!byRoute.has(route)) fail(`missing route ${route}`);
 for (const file of ['robots.txt', 'sitemap-index.xml', 'favicon.svg', 'og-default.png']) {
   if (!existsSync(`${dist}${file}`)) fail(`missing ${file}`);
@@ -32,17 +36,19 @@ function resolveTarget(pathname: string): string | null {
 
 for (const page of pages) {
   const { html, route } = page;
+  const isError = route === '/404.html' || /\/404\/$/.test(route);
+  const expectedHeadings = route === '/404.html' ? LOCALES.length : 1;
   const h1 = html.match(/<h1[\s>]/g)?.length ?? 0;
-  if (h1 !== 1) fail(`${route}: expected one <h1>, found ${h1}`);
+  if (h1 !== expectedHeadings) fail(`${route}: expected ${expectedHeadings} <h1> elements, found ${h1}`);
   if (!/<title>[^<]{5,}<\/title>/.test(html)) fail(`${route}: missing <title>`);
-  if (!/<meta name="description" content="[^"]{40,}"/.test(html)) fail(`${route}: missing or short meta description`);
+  const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1];
+  if (!description || description.length < (isError ? 15 : 40)) fail(`${route}: missing or short meta description`);
   const expectedLang = route === '/404.html' ? 'en' : splitLocalePath(route).lang;
   if (!html.includes(`<html lang="${expectedLang}"`)) fail(`${route}: expected <html lang="${expectedLang}">`);
   const alternates = html.match(/<link rel="alternate" hreflang=/g)?.length ?? 0;
-  if (route !== '/404.html' && alternates !== LOCALES.length + 1)
-    fail(`${route}: expected ${LOCALES.length + 1} hreflang links, found ${alternates}`);
-  if (route !== '/404.html' && !/<link rel="canonical" href="https?:\/\/[^"]+"/.test(html)) fail(`${route}: missing canonical`);
-  if (route === '/404.html' && !/name="robots" content="noindex"/.test(html)) fail('404 page must be noindex');
+  if (!isError && alternates !== LOCALES.length + 1) fail(`${route}: expected ${LOCALES.length + 1} hreflang links, found ${alternates}`);
+  if (!isError && !/<link rel="canonical" href="https?:\/\/[^"]+"/.test(html)) fail(`${route}: missing canonical`);
+  if (isError && !/name="robots" content="noindex"/.test(html)) fail('404 page must be noindex');
   for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     const body = match[1] ?? '';
     if (body.includes('<')) fail(`${route}: unescaped "<" in JSON-LD`);

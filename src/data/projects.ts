@@ -25,7 +25,7 @@ export const projects: readonly CatalogEntry[] = [
     detail: {
       tagline: 'A read-only storage map for one folder at a time.',
       summary:
-        'Choose a folder and SpaceMosaic shows how its size is distributed: a tree, a treemap, the largest files and a file-type summary. It reads file metadata only, never file contents, and has no delete or cleanup actions, so exploring cannot cause damage.',
+        'Choose a folder and SpaceMosaic shows how its size is distributed: a tree, a treemap, the largest files and a file-type summary. Reopen saved JSON results without reading the folder again, or compare them with a current scan. It reads file metadata only, never file contents, and has no delete or cleanup actions.',
       audience: [
         'People whose disk is filling up and who want to see which folders are responsible before deciding what to remove.',
         'Anyone who needs a size report for a folder, exported as JSON or CSV.',
@@ -41,8 +41,8 @@ export const projects: readonly CatalogEntry[] = [
           text: 'Unreadable folders and unknown sizes are marked as Unknown instead of 0 B. Logical size and allocated space are shown separately, and a partial scan says why it is partial.',
         },
         {
-          title: 'Share a report',
-          text: 'Export the result as versioned JSON or a CSV file-type summary. Exports contain file names and paths, so review them before sharing.',
+          title: 'Save and compare results',
+          text: 'Export versioned JSON, reopen it later and compare the same folder with a new scan. Comparisons distinguish confirmed changes from unknown ones; renames appear as missing and added objects. Exports contain file names and paths, so review them before sharing.',
         },
       ],
       media: [
@@ -58,12 +58,12 @@ export const projects: readonly CatalogEntry[] = [
         {
           platform: 'macOS, Apple Silicon',
           evidence: 'runtime-verified',
-          note: 'The desktop app runs on macOS arm64. There is no Intel build.',
+          note: 'The repository records macOS arm64 runtime verification; this maintenance pass did not repeat it. There is no Intel build.',
         },
         {
           platform: 'Android 8.0+',
           evidence: 'user-tested',
-          note: 'Reported as relatively stable on a Pixel 8 with Android 17. In-place upgrades, screen readers and every storage provider are not verified.',
+          note: 'An earlier user report describes relatively stable operation on a Pixel 8 with Android 17. Signing, in-place upgrades, screen readers and every storage provider are not runtime-verified.',
         },
         {
           platform: 'Windows x86-64',
@@ -73,12 +73,12 @@ export const projects: readonly CatalogEntry[] = [
         {
           platform: 'Linux x86-64',
           evidence: 'ci-build',
-          note: 'Built on Ubuntu 24.04. Portable archives still need compatible system libraries.',
+          note: 'Built on Ubuntu 24.04; runtime remains experimental. Portable archives still need compatible system libraries.',
         },
         {
           platform: 'iOS 16+',
           evidence: 'ci-build',
-          note: 'Unsigned device build and simulator build only. Installing on an iPhone requires Xcode, a development team and signing.',
+          note: 'Experimental unsigned device build and simulator build only. Installing on an iPhone requires Xcode, a development team and signing.',
         },
       ],
       limitations: [
@@ -518,7 +518,7 @@ export const projects: readonly CatalogEntry[] = [
         {
           platform: 'Zotero 10.0.x on macOS',
           evidence: 'runtime-verified',
-          note: 'Tested on macOS, including real PDFs in seven languages.',
+          note: 'Historical checks on Zotero 10.0.7/macOS covered all seven interface languages and 45 real-PDF cases in six non-English languages. The tested unpublished v0.1.2 runtime shipped in v0.2.0 with only its manifest version changed; the frozen v0.1.0 corpus was not rerun.',
         },
         {
           platform: 'Zotero 10.0.x on Windows and Linux',
@@ -972,7 +972,7 @@ export const projects: readonly CatalogEntry[] = [
     slug: 'parquetscope',
     name: 'ParquetScope',
     repo: '0then0/parquetscope',
-    task: 'See which byte ranges DuckDB reads from a Parquet file over HTTP and how file layout changes them.',
+    task: 'See which files and byte ranges DuckDB reads from Parquet over HTTP, and compare queries or layouts.',
     category: 'databases',
     audience: 'developers',
     platforms: ['linux', 'macos', 'windows'],
@@ -1010,7 +1010,7 @@ export const projects: readonly CatalogEntry[] = [
     slug: 'lockcone',
     name: 'LockCone',
     repo: '0then0/lockcone',
-    task: 'Explain which pnpm lockfile changes follow from the dependencies you actually changed.',
+    task: 'Trace pnpm dependency, catalog and patch changes through the workspace dependency graph.',
     category: 'ci',
     audience: 'developers',
     platforms: ['linux', 'macos', 'windows'],
@@ -1051,7 +1051,7 @@ export const projects: readonly CatalogEntry[] = [
     slug: 'crondelta',
     name: 'CronDelta',
     repo: '0then0/crondelta',
-    task: 'Compare when two Python cron libraries or versions would fire a schedule before you switch.',
+    task: 'Compare cron occurrences before changing a Python cron engine, its version or its timezone database.',
     category: 'testing',
     audience: 'developers',
     platforms: ['linux', 'macos', 'windows'],
@@ -1126,11 +1126,11 @@ export const projects: readonly CatalogEntry[] = [
     slug: 'idbshift',
     name: 'IDBShift',
     repo: '0then0/idbshift',
-    task: 'Test whether IndexedDB data survives an app upgrade, rollback and second upgrade.',
+    task: 'Test IndexedDB upgrades and rollbacks, including old and new application tabs open together.',
     category: 'testing',
     audience: 'developers',
     platforms: ['macos', 'linux'],
-    environment: 'Node.js with Playwright Chromium; run from source',
+    environment: 'Node.js 24.22.1+ within 24.x, npm 11.19.1 and Playwright Chromium; run from source',
     availability: ['source'],
     license: 'Apache-2.0',
     icon: 'idbshift',
@@ -1156,10 +1156,80 @@ export const projects: readonly CatalogEntry[] = [
     category: 'metrics',
     audience: 'developers',
     platforms: ['web'],
-    environment: 'Static browser app served locally; files stay on your computer',
+    environment: 'Browser app with local file processing; public deployment pending, standalone archive available',
     availability: ['download', 'source'],
     license: 'Apache-2.0',
     icon: 'overflowlens',
+    homepage: 'https://0then0.github.io/overflowlens/',
+    detail: {
+      tagline: 'Exact bounds when request outcomes are hidden by cardinality overflow.',
+      summary:
+        'Import a saved OpenTelemetry request counter and compare its possible error rates with your threshold. Delta mode analyzes one collection interval; cumulative mode compares matching Before and After snapshots. Files are parsed locally in a Web Worker; counts and bounds are calculated in your browser. The hosted app downloads its own assets; imported files, threshold values and exported reports are not uploaded.',
+      audience: ['Developers investigating error rates after OpenTelemetry SDK cardinality overflow.'],
+      scenarios: [
+        {
+          title: 'Understand a delta interval',
+          text: 'Open the bundled example, confirm its assumptions, and see why a 1% limit cannot be decided from bounds of 0.1% to 10%.',
+        },
+        {
+          title: 'Compare cumulative snapshots',
+          text: 'Choose Before and After exports of the same continuous counter history. The prepared browser distribution includes a synthetic pair from the SDK lab.',
+        },
+      ],
+      media: [
+        {
+          kind: 'terminal',
+          output:
+            'Known successes                 900\nKnown errors                      1\nSDK overflow                     99\nTotal                         1,000\n\nPossible true error rate       0.1% … 10%\nMaximum allowed error rate       1%\nConclusion: Cannot determine from these data',
+          caption:
+            'Documented result of the bundled synthetic delta example at a 1% threshold; not a measurement from a production system.',
+        },
+      ],
+      primary: { kind: 'try', label: 'Open app (deployment pending)', href: 'https://0then0.github.io/overflowlens/' },
+      secondary: [
+        {
+          label: 'Download standalone archive',
+          href: '#download',
+          note: 'The public app URL is prepared but is not deployed yet. The published v0.2.1 archive can be served locally now.',
+        },
+      ],
+      support: [
+        {
+          platform: 'Modern web browser',
+          evidence: 'declared',
+          note: 'Static application. Public GitHub Pages deployment is pending; the archive requires an HTTP server, not file://.',
+        },
+      ],
+      limitations: [
+        'Accepts uncompressed UTF-8 OTLP JSON monotonic integer Sum counters, up to 5 MiB per file. It is not a live metrics backend or a general SLO evaluator.',
+        'Cumulative windows require matching complete snapshots with stable attribution, known unchanged starts and no resets or decreasing counts.',
+        'Provenance assumptions require confirmation. A file cannot prove that a pipeline preserved all counts and overflow points.',
+      ],
+      firstRun: [
+        { text: 'Once deployed, open the browser app and choose the delta or cumulative example. No SDK or personal files are needed.' },
+        {
+          text: 'For the currently published standalone build, download the ZIP, extract it and run a static HTTP server inside overflowlens-0.2.1:',
+          code: 'python3 -m http.server 8080 --bind 127.0.0.1',
+        },
+        {
+          text: 'Open http://127.0.0.1:8080, choose a mode, confirm the provenance assumptions and set the maximum allowed error percentage. Export JSON to save the explanation.',
+        },
+      ],
+      downloads: [
+        {
+          id: 'standalone',
+          os: 'any',
+          arch: 'Universal',
+          label: 'ZIP archive',
+          asset: 'overflowlens-{version}.zip',
+          signing: 'not-applicable',
+          role: 'recommended',
+          steps: ['Extract the ZIP and serve its directory over HTTP. Node.js and Go are not required.'],
+        },
+      ],
+      checksumAsset: 'SHA256SUMS.txt',
+      links: { docs: gh('overflowlens', '/blob/main/README.md'), changelog: gh('overflowlens', '/blob/main/CHANGELOG.md') },
+    },
   },
   {
     slug: 'agentkcal',

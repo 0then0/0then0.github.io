@@ -61,7 +61,12 @@ whether it will work for them.
 
 Add the project's `task` and `environment` (and `tagline`, `primary`,
 `secondary`, `forkNote`, `downloadNote` where the English entry has them) to
-every file in `src/i18n/projects/`. A new download format label goes into
+every file in `src/i18n/projects/`. For a product page, also translate its
+`detail` prose: summary, audience, scenarios, media captions and alt text,
+platform notes, limitations, first-run text and `downloadSteps` keyed by
+download-rule ID. Keep the same array order and length as the English entry.
+Do not translate commands, recorded output, file names or rule identifiers.
+A new download format label goes into
 `terms` in every file in `src/i18n/messages/`. `npm test` lists anything
 missing.
 

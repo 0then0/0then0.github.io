@@ -1,4 +1,4 @@
-import type { CatalogEntry } from '../lib/types.ts';
+import type { CatalogEntry, ProductDetail } from '../lib/types.ts';
 import { DEFAULT_LANG, type Lang } from './locales.ts';
 import { de } from './messages/de.ts';
 import { en, type Messages } from './messages/en.ts';
@@ -13,7 +13,7 @@ import { fr as frProjects } from './projects/fr.ts';
 import { ja as jaProjects } from './projects/ja.ts';
 import { ptBR as ptBRProjects } from './projects/pt-BR.ts';
 import { ru as ruProjects } from './projects/ru.ts';
-import type { ProjectText, ProjectTexts } from './projects/types.ts';
+import type { ProductDetailText, ProjectText, ProjectTexts } from './projects/types.ts';
 
 export * from './format.ts';
 export * from './locales.ts';
@@ -48,6 +48,7 @@ export function englishProjectText(project: CatalogEntry): ProjectText {
     name: project.name,
     ...(detail
       ? {
+          detail: englishDetailText(detail),
           tagline: detail.tagline,
           primary: detail.primary.label,
           ...(detail.secondary
@@ -74,4 +75,36 @@ export function templateParts(template: string): ({ text: string } | { slot: str
     .split(/(\{\w+\})/)
     .filter(Boolean)
     .map((part) => (/^\{\w+\}$/.test(part) ? { slot: part.slice(1, -1) } : { text: part }));
+}
+
+export function englishDetailText(detail: ProductDetail): ProductDetailText {
+  return {
+    summary: detail.summary,
+    audience: detail.audience,
+    scenarios: detail.scenarios,
+    media: detail.media.map((m) => ({ ...('alt' in m ? { alt: m.alt } : {}), caption: m.caption })),
+    support: detail.support.map((s) => ({ platform: s.platform, note: s.note })),
+    limitations: detail.limitations,
+    firstRun: detail.firstRun.map((s) => s.text),
+    downloadSteps: Object.fromEntries((detail.downloads ?? []).map((r) => [r.id, r.steps])),
+  };
+}
+
+export function productDetail(lang: Lang, project: CatalogEntry & { detail: ProductDetail }): ProductDetail {
+  if (lang === DEFAULT_LANG) return project.detail;
+  const local = PROJECT_TEXTS[lang][project.slug]?.detail;
+  if (!local) throw new Error(`Missing product description: ${lang}/${project.slug}`);
+  return {
+    ...project.detail,
+    summary: local.summary,
+    audience: local.audience,
+    scenarios: local.scenarios,
+    limitations: local.limitations,
+    media: project.detail.media.map((m, i) => ({ ...m, ...local.media[i] })),
+    support: project.detail.support.map((s, i) => ({ ...s, ...local.support[i] })),
+    firstRun: project.detail.firstRun.map((s, i) => ({ ...s, text: local.firstRun[i] ?? '' })),
+    ...(project.detail.downloads
+      ? { downloads: project.detail.downloads.map((r) => ({ ...r, steps: local.downloadSteps[r.id] ?? [] })) }
+      : {}),
+  };
 }

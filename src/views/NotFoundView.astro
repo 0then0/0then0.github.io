@@ -1,49 +1,39 @@
 ---
-import { productsWithDetail } from '../data/projects.ts';
-import { type Lang, LOCALES, localePath, messages, projectText } from '../i18n/index.ts';
+import NotFoundContent from '../components/NotFoundContent.astro';
+import { type Lang, LOCALES, messages } from '../i18n/index.ts';
 import Base from '../layouts/Base.astro';
 
 interface Props {
   lang: Lang;
+  fallback?: boolean;
 }
-
-const { lang } = Astro.props;
+const { lang, fallback = false } = Astro.props;
 const n = messages(lang).notFound;
+const languages = fallback ? LOCALES.map((l) => l.code) : [lang];
 ---
-<Base lang={lang} title={n.title} description={n.description} noindex>
-  <div class="container">
-    <header class="hero stack">
-      <p class="eyebrow">{n.eyebrow}</p>
-      <h1>{n.heading}</h1>
-      <p class="lede">{n.lede}</p>
-      <div class="actions">
-        <a class="btn btn-primary" href={localePath(lang, '/projects/')}>{n.catalog}</a>
-        <a class="btn" href={localePath(lang, '/')}>{n.home}</a>
-      </div>
-    </header>
-    <section class="section stack" aria-labelledby="pages-title" style="--section: 2.5rem">
-      <h2 id="pages-title">{n.products}</h2>
-      <ul class="link-list">
-        {
-          productsWithDetail.map((p) => (
-            <li>
-              <a href={localePath(lang, `/projects/${p.slug}/`)}>{p.name}</a>{' '}
-              <span class="muted">· {projectText(lang, p).task}</span>
-            </li>
-          ))
-        }
-      </ul>
-      <ul class="lang-list" aria-label={messages(lang).nav.language}>
-        {
-          LOCALES.map((l) => (
-            <li>
-              <a href={localePath(l.code, '/')} lang={l.code} hreflang={l.code}>
-                {l.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-  </div>
+<Base lang={lang} title={n.title} description={n.description} noindex fallback404={fallback}>
+  {languages.map((code) => (
+    <div data-error-description={messages(code).notFound.description} data-error-image-alt={messages(code).meta.ogImageAlt} data-error-lang={fallback ? code : undefined} hidden={fallback && code !== 'en'}>
+      <NotFoundContent lang={code} />
+    </div>
+  ))}
+  {fallback && <script>
+    import { langFromPath } from '../i18n/locales.ts';
+    const lang = langFromPath(location.pathname.split('/')[1]);
+    document.documentElement.lang = lang;
+    for (const element of document.querySelectorAll<HTMLElement>('[data-error-lang]')) {
+      element.hidden = element.dataset.errorLang !== lang;
+    }
+    const heading = document.querySelector('[data-error-lang]:not([hidden]) h1');
+    if (heading?.textContent) {
+      document.title = heading.textContent + ' · 0then0';
+      const content = heading.closest<HTMLElement>('[data-error-description]');
+      const description = content?.dataset.errorDescription ?? heading.textContent;
+      document.querySelector('meta[name="description"]')?.setAttribute('content', description);
+      document.querySelector('meta[property="og:image:alt"]')?.setAttribute('content', content?.dataset.errorImageAlt ?? '');
+      document.querySelector('meta[property="og:title"]')?.setAttribute('content', heading.textContent);
+      document.querySelector('meta[property="og:description"]')?.setAttribute('content', description);
+    }
+    document.querySelector('meta[property="og:locale"]')?.setAttribute('content', lang.replace('-', '_'));
+  </script>}
 </Base>

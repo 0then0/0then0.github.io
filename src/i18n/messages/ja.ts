@@ -175,7 +175,6 @@ export const ja: Messages = {
     forkOf: '{link} のフォーク。',
     viewSource: 'ソースを見る',
     getStartedSource: 'ソースから始める',
-    englishNote: '以下のプロジェクト説明は英語です。',
     lookHeading: '画面',
     openFull: '原寸で開く',
     screenshotOf: '{name} のスクリーンショット',
@@ -224,7 +223,6 @@ export const ja: Messages = {
     verifyText:
       '{file} にはリリースファイルの SHA-256 ハッシュが記載されています。ハッシュが一致すれば、ファイルはリリースで公開されたものと同一です。これはチェックサムであり作者の署名ではないため、誰がビルドしたかは証明しません。',
     checksumCommand: 'チェックサムの確認コマンド',
-    stepsInEnglish: 'インストール手順は英語です。',
   },
   about: {
     title: '概要と方針',
@@ -266,7 +264,7 @@ export const ja: Messages = {
     site: 'このサイトは Astro で作成した静的ページで、GitHub Pages でホストしています。Cookie を使わず、アクセス解析や外部スクリプトも読み込みません。リリース情報は{link}に保存したスナップショットから読み込むため、カタログを見ている間にブラウザーが GitHub API に接続することはありません。',
     siteRepo: 'サイトのリポジトリ',
     languages:
-      'インターフェースは 7 言語に対応しています。製品ページのプロジェクト説明は、プロジェクトとドキュメントの言語である英語で書かれています。',
+      'インターフェースと詳しい製品説明は七つの言語で読めます。コマンド、ファイル名、記録した出力は原文のままです。プロジェクト文書の主な言語は英語です。',
   },
   notFound: {
     title: 'ページが見つかりません',

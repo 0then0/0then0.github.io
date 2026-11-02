@@ -181,7 +181,6 @@ export const en = {
     forkOf: 'Fork of {link}.',
     viewSource: 'View source',
     getStartedSource: 'Get started from source',
-    englishNote: 'The project description below is in English.',
     lookHeading: 'What it looks like',
     openFull: 'Open full size',
     screenshotOf: 'screenshot of {name}',
@@ -230,7 +229,6 @@ export const en = {
     verifyText:
       '{file} lists SHA-256 hashes for the release files. A matching hash shows that your file is identical to the one uploaded with the release. It is a checksum, not a signature from the author: it does not prove who built the file.',
     checksumCommand: 'Checksum command',
-    stepsInEnglish: 'Installation steps are in English.',
   },
   about: {
     title: 'About and principles',
@@ -270,7 +268,7 @@ export const en = {
     site: 'The site is a static page set built with Astro and hosted on GitHub Pages. It sets no cookies and loads no analytics or third-party scripts. Release versions are read from a snapshot stored in the {link}, so your browser does not contact the GitHub API when you browse the catalog.',
     siteRepo: 'site repository',
     languages:
-      'The interface is available in seven languages. Project descriptions on product pages are written in English, the language of the projects and their documentation.',
+      'The interface and full product descriptions are available in seven languages. Commands, file names and recorded output retain their original form; project documentation is primarily in English.',
   },
   notFound: {
     title: 'Page not found',

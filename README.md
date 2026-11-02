@@ -100,20 +100,25 @@ from simplex noise in the vertex shader, so it never visibly loops.
 The interface is available in English, Russian, Spanish, German, French,
 Japanese and Brazilian Portuguese. English pages live at the root
 (`/projects/`), the others under a prefix: `/ru/`, `/es/`, `/de/`, `/fr/`,
-`/ja/`, `/pt-br/`. Every page links its translations with `hreflang`, and the
-sitemap lists them as alternates. The 404 page is English, with links to every
-language's home page, because GitHub Pages serves a single `404.html`.
+`/ja/`, `/pt-br/`. Indexable pages link their translations with `hreflang`, and the sitemap
+lists them as alternates. Error pages are available at `/404.html` and each
+language's prefixed `/404/` route. GitHub Pages still serves one `404.html`
+for missing URLs: it contains all seven translations and selects the URL
+prefix's language in the browser without redirecting or changing the 404 status.
+Without JavaScript, it shows English with links to the translated error pages.
+Error pages have `noindex` and are excluded from the sitemap.
 
 - `src/i18n/messages/<lang>.ts`: interface strings. `en.ts` defines the
   shape; TypeScript rejects a locale with a missing key.
 - `src/i18n/projects/<lang>.ts`: catalog texts of each project (task,
   environment, tagline, button labels, fork and download notes).
-- Product page bodies (description, scenarios, limitations, first-run and
-  installation steps, captions) stay in English, the language of the projects
-  and their documentation. They are marked `lang="en"`, and translated pages
-  say so above them.
+- Product page bodies are translated in each project's `detail` block:
+  descriptions, scenarios, limitations, platform notes, first-run and
+  installation steps, captions and screenshot alt text. Commands, recorded
+  output, file names, download rules and evidence levels stay in the source
+  entry. Terminal examples retain `lang="en"`.
 - `tests/i18n.test.ts` fails when a locale misses a project, a download
-  format label, a placeholder used by the English text, or a plural form the
+  format label, a placeholder used by the English text, a product-description field, or a plural form the
   language needs.
 - `e2e/i18n.spec.ts` opens the main pages in every language on desktop and
   mobile and checks `lang`, accessibility, clipped text and 200% text size.

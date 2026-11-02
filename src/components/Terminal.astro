@@ -7,6 +7,6 @@ interface Props {
 const { command, output, label } = Astro.props;
 ---
 <div class="terminal" role="group" aria-label={label}>
-  {command && <pre class="cmd"><code>{command}</code></pre>}
-  {output && <pre class:list={['out', { only: !command }]}><code>{output}</code></pre>}
+  {command && <pre class="cmd" lang="en"><code>{command}</code></pre>}
+  {output && <pre lang="en" class:list={['out', { only: !command }]}><code>{output}</code></pre>}
 </div>

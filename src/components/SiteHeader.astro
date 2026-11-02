@@ -1,0 +1,62 @@
+---
+import { type Lang, LOCALES, localeInfo, localePath, messages, notFoundPath } from '../i18n/index.ts';
+import Wordmark from './Wordmark.astro';
+
+interface Props {
+  lang: Lang;
+  fallback?: boolean;
+  switchPath: string;
+}
+const { lang, fallback = false, switchPath } = Astro.props;
+const m = messages(lang);
+const home = localePath(lang, '/');
+const current = localeInfo(lang);
+const short = (code: string) => code.split('-')[0]?.toUpperCase() ?? code;
+const nav = [
+  { href: localePath(lang, '/projects/'), label: m.nav.catalog },
+  { href: localePath(lang, '/about/'), label: m.nav.about },
+  { href: 'https://github.com/0then0', label: m.nav.github },
+];
+---
+    <header class="site-header" data-error-lang={fallback ? lang : undefined} hidden={fallback && lang !== 'en'}>
+      <div class="container">
+        <a class="wordmark" href={home} aria-label={m.nav.home}><Wordmark /></a>
+        <div class="header-end">
+          <nav class="site-nav" aria-label={m.nav.main}>
+            <ul>
+              {
+                nav.map((item) => (
+                  <li>
+                    <a href={item.href} aria-current={Astro.url.pathname.startsWith(item.href) ? 'page' : undefined}>
+                      {item.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+          <details class="lang-switch" data-lang-switch>
+            <summary>
+              <span class="visually-hidden">{m.nav.language}: </span>
+              <span lang={lang}>{short(lang)}</span>
+            </summary>
+            <ul>
+              {
+                LOCALES.map((l) => (
+                  <li>
+                    <a
+                      href={switchPath === '/404/' ? notFoundPath(l.code) : localePath(l.code, switchPath)}
+                      hreflang={l.code}
+                      lang={l.code}
+                      aria-current={l.code === current.code ? 'true' : undefined}
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </details>
+        </div>
+      </div>
+    </header>
