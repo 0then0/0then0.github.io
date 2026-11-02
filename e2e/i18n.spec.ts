@@ -74,6 +74,39 @@ for (const locale of LOCALES) {
   });
 }
 
+for (const locale of LOCALES) {
+  test(`mobile header keeps branding and language control together (${locale.code})`, async ({ page }) => {
+    await page.setViewportSize({ width: 393, height: 851 });
+    await page.goto(localePath(locale.code, '/'));
+    const header = page.locator('.site-header:visible');
+    const brand = await header.locator('.wordmark').boundingBox();
+    const picker = await header.locator('summary').boundingBox();
+    const nav = await header.locator('nav').boundingBox();
+    expect(brand).not.toBeNull();
+    expect(picker).not.toBeNull();
+    expect(nav).not.toBeNull();
+    if (!brand || !picker || !nav) return;
+    expect(Math.abs(brand.y + brand.height / 2 - picker.y - picker.height / 2)).toBeLessThanOrEqual(1);
+    expect(nav.y).toBeGreaterThanOrEqual(Math.max(brand.y + brand.height, picker.y + picker.height));
+    for (const link of await header.locator('nav a').all()) {
+      const box = await link.boundingBox();
+      expect(box).not.toBeNull();
+      if (box) {
+        expect(box.x).toBeGreaterThanOrEqual(0);
+        expect(box.x + box.width).toBeLessThanOrEqual(393);
+      }
+    }
+    await header.locator('summary').click();
+    await expect(header.getByRole('link', { name: 'English', exact: true })).toBeVisible();
+    const menu = await header.locator('.lang-switch ul').boundingBox();
+    expect(menu).not.toBeNull();
+    if (menu) {
+      expect(menu.x).toBeGreaterThanOrEqual(0);
+      expect(menu.x + menu.width).toBeLessThanOrEqual(393);
+    }
+  });
+}
+
 test('the language menu keeps the current page', async ({ page }) => {
   await page.goto('/projects/spacemosaic/');
   await page.locator('[data-lang-switch] summary').click();
