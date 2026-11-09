@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "source": "GitHub REST API: GET /repos/{owner}/{repo}/releases",
-  "checkedAt": "2026-11-02T14:21:43.693Z",
+  "checkedAt": "2026-11-09T16:18:08.490Z",
   "repos": {
     "0then0/agentkcal": {
       "repo": "0then0/agentkcal",
@@ -456,27 +456,27 @@
       "repo": "0then0/collationdelta",
       "htmlUrl": "https://github.com/0then0/collationdelta",
       "latestStable": {
-        "tag": "v0.2.0",
-        "name": "v0.2.0",
-        "htmlUrl": "https://github.com/0then0/collationdelta/releases/tag/v0.2.0",
-        "publishedAt": "2026-10-13T16:21:41Z",
+        "tag": "v0.4.0",
+        "name": "v0.4.0",
+        "htmlUrl": "https://github.com/0then0/collationdelta/releases/tag/v0.4.0",
+        "publishedAt": "2026-11-07T19:19:13Z",
         "prerelease": false,
         "assets": [
           {
-            "name": "collationdelta-0.2.0-py3-none-any.whl",
-            "size": 25920,
+            "name": "collationdelta-0.4.0-py3-none-any.whl",
+            "size": 36357,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/collationdelta/releases/download/v0.2.0/collationdelta-0.2.0-py3-none-any.whl",
-            "digest": "sha256:bcb4b5155929ef5e43b59e9a410b57121cfe8af947537a8d27ce326cffdafaed",
-            "updatedAt": "2026-10-13T16:21:42Z"
+            "downloadUrl": "https://github.com/0then0/collationdelta/releases/download/v0.4.0/collationdelta-0.4.0-py3-none-any.whl",
+            "digest": "sha256:0f7bdfdba66739657b0eba570922b46c66c29f690ac77a7c104f11810ec32bf0",
+            "updatedAt": "2026-11-07T19:19:14Z"
           },
           {
-            "name": "collationdelta-0.2.0.tar.gz",
-            "size": 89112,
+            "name": "collationdelta-0.4.0.tar.gz",
+            "size": 201184,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/collationdelta/releases/download/v0.2.0/collationdelta-0.2.0.tar.gz",
-            "digest": "sha256:6f850774ea9a314ecda7804d2ea0560fff020228e32b0321320e2ad34b7cf2a2",
-            "updatedAt": "2026-10-13T16:21:42Z"
+            "downloadUrl": "https://github.com/0then0/collationdelta/releases/download/v0.4.0/collationdelta-0.4.0.tar.gz",
+            "digest": "sha256:c5c6fe34683e2abdb8d56b19dc4d5b421e9f0498d6609dcdcbdc3773b39b1a8f",
+            "updatedAt": "2026-11-07T19:19:14Z"
           }
         ]
       },
@@ -486,10 +486,10 @@
       "repo": "0then0/crondelta",
       "htmlUrl": "https://github.com/0then0/crondelta",
       "latestStable": {
-        "tag": "v0.2.0",
-        "name": "CronDelta v0.2.0",
-        "htmlUrl": "https://github.com/0then0/crondelta/releases/tag/v0.2.0",
-        "publishedAt": "2026-11-01T22:04:53Z",
+        "tag": "v0.3.0",
+        "name": "CronDelta v0.3.0",
+        "htmlUrl": "https://github.com/0then0/crondelta/releases/tag/v0.3.0",
+        "publishedAt": "2026-11-07T20:50:53Z",
         "prerelease": false,
         "assets": []
       },
@@ -499,27 +499,27 @@
       "repo": "0then0/cursorproof",
       "htmlUrl": "https://github.com/0then0/cursorproof",
       "latestStable": {
-        "tag": "v0.2.1",
-        "name": "v0.2.1",
-        "htmlUrl": "https://github.com/0then0/cursorproof/releases/tag/v0.2.1",
-        "publishedAt": "2026-11-02T11:51:26Z",
+        "tag": "v0.3.0",
+        "name": "v0.3.0",
+        "htmlUrl": "https://github.com/0then0/cursorproof/releases/tag/v0.3.0",
+        "publishedAt": "2026-11-07T17:01:54Z",
         "prerelease": false,
         "assets": [
           {
-            "name": "cursorproof-0.2.1-py3-none-any.whl",
-            "size": 36157,
+            "name": "cursorproof-0.3.0-py3-none-any.whl",
+            "size": 38104,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/cursorproof/releases/download/v0.2.1/cursorproof-0.2.1-py3-none-any.whl",
-            "digest": "sha256:8b80c7b0e4e2f19c73687a98c444916cb488bf0818b5c4a8ada125757e2ffdf4",
-            "updatedAt": "2026-11-02T11:51:26Z"
+            "downloadUrl": "https://github.com/0then0/cursorproof/releases/download/v0.3.0/cursorproof-0.3.0-py3-none-any.whl",
+            "digest": "sha256:1fe7ad508a3f4e769876b8493a400c01f5b2f022792963a908802cc70fd0d4e9",
+            "updatedAt": "2026-11-07T17:01:53Z"
           },
           {
-            "name": "cursorproof-0.2.1.tar.gz",
-            "size": 118955,
+            "name": "cursorproof-0.3.0.tar.gz",
+            "size": 135848,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/cursorproof/releases/download/v0.2.1/cursorproof-0.2.1.tar.gz",
-            "digest": "sha256:1e09283e52b4e3b3c4b1715850d96d43fabd47a979eceda0a7c7d674de4cdc25",
-            "updatedAt": "2026-11-02T11:51:26Z"
+            "downloadUrl": "https://github.com/0then0/cursorproof/releases/download/v0.3.0/cursorproof-0.3.0.tar.gz",
+            "digest": "sha256:123b3209ef869464df45e1751ba6a0ae612e7c70497ef8bec041a640c99ed3b4",
+            "updatedAt": "2026-11-07T17:01:53Z"
           }
         ]
       },
@@ -654,69 +654,12 @@
       "repo": "0then0/idbshift",
       "htmlUrl": "https://github.com/0then0/idbshift",
       "latestStable": {
-        "tag": "v0.2.0",
-        "name": "IDBShift v0.2.0",
-        "htmlUrl": "https://github.com/0then0/idbshift/releases/tag/v0.2.0",
-        "publishedAt": "2026-11-02T10:45:23Z",
+        "tag": "v0.3.0",
+        "name": "IDBShift v0.3.0",
+        "htmlUrl": "https://github.com/0then0/idbshift/releases/tag/v0.3.0",
+        "publishedAt": "2026-11-07T17:35:04Z",
         "prerelease": false,
-        "assets": [
-          {
-            "name": "concurrent-report.html",
-            "size": 88445,
-            "contentType": "text/html; charset=utf-8",
-            "downloadUrl": "https://github.com/0then0/idbshift/releases/download/v0.2.0/concurrent-report.html",
-            "digest": "sha256:b760b61ac944bbe7cc042171f0344ff45de9e716f844e5202ff4646256f0f4fa",
-            "updatedAt": "2026-11-02T10:45:31Z"
-          },
-          {
-            "name": "concurrent-report.json",
-            "size": 35423,
-            "contentType": "application/json",
-            "downloadUrl": "https://github.com/0then0/idbshift/releases/download/v0.2.0/concurrent-report.json",
-            "digest": "sha256:034ce54e6f31f2b3d57e1c506e7773c4507dd7dde48953c5c62f3d365d3b95d2",
-            "updatedAt": "2026-11-02T10:45:31Z"
-          },
-          {
-            "name": "concurrent-report.txt",
-            "size": 2257,
-            "contentType": "text/plain; charset=utf-8",
-            "downloadUrl": "https://github.com/0then0/idbshift/releases/download/v0.2.0/concurrent-report.txt",
-            "digest": "sha256:a30ee1a877c5aaf6dbc313d340af5cea643c9f8ea0a06a965b063a870f71b60f",
-            "updatedAt": "2026-11-02T10:45:31Z"
-          },
-          {
-            "name": "report.html",
-            "size": 63725,
-            "contentType": "text/html; charset=utf-8",
-            "downloadUrl": "https://github.com/0then0/idbshift/releases/download/v0.2.0/report.html",
-            "digest": "sha256:72197b26c653e94bd21001a39a63057c082c30d349cd7652debbc874da7434d8",
-            "updatedAt": "2026-11-02T10:45:22Z"
-          },
-          {
-            "name": "report.json",
-            "size": 25137,
-            "contentType": "application/json",
-            "downloadUrl": "https://github.com/0then0/idbshift/releases/download/v0.2.0/report.json",
-            "digest": "sha256:541e528aaca4e554ac29dcacd81beec459281beda805814f6c3bdab7633ff0ba",
-            "updatedAt": "2026-11-02T10:45:22Z"
-          },
-          {
-            "name": "report.txt",
-            "size": 457,
-            "contentType": "text/plain; charset=utf-8",
-            "downloadUrl": "https://github.com/0then0/idbshift/releases/download/v0.2.0/report.txt",
-            "digest": "sha256:7912896230665325990a3ae79d8e4f8d7160823890f458ffe37bf7d0a2ee5f2f",
-            "updatedAt": "2026-11-02T10:45:22Z"
-          },
-          {
-            "name": "sources.sha256",
-            "size": 5016,
-            "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/idbshift/releases/download/v0.2.0/sources.sha256",
-            "digest": "sha256:103d272dfa67929af72c071e087eaa55d225afcd4f02dd4cff9960b0bf5ad291",
-            "updatedAt": "2026-11-02T10:45:22Z"
-          }
-        ]
+        "assets": []
       },
       "newerPrereleases": 0
     },
@@ -834,27 +777,27 @@
       "repo": "0then0/lockcone",
       "htmlUrl": "https://github.com/0then0/lockcone",
       "latestStable": {
-        "tag": "v0.3.0",
-        "name": "LockCone v0.3.0",
-        "htmlUrl": "https://github.com/0then0/lockcone/releases/tag/v0.3.0",
-        "publishedAt": "2026-11-02T13:15:14Z",
+        "tag": "v0.4.0",
+        "name": "LockCone v0.4.0",
+        "htmlUrl": "https://github.com/0then0/lockcone/releases/tag/v0.4.0",
+        "publishedAt": "2026-11-07T12:38:42Z",
         "prerelease": false,
         "assets": [
           {
-            "name": "lockcone-0.3.0.tgz",
-            "size": 94993,
+            "name": "lockcone-0.4.0.tgz",
+            "size": 129536,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/lockcone/releases/download/v0.3.0/lockcone-0.3.0.tgz",
-            "digest": "sha256:1ee3c30b896b2649beb07deefc556e7cddade9be2d6f44f224d66458a1060e9f",
-            "updatedAt": "2026-11-02T13:15:13Z"
+            "downloadUrl": "https://github.com/0then0/lockcone/releases/download/v0.4.0/lockcone-0.4.0.tgz",
+            "digest": "sha256:964eb52207dd73a8e36a3f7154074ed2b0faaec00c9aef528f718be5058e1241",
+            "updatedAt": "2026-11-07T12:38:42Z"
           },
           {
             "name": "SHA256SUMS",
             "size": 85,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/lockcone/releases/download/v0.3.0/SHA256SUMS",
-            "digest": "sha256:5e253cad5ca78a4a2f0b19a5b18ffe7fd2dfbce33f840c2114134f70620d80e7",
-            "updatedAt": "2026-11-02T13:15:13Z"
+            "downloadUrl": "https://github.com/0then0/lockcone/releases/download/v0.4.0/SHA256SUMS",
+            "digest": "sha256:514b59441ee9073970c1625ae18d04998ff8720567b1c290abbb4a35c0c9fa19",
+            "updatedAt": "2026-11-07T12:38:42Z"
           }
         ]
       },
@@ -864,27 +807,27 @@
       "repo": "0then0/margincarry",
       "htmlUrl": "https://github.com/0then0/margincarry",
       "latestStable": {
-        "tag": "v0.2.0",
-        "name": "MarginCarry v0.2.0",
-        "htmlUrl": "https://github.com/0then0/margincarry/releases/tag/v0.2.0",
-        "publishedAt": "2026-10-31T00:01:50Z",
+        "tag": "v0.3.0",
+        "name": "MarginCarry v0.3.0",
+        "htmlUrl": "https://github.com/0then0/margincarry/releases/tag/v0.3.0",
+        "publishedAt": "2026-11-06T21:47:18Z",
         "prerelease": false,
         "assets": [
           {
-            "name": "margincarry-0.2.0.xpi",
-            "size": 45406,
+            "name": "margincarry-0.3.0.xpi",
+            "size": 52475,
             "contentType": "application/x-xpinstall",
-            "downloadUrl": "https://github.com/0then0/margincarry/releases/download/v0.2.0/margincarry-0.2.0.xpi",
-            "digest": "sha256:be3becf91962354e4b05c0da20d807c6ae198fde9e910901ecaf654d55e3b633",
-            "updatedAt": "2026-10-31T00:01:49Z"
+            "downloadUrl": "https://github.com/0then0/margincarry/releases/download/v0.3.0/margincarry-0.3.0.xpi",
+            "digest": "sha256:5993b17de7d0377c5f55005017799ca77dd868e8d5b952c4f39e50ada18ff305",
+            "updatedAt": "2026-11-06T21:47:18Z"
           },
           {
-            "name": "margincarry-0.2.0.xpi.sha256",
+            "name": "margincarry-0.3.0.xpi.sha256",
             "size": 88,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/margincarry/releases/download/v0.2.0/margincarry-0.2.0.xpi.sha256",
-            "digest": "sha256:a498581aea9d742134116ecd42dcb4a775efdbe0ba199c90158369fdcce4670f",
-            "updatedAt": "2026-10-31T00:01:49Z"
+            "downloadUrl": "https://github.com/0then0/margincarry/releases/download/v0.3.0/margincarry-0.3.0.xpi.sha256",
+            "digest": "sha256:118383c40c06330066910be35564068a6a00a8c2178cea7bd5564ce3859f7afb",
+            "updatedAt": "2026-11-06T21:47:18Z"
           }
         ]
       },
@@ -894,27 +837,27 @@
       "repo": "0then0/overflowlens",
       "htmlUrl": "https://github.com/0then0/overflowlens",
       "latestStable": {
-        "tag": "v0.2.1",
-        "name": "OverflowLens v0.2.1",
-        "htmlUrl": "https://github.com/0then0/overflowlens/releases/tag/v0.2.1",
-        "publishedAt": "2026-11-02T14:06:00Z",
+        "tag": "v0.5.0",
+        "name": "OverflowLens v0.5.0",
+        "htmlUrl": "https://github.com/0then0/overflowlens/releases/tag/v0.5.0",
+        "publishedAt": "2026-11-08T09:24:45Z",
         "prerelease": false,
         "assets": [
           {
-            "name": "overflowlens-0.2.1.zip",
-            "size": 98637,
+            "name": "overflowlens-0.5.0.zip",
+            "size": 116165,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/overflowlens/releases/download/v0.2.1/overflowlens-0.2.1.zip",
-            "digest": "sha256:1e882fd4c0fde91986525f0b856af33932b197cee7257fc0a26b0165931c0d91",
-            "updatedAt": "2026-11-02T14:05:59Z"
+            "downloadUrl": "https://github.com/0then0/overflowlens/releases/download/v0.5.0/overflowlens-0.5.0.zip",
+            "digest": "sha256:59f392925304eaca50d861bed54a77183516b5a51064b1f856fd82485c0eaa6c",
+            "updatedAt": "2026-11-08T09:24:44Z"
           },
           {
             "name": "SHA256SUMS.txt",
             "size": 89,
             "contentType": "text/plain; charset=utf-8",
-            "downloadUrl": "https://github.com/0then0/overflowlens/releases/download/v0.2.1/SHA256SUMS.txt",
-            "digest": "sha256:b75189a2bb7d72cc292aa7a1699ce40495547f9e75f45eb969a2bddb157adb32",
-            "updatedAt": "2026-11-02T14:05:59Z"
+            "downloadUrl": "https://github.com/0then0/overflowlens/releases/download/v0.5.0/SHA256SUMS.txt",
+            "digest": "sha256:258a0b1909ddfea4ae24c7bba1ee80a0cd6a649a1991d8d2f99f9918f7d32853",
+            "updatedAt": "2026-11-08T09:24:44Z"
           }
         ]
       },
@@ -924,35 +867,27 @@
       "repo": "0then0/parquetscope",
       "htmlUrl": "https://github.com/0then0/parquetscope",
       "latestStable": {
-        "tag": "v0.2.0",
-        "name": "ParquetScope 0.2.0",
-        "htmlUrl": "https://github.com/0then0/parquetscope/releases/tag/v0.2.0",
-        "publishedAt": "2026-11-01T21:05:13Z",
+        "tag": "v0.3.0",
+        "name": "v0.3.0",
+        "htmlUrl": "https://github.com/0then0/parquetscope/releases/tag/v0.3.0",
+        "publishedAt": "2026-11-07T10:15:30Z",
         "prerelease": false,
         "assets": [
           {
-            "name": "parquetscope-0.2.0-py3-none-any.whl",
-            "size": 299077,
+            "name": "parquetscope-0.3.0-py3-none-any.whl",
+            "size": 308855,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/parquetscope/releases/download/v0.2.0/parquetscope-0.2.0-py3-none-any.whl",
-            "digest": "sha256:44ba2de1eae06de5dd7839c58ae81328c33ba6b6748f6f4bf7f870c6a5e6fe20",
-            "updatedAt": "2026-11-01T21:05:12Z"
+            "downloadUrl": "https://github.com/0then0/parquetscope/releases/download/v0.3.0/parquetscope-0.3.0-py3-none-any.whl",
+            "digest": "sha256:4a7e6d5ef4c2e2f1c1c4ffac955609fd0bbff4b562a1ebee4a1c47cdd0fabfcf",
+            "updatedAt": "2026-11-07T10:15:29Z"
           },
           {
-            "name": "parquetscope-0.2.0.tar.gz",
-            "size": 3566237,
+            "name": "parquetscope-0.3.0.tar.gz",
+            "size": 6352484,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/parquetscope/releases/download/v0.2.0/parquetscope-0.2.0.tar.gz",
-            "digest": "sha256:1cb849cc6e35c1ec1ff6fd4932958755ba509586acb8452bd2dd60a4ccfd5245",
-            "updatedAt": "2026-11-01T21:05:12Z"
-          },
-          {
-            "name": "SHA256SUMS.txt",
-            "size": 194,
-            "contentType": "text/plain; charset=utf-8",
-            "downloadUrl": "https://github.com/0then0/parquetscope/releases/download/v0.2.0/SHA256SUMS.txt",
-            "digest": "sha256:2825f7e8cedc337f8ff0849b29d089ad049b2b2ff90f99fc1046c6bb2f9394aa",
-            "updatedAt": "2026-11-01T21:05:12Z"
+            "downloadUrl": "https://github.com/0then0/parquetscope/releases/download/v0.3.0/parquetscope-0.3.0.tar.gz",
+            "digest": "sha256:6e41ceb7ed403daf06612abe6b1721b270fd920fd8d72600b4b5d60631bf4d5d",
+            "updatedAt": "2026-11-07T10:15:30Z"
           }
         ]
       },
@@ -962,83 +897,83 @@
       "repo": "0then0/printwitness",
       "htmlUrl": "https://github.com/0then0/printwitness",
       "latestStable": {
-        "tag": "v0.1.2",
-        "name": "PrintWitness v0.1.2",
-        "htmlUrl": "https://github.com/0then0/printwitness/releases/tag/v0.1.2",
-        "publishedAt": "2026-10-31T12:01:55Z",
+        "tag": "v0.2.0",
+        "name": "PrintWitness v0.2.0",
+        "htmlUrl": "https://github.com/0then0/printwitness/releases/tag/v0.2.0",
+        "publishedAt": "2026-11-08T08:54:29Z",
         "prerelease": false,
         "assets": [
           {
-            "name": "PrintWitness-0.1.2-darwin-arm64.dmg",
-            "size": 188529271,
+            "name": "PrintWitness-0.2.0-darwin-arm64.dmg",
+            "size": 187572216,
             "contentType": "application/x-apple-diskimage",
-            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.1.2/PrintWitness-0.1.2-darwin-arm64.dmg",
-            "digest": "sha256:3536fb54b220e16eda09ccbcff7cfec03df3ad3aee860dd7141a278dbeb14e0b",
-            "updatedAt": "2026-10-31T12:01:14Z"
+            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.2.0/PrintWitness-0.2.0-darwin-arm64.dmg",
+            "digest": "sha256:ae7a2a0113d0752249b16d2eb63e8ec984ffd56b3799310cf0f165d834484414",
+            "updatedAt": "2026-11-08T08:54:10Z"
           },
           {
-            "name": "PrintWitness-0.1.2-darwin-arm64.zip",
-            "size": 166209823,
+            "name": "PrintWitness-0.2.0-darwin-arm64.zip",
+            "size": 166229161,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.1.2/PrintWitness-0.1.2-darwin-arm64.zip",
-            "digest": "sha256:013cfe1cd54f86d870e5befe5e31e44946b836952bf0b12e5d4919b6cef5c25d",
-            "updatedAt": "2026-10-31T12:01:14Z"
+            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.2.0/PrintWitness-0.2.0-darwin-arm64.zip",
+            "digest": "sha256:24aafec0f6231442c76d0a633527120d2c2bc514e132eb0fe87c9bc85fabe777",
+            "updatedAt": "2026-11-08T08:54:08Z"
           },
           {
-            "name": "PrintWitness-0.1.2-darwin-x64.dmg",
-            "size": 197467397,
+            "name": "PrintWitness-0.2.0-darwin-x64.dmg",
+            "size": 197468274,
             "contentType": "application/x-apple-diskimage",
-            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.1.2/PrintWitness-0.1.2-darwin-x64.dmg",
-            "digest": "sha256:f2f9b078a09afa00b0396ebcf1ccd52f1fde1a293b5a7fc75f12e8adc1aac20c",
-            "updatedAt": "2026-10-31T12:01:16Z"
+            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.2.0/PrintWitness-0.2.0-darwin-x64.dmg",
+            "digest": "sha256:ad83e7889b8af01d1b9d61661f2c472e7c6aec5bd971e14b03ccfd3355c576b2",
+            "updatedAt": "2026-11-08T08:54:13Z"
           },
           {
-            "name": "PrintWitness-0.1.2-darwin-x64.zip",
-            "size": 173062581,
+            "name": "PrintWitness-0.2.0-darwin-x64.zip",
+            "size": 173081918,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.1.2/PrintWitness-0.1.2-darwin-x64.zip",
-            "digest": "sha256:b7fcc21c8516535fc39b0f02f01cbf75b86660139bce80b84f2315b315ffc3ca",
-            "updatedAt": "2026-10-31T12:01:14Z"
+            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.2.0/PrintWitness-0.2.0-darwin-x64.zip",
+            "digest": "sha256:759b902566a8fabfe757f301e4d14b3e30925849330623eaf43b14632b72d3a8",
+            "updatedAt": "2026-11-08T08:54:08Z"
           },
           {
-            "name": "PrintWitness-0.1.2-linux-x64.deb",
-            "size": 143416644,
+            "name": "PrintWitness-0.2.0-linux-x64.deb",
+            "size": 143466526,
             "contentType": "application/x-debian-package",
-            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.1.2/PrintWitness-0.1.2-linux-x64.deb",
-            "digest": "sha256:fa541224939003807e41a5d84f021e0ec4586bfb6b7afddf3a53fe2c88b75432",
-            "updatedAt": "2026-10-31T12:01:11Z"
+            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.2.0/PrintWitness-0.2.0-linux-x64.deb",
+            "digest": "sha256:78dee521828471ea19e69c0807dbc083ee30a79ad4581d6cc198bad2f31732c5",
+            "updatedAt": "2026-11-08T08:54:03Z"
           },
           {
-            "name": "PrintWitness-0.1.2-linux-x64.tar.gz",
-            "size": 190529712,
+            "name": "PrintWitness-0.2.0-linux-x64.tar.gz",
+            "size": 190534019,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.1.2/PrintWitness-0.1.2-linux-x64.tar.gz",
-            "digest": "sha256:71875ce3a095a0d1d49f6b81f2c99dd673fca3589e7914d4db74c3eaf570d5c9",
-            "updatedAt": "2026-10-31T12:01:24Z"
+            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.2.0/PrintWitness-0.2.0-linux-x64.tar.gz",
+            "digest": "sha256:a9e1af77f86fadcfddf687a751acc6aed6596c54d42c8eed9eb6e426453ed469",
+            "updatedAt": "2026-11-08T08:54:20Z"
           },
           {
-            "name": "PrintWitness-0.1.2-win32-x64-setup.exe",
-            "size": 132029772,
+            "name": "PrintWitness-0.2.0-win32-x64-setup.exe",
+            "size": 132081301,
             "contentType": "application/x-msdownload",
-            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.1.2/PrintWitness-0.1.2-win32-x64-setup.exe",
-            "digest": "sha256:fb1fb5433f404fa38861ff305c73b79034696c5209f2b91e68a786a3199eb014",
-            "updatedAt": "2026-10-31T12:01:26Z"
+            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.2.0/PrintWitness-0.2.0-win32-x64-setup.exe",
+            "digest": "sha256:de7be38e6a0d54d4c27e7c05b55a7d602bc5373fe68293289e4d4b915d3bc19e",
+            "updatedAt": "2026-11-08T08:54:24Z"
           },
           {
-            "name": "PrintWitness-0.1.2-win32-x64.zip",
-            "size": 191126827,
+            "name": "PrintWitness-0.2.0-win32-x64.zip",
+            "size": 191135004,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.1.2/PrintWitness-0.1.2-win32-x64.zip",
-            "digest": "sha256:a5be52de9a4f1508ac1f4d8252e281a4cdcf5a54a8365f35c64d8d2dacdde224",
-            "updatedAt": "2026-10-31T12:01:29Z"
+            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.2.0/PrintWitness-0.2.0-win32-x64.zip",
+            "digest": "sha256:b77ddb2691dd147e61fe283d01d7a3530f109d7d515af8822fd6f9a111c21f6b",
+            "updatedAt": "2026-11-08T08:54:27Z"
           },
           {
             "name": "SHA256SUMS.txt",
             "size": 809,
             "contentType": "text/plain; charset=utf-8",
-            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.1.2/SHA256SUMS.txt",
-            "digest": "sha256:a2a41d78080b478e4891c5e8566ccab5330920b05c82753f4a4fea60f4392448",
-            "updatedAt": "2026-10-31T12:01:15Z"
+            "downloadUrl": "https://github.com/0then0/printwitness/releases/download/v0.2.0/SHA256SUMS.txt",
+            "digest": "sha256:ae9dc64fafa0df2860a200aaf0e1943500e07d4f9046e1c3ee1fa7fb98c331fd",
+            "updatedAt": "2026-11-08T08:54:12Z"
           }
         ]
       },
@@ -1048,43 +983,75 @@
       "repo": "0then0/protocarry",
       "htmlUrl": "https://github.com/0then0/protocarry",
       "latestStable": {
-        "tag": "v0.1.1",
-        "name": "ProtoCarry v0.1.1",
-        "htmlUrl": "https://github.com/0then0/protocarry/releases/tag/v0.1.1",
-        "publishedAt": "2026-10-05T16:52:20Z",
+        "tag": "v0.1.3",
+        "name": "ProtoCarry v0.1.3",
+        "htmlUrl": "https://github.com/0then0/protocarry/releases/tag/v0.1.3",
+        "publishedAt": "2026-11-08T07:47:23Z",
         "prerelease": false,
         "assets": [
           {
-            "name": "protocarry_0.1.1_darwin_arm64.tar.gz",
-            "size": 1895345,
+            "name": "protocarry_0.1.3_darwin_amd64.tar.gz",
+            "size": 2063062,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/protocarry/releases/download/v0.1.1/protocarry_0.1.1_darwin_arm64.tar.gz",
-            "digest": "sha256:f0c356c6dc21e00d3a05cea30adf67fd305a24b5da7b6fd813b2a8ef1782d256",
-            "updatedAt": "2026-10-05T16:52:19Z"
+            "downloadUrl": "https://github.com/0then0/protocarry/releases/download/v0.1.3/protocarry_0.1.3_darwin_amd64.tar.gz",
+            "digest": "sha256:375ca3213cb2e4ad7b0127a5eb057715dd6578e1ab6d078f270b95280e251f84",
+            "updatedAt": "2026-11-08T07:47:22Z"
           },
           {
-            "name": "protocarry_0.1.1_darwin_arm64.tar.gz.sha256",
+            "name": "protocarry_0.1.3_darwin_amd64.tar.gz.sha256",
             "size": 103,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/protocarry/releases/download/v0.1.1/protocarry_0.1.1_darwin_arm64.tar.gz.sha256",
-            "digest": "sha256:29ad0ef757d6c02864cf798703be324ca4d2ffeb905eb3f2ccaee184250b9ae6",
-            "updatedAt": "2026-10-05T16:52:19Z"
+            "downloadUrl": "https://github.com/0then0/protocarry/releases/download/v0.1.3/protocarry_0.1.3_darwin_amd64.tar.gz.sha256",
+            "digest": "sha256:514a26114fe9c7e2d428bcbf4c6020125f330e08b17b97c8ea19cc1616180562",
+            "updatedAt": "2026-11-08T07:47:22Z"
           },
           {
-            "name": "protocarry_0.1.1_linux_arm64.tar.gz",
-            "size": 1858646,
+            "name": "protocarry_0.1.3_darwin_arm64.tar.gz",
+            "size": 1895829,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/protocarry/releases/download/v0.1.1/protocarry_0.1.1_linux_arm64.tar.gz",
-            "digest": "sha256:d2f2a8c89f42d59d1a0fb4cb7289d7897d590431065e8dc5efec55bcc6eb597c",
-            "updatedAt": "2026-10-05T16:52:19Z"
+            "downloadUrl": "https://github.com/0then0/protocarry/releases/download/v0.1.3/protocarry_0.1.3_darwin_arm64.tar.gz",
+            "digest": "sha256:394f7d01ab1cc325dcbdb22f0473d3ff227e9cf7cc39137ee09921e33e3a11df",
+            "updatedAt": "2026-11-08T07:47:22Z"
           },
           {
-            "name": "protocarry_0.1.1_linux_arm64.tar.gz.sha256",
+            "name": "protocarry_0.1.3_darwin_arm64.tar.gz.sha256",
+            "size": 103,
+            "contentType": "application/octet-stream",
+            "downloadUrl": "https://github.com/0then0/protocarry/releases/download/v0.1.3/protocarry_0.1.3_darwin_arm64.tar.gz.sha256",
+            "digest": "sha256:6d73663e6d1eacae6888eaebba7aa6f4ec22b05683ca72084f7bd73f7bffe899",
+            "updatedAt": "2026-11-08T07:47:22Z"
+          },
+          {
+            "name": "protocarry_0.1.3_linux_amd64.tar.gz",
+            "size": 2068723,
+            "contentType": "application/x-gtar",
+            "downloadUrl": "https://github.com/0then0/protocarry/releases/download/v0.1.3/protocarry_0.1.3_linux_amd64.tar.gz",
+            "digest": "sha256:720579532c1a16fb6661514c932df6bb7b1f7d72dd290df96a19a951677414c6",
+            "updatedAt": "2026-11-08T07:47:23Z"
+          },
+          {
+            "name": "protocarry_0.1.3_linux_amd64.tar.gz.sha256",
             "size": 102,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/protocarry/releases/download/v0.1.1/protocarry_0.1.1_linux_arm64.tar.gz.sha256",
-            "digest": "sha256:4392e3c0cf8dea9268e10b32804a3abe9d8b7e7ac1b61c7e8112748a98654ed9",
-            "updatedAt": "2026-10-05T16:52:19Z"
+            "downloadUrl": "https://github.com/0then0/protocarry/releases/download/v0.1.3/protocarry_0.1.3_linux_amd64.tar.gz.sha256",
+            "digest": "sha256:d9046955448fd27fc0592bedecbcc83f77941101b38586ca6e93a4aefe8036d6",
+            "updatedAt": "2026-11-08T07:47:22Z"
+          },
+          {
+            "name": "protocarry_0.1.3_linux_arm64.tar.gz",
+            "size": 1859132,
+            "contentType": "application/x-gtar",
+            "downloadUrl": "https://github.com/0then0/protocarry/releases/download/v0.1.3/protocarry_0.1.3_linux_arm64.tar.gz",
+            "digest": "sha256:a0fe29ff0d450fab180d4d13ccf0f24ef086f599e588e1553976841ce8323e3a",
+            "updatedAt": "2026-11-08T07:47:22Z"
+          },
+          {
+            "name": "protocarry_0.1.3_linux_arm64.tar.gz.sha256",
+            "size": 102,
+            "contentType": "application/octet-stream",
+            "downloadUrl": "https://github.com/0then0/protocarry/releases/download/v0.1.3/protocarry_0.1.3_linux_arm64.tar.gz.sha256",
+            "digest": "sha256:a6bd205bc9cf113274031ab96fa3b043f62c1b9a8e8e94a85ab4257cc0311088",
+            "updatedAt": "2026-11-08T07:47:22Z"
           }
         ]
       },
@@ -1124,115 +1091,115 @@
       "repo": "0then0/spacemosaic",
       "htmlUrl": "https://github.com/0then0/spacemosaic",
       "latestStable": {
-        "tag": "v0.2.0",
-        "name": "SpaceMosaic v0.2.0",
-        "htmlUrl": "https://github.com/0then0/spacemosaic/releases/tag/v0.2.0",
-        "publishedAt": "2026-11-01T19:07:14Z",
+        "tag": "v0.3.3",
+        "name": "SpaceMosaic v0.3.3",
+        "htmlUrl": "https://github.com/0then0/spacemosaic/releases/tag/v0.3.3",
+        "publishedAt": "2026-11-07T14:56:20Z",
         "prerelease": false,
         "assets": [
           {
             "name": "android-release-metadata.json",
-            "size": 261,
+            "size": 262,
             "contentType": "application/json",
-            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.2.0/android-release-metadata.json",
-            "digest": "sha256:c4271c29af20a7085a2f7e75c207341b515a4a4d20d13b5470628a6b44c93212",
-            "updatedAt": "2026-11-01T19:07:05Z"
+            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.3.3/android-release-metadata.json",
+            "digest": "sha256:acd151fff95c750e2e637cf2ded9865200d3220bf1a3c7d38724b79631aee745",
+            "updatedAt": "2026-11-07T14:56:10Z"
           },
           {
             "name": "SHA256SUMS",
             "size": 1132,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.2.0/SHA256SUMS",
-            "digest": "sha256:2def45bb49849ef21d4062a492ca1807a96f742d251f47a4649d55ca49522872",
-            "updatedAt": "2026-11-01T19:07:05Z"
+            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.3.3/SHA256SUMS",
+            "digest": "sha256:148c1dbbc34e606fa87e90de9df4bc8d782fb41bdc9080de96267f8aa7fa6391",
+            "updatedAt": "2026-11-07T14:56:10Z"
           },
           {
             "name": "spacemosaic-darwin-arm64.dmg",
-            "size": 11452720,
+            "size": 11548670,
             "contentType": "application/x-apple-diskimage",
-            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.2.0/spacemosaic-darwin-arm64.dmg",
-            "digest": "sha256:4c090acf8cddd62231ffad186fc270b65c507d686344abbfa7ee636509bff95a",
-            "updatedAt": "2026-11-01T19:07:07Z"
+            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.3.3/spacemosaic-darwin-arm64.dmg",
+            "digest": "sha256:83b25a4d4c4b942243ddf6996789409a186a15f033a322dd794932c924264e5d",
+            "updatedAt": "2026-11-07T14:56:13Z"
           },
           {
             "name": "spacemosaic-darwin-arm64.zip",
-            "size": 9737763,
+            "size": 9825832,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.2.0/spacemosaic-darwin-arm64.zip",
-            "digest": "sha256:26e1783b47b0f158bfcf987f2743511bd49bbc0673d5b396d773e603710e84b4",
-            "updatedAt": "2026-11-01T19:07:07Z"
+            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.3.3/spacemosaic-darwin-arm64.zip",
+            "digest": "sha256:caec85cc51ff4aa2efd965f723bef3878efcc23b20c442f13f34bf75c2e0c1e9",
+            "updatedAt": "2026-11-07T14:56:13Z"
           },
           {
             "name": "spacemosaic-device.zip",
-            "size": 10976854,
+            "size": 11098031,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.2.0/spacemosaic-device.zip",
-            "digest": "sha256:dfb436c9e5e8d466a464edf95e8b5d6bbf498e380644aa8e298241d258be23d8",
-            "updatedAt": "2026-11-01T19:07:07Z"
+            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.3.3/spacemosaic-device.zip",
+            "digest": "sha256:38289304887314fa604ffc0789ddf285f1a4cd9ecb369d2bc973131692ab3eab",
+            "updatedAt": "2026-11-07T14:56:13Z"
           },
           {
             "name": "spacemosaic-linux-x86_64.deb",
-            "size": 9632216,
+            "size": 9705680,
             "contentType": "application/x-debian-package",
-            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.2.0/spacemosaic-linux-x86_64.deb",
-            "digest": "sha256:40827288b53d3ad80dadd926aae073aa7b124fac18b8b999af063cbcf2012103",
-            "updatedAt": "2026-11-01T19:07:07Z"
+            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.3.3/spacemosaic-linux-x86_64.deb",
+            "digest": "sha256:e00f1bd5da260295d6a7c868cb16c0a029c7b34b780627037101affa3413fca9",
+            "updatedAt": "2026-11-07T14:56:13Z"
           },
           {
             "name": "spacemosaic-linux-x86_64.tar.gz",
-            "size": 11946519,
+            "size": 12047369,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.2.0/spacemosaic-linux-x86_64.tar.gz",
-            "digest": "sha256:13ef5e410774f25b5a69078f513a30bb474e0af4025f3d0d146fa5acb0632ed8",
-            "updatedAt": "2026-11-01T19:07:07Z"
+            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.3.3/spacemosaic-linux-x86_64.tar.gz",
+            "digest": "sha256:7c3f4e5515a80566d6e0384bc7a04b6dcc8da9f7a9d8770203e93cbdba3cc74d",
+            "updatedAt": "2026-11-07T14:56:13Z"
           },
           {
             "name": "spacemosaic-linux-x86_64.zip",
-            "size": 11995426,
+            "size": 12094532,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.2.0/spacemosaic-linux-x86_64.zip",
-            "digest": "sha256:3376651b894e52f186232011c830414de1594fc1af1cb7438116b243ca146ac3",
-            "updatedAt": "2026-11-01T19:07:09Z"
+            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.3.3/spacemosaic-linux-x86_64.zip",
+            "digest": "sha256:9103664ce37770a747da6e42b5612c57768ccbfb23630938968d4e01ef6718ac",
+            "updatedAt": "2026-11-07T14:56:15Z"
           },
           {
             "name": "spacemosaic-release.apk",
-            "size": 44023742,
+            "size": 44459150,
             "contentType": "application/vnd.android.package-archive",
-            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.2.0/spacemosaic-release.apk",
-            "digest": "sha256:f858e3455905158455906d14f272ddfca98a6158a6df762b7fe65ee21f77232c",
-            "updatedAt": "2026-11-01T19:07:13Z"
+            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.3.3/spacemosaic-release.apk",
+            "digest": "sha256:d23985f35492118cc837279dc85fdb5411060539d5c0431f222ede3477c3124b",
+            "updatedAt": "2026-11-07T14:56:19Z"
           },
           {
             "name": "spacemosaic-simulator.zip",
-            "size": 11127266,
+            "size": 11248212,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.2.0/spacemosaic-simulator.zip",
-            "digest": "sha256:96ac98701173161aad1af54be8ec8a0c0d3f0902e86df4de079a81116194a602",
-            "updatedAt": "2026-11-01T19:07:10Z"
+            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.3.3/spacemosaic-simulator.zip",
+            "digest": "sha256:0caed5b8925193898a2fd9633bad59a555ca14585264c0d9eb67ff01571441a2",
+            "updatedAt": "2026-11-07T14:56:16Z"
           },
           {
             "name": "spacemosaic-source.zip",
-            "size": 6713447,
+            "size": 6784924,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.2.0/spacemosaic-source.zip",
-            "digest": "sha256:a46772495dcd54ee311f8ad984390cc3713901334b08b0aa11a0500ef85e32fb",
-            "updatedAt": "2026-11-01T19:07:09Z"
+            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.3.3/spacemosaic-source.zip",
+            "digest": "sha256:460e0fcdf5c80f80550ed6bbf3509cec27d8add9f9a48fd271558ffc27b8b925",
+            "updatedAt": "2026-11-07T14:56:16Z"
           },
           {
             "name": "spacemosaic-windows-amd64-setup.exe",
-            "size": 9440686,
+            "size": 9504440,
             "contentType": "application/x-msdownload",
-            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.2.0/spacemosaic-windows-amd64-setup.exe",
-            "digest": "sha256:4a91fe37be4d9d812f71f4d1993c30880bae1b3276a6577f995a4bd193d96d9b",
-            "updatedAt": "2026-11-01T19:07:10Z"
+            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.3.3/spacemosaic-windows-amd64-setup.exe",
+            "digest": "sha256:06c8cc70a3a2065a1915feeb492c96f08b8ce13f885cc860b14d0734f41d892c",
+            "updatedAt": "2026-11-07T14:56:16Z"
           },
           {
             "name": "spacemosaic-windows-amd64.zip",
-            "size": 9730037,
+            "size": 9824151,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.2.0/spacemosaic-windows-amd64.zip",
-            "digest": "sha256:200597b033e7262eba246e84e04a87074e6e0a89f22fb8ea26e4e2c0ce99e8b5",
-            "updatedAt": "2026-11-01T19:07:11Z"
+            "downloadUrl": "https://github.com/0then0/spacemosaic/releases/download/v0.3.3/spacemosaic-windows-amd64.zip",
+            "digest": "sha256:65794b731be586b9318bff2232a6e1b91a8aaa33622007d3e185b71afa8ac5b4",
+            "updatedAt": "2026-11-07T14:56:17Z"
           }
         ]
       },
