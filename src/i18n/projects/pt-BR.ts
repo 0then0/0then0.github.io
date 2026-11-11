@@ -60,7 +60,7 @@ export const ptBR: ProjectTexts = {
       ],
       limitations: [
         'Mede a pasta escolhida, não o disco inteiro. O tamanho não garante espaço recuperável: links físicos, clones APFS e compressão interferem.',
-        'No computador, a análise para em 500.000 objetos ou cerca de 256 MiB de metadados; no celular, em 100.000 objetos. O resultado passa a ser parcial.',
+        'As análises usam um orçamento automático de memória ou um valor manual de 16–4096 MiB. A pressão de memória ou o orçamento podem interromper a análise com um resultado parcial; isso não garante proteção contra falta de memória.',
         'As versões Windows e macOS não têm certificado de editor; a do macOS usa assinatura ad-hoc e não é notarizada.',
         'Links simbólicos e pontos de nova análise do Windows não são seguidos.',
       ],
@@ -199,7 +199,7 @@ export const ptBR: ProjectTexts = {
     primary: 'Baixar o plugin do Zotero',
     detail: {
       summary:
-        'Quando um preprint ou relatório é revisado, suas anotações ficam no PDF antigo. O MarginCarry encontra cada trecho destacado na nova versão, mostra as posições antiga e proposta lado a lado e grava apenas as que você aceita. Os originais não mudam e cada transferência pode ser desfeita.',
+        'Quando um preprint ou relatório é revisado, suas anotações ficam no PDF antigo. O MarginCarry encontra cada trecho destacado na nova versão, mostra as posições antiga e proposta lado a lado e grava apenas as que você aceita. Os originais não mudam e cada transferência pode ser desfeita. Também é possível criar uma cópia de uma nota filha do Zotero com os links confirmados das anotações apontando para o novo PDF, preservando a nota original.',
       audience: [
         'Pesquisadores e estudantes que anotam artigos no Zotero e recebem versões atualizadas.',
         'Revisores que precisam comparar suas notas com um manuscrito revisado.',
@@ -390,8 +390,8 @@ export const ptBR: ProjectTexts = {
         'Respostas incompletas não são coletadas, e os pacotes do espaço de trabalho não são publicados no npm.',
       ],
       firstRun: [
-        'Instale Node.js (22.22.2+, 24.15.0+ ou 26+), pnpm 12.10.1 e PostgreSQL, e crie um app GitHub OAuth.',
-        'Clone o repositório, configure apps/web/.env, execute as migrações e inicie o app:',
+        'Instale Node.js (22.22.2+, 24.15.0+ ou 26+), pnpm 12.17.0 e PostgreSQL, e crie um app GitHub OAuth.',
+        'Clone o repositório, configure apps/web/.env e exporte o mesmo DATABASE_URL no terminal antes das migrações. Depois inicie o aplicativo:',
         'Inicie o servidor local de tarefas em segundo plano em outro terminal:',
         'Abra localhost:3000, crie e publique um formulário e envie uma resposta de teste.',
       ],
@@ -468,20 +468,20 @@ export const ptBR: ProjectTexts = {
     environment: 'Auto-hospedado: Python 3.10–3.15 com PostgreSQL e Redis',
   },
   printwitness: {
-    task: 'Verifique se o texto, as linhas de tabela e os links necessários sobrevivem a uma exportação de HTML para PDF.',
+    task: 'Conferir textos HTML, linhas de tabelas e links obrigatórios em um PDF exportado ou existente.',
     environment: 'App para desktop independente (com Chromium embutido); sem assinatura',
   },
   txnstage: {
-    task: 'Execute passo a passo transações reais do SQLite em várias conexões e veja onde elas travam ou perdem dados.',
-    environment: 'Um único executável com interface web local; binários para macOS sem assinatura',
+    task: 'Executar transações SQLite reais passo a passo em conexões separadas e verificar bloqueios, preservação de dados e recuperação após falhas de processos.',
+    environment: 'Um executável com interface web local; binários de macOS e Windows sem assinatura',
   },
   collationdelta: {
-    task: 'Detecte mudanças na ordenação e na igualdade de strings antes de atualizar ICU, Python ou Node.js.',
-    environment: 'CLI em Python; capturas de comparadores em Python ou Node.js',
+    task: 'Detectar mudanças na ordenação e igualdade de textos antes de atualizar ICU, Node.js, navegadores ou PostgreSQL.',
+    environment: 'CLI em Python 3.10+; captura com Node.js, navegador e PostgreSQL 15–18; execução de adaptadores não suportada no Windows',
   },
   parquetscope: {
     task: 'Veja quais arquivos e intervalos de bytes o DuckDB lê de Parquet por HTTP e compare consultas ou estruturas.',
-    environment: 'Python 3.10+; wheel do GitHub Releases',
+    environment: 'CLI em Python 3.10+ com interface local no navegador; exige configurar DuckDB httpfs uma vez',
   },
   'gha-cache-audit': {
     task: 'Encontre chaves de cache e prefixos de restauração do GitHub Actions que podem reutilizar arquivos incompatíveis.',
@@ -492,20 +492,20 @@ export const ptBR: ProjectTexts = {
     environment: 'CLI em Node.js 22+, instalada pelo arquivo da versão',
   },
   lockcone: {
-    task: 'Rastreie alterações de dependências, catálogos e patches do pnpm no grafo de dependências do workspace.',
+    task: 'Revisar alterações do pnpm lockfile entre commits Git, rastreando dependências, catálogos, patches, overrides e contextos de pares.',
     environment: 'CLI em Node.js 22.12+, instalada pelo arquivo da versão',
   },
   cursorproof: {
     task: 'Teste a paginação por cursor de uma API REST em busca de registros pulados, repetidos ou fora de ordem.',
-    environment: 'CLI em Python',
+    environment: 'CLI em Python 3.10+',
   },
   cancellens: {
     task: 'Transforme bugs de cancelamento no asyncio em testes repetíveis que verificam a liberação de recursos.',
-    environment: 'Biblioteca Python e plugin do pytest',
+    environment: 'Biblioteca CPython 3.10–3.14 para testes asyncio; não exige plugin pytest',
   },
   crondelta: {
-    task: 'Compare execuções cron antes de mudar o mecanismo Python, sua versão ou sua base de fusos horários.',
-    environment: 'CLI em Python',
+    task: 'Comparar execuções cron antes de trocar um mecanismo Python ou JavaScript, sua versão ou base de fusos horários.',
+    environment: 'CLI em Python 3.10–3.15 com uv; comparações JavaScript também precisam de Node.js e cron-parser',
   },
   stalefill: {
     task: 'Reproduza condições de corrida no cache-aside em que dados antigos reaparecem no Redis ou Valkey após uma atualização.',
@@ -513,7 +513,7 @@ export const ptBR: ProjectTexts = {
   },
   exitscope: {
     task: 'Verifique se um wrapper ou executor de tarefas encerra direito: sem processos filhos restantes nem pipes abertos.',
-    environment: 'Só Linux; compilação com Cargo',
+    environment: 'Linux 5.14+ com cgroup v2 e acesso de escrita delegado; compilação com Cargo',
   },
   unpackproof: {
     task: 'Testes de regressão de comandos de extração TAR em contêineres Docker descartáveis.',
@@ -525,30 +525,30 @@ export const ptBR: ProjectTexts = {
   },
   protocarry: {
     task: 'Verifique se uma aplicação antiga mantém os campos novos do Protobuf ao ler e gravar uma mensagem.',
-    environment: 'Binários CLI para macOS arm64 e Linux arm64; código em Go',
+    environment: 'Binários CLI independentes para macOS e Linux, arm64 e x86-64; código-fonte Go',
   },
   idbshift: {
-    task: 'Teste atualizações e reversões do IndexedDB, inclusive com abas das versões antiga e nova abertas juntas.',
+    task: 'Testar atualizações, reversões e recuperação de migrações abortadas do IndexedDB, inclusive com abas antigas e novas abertas ao mesmo tempo.',
     environment: 'Node.js 24.22.1+ na linha 24.x, npm 11.19.1 e Playwright Chromium; executado a partir do código',
   },
   watchconverge: {
-    task: 'Verifique se um observador de arquivos ou índice ainda corresponde ao disco após gravações atômicas, renomeações e exclusões.',
-    environment: 'Node.js 22.18+; roda a partir do código',
+    task: 'Verificar se um índice de arquivos coincide com o disco após salvar, renomear e excluir, e reduzir falhas a cenários reproduzíveis.',
+    environment: 'Node.js 22.18+; interface web local e CLI, execução pelo código-fonte',
   },
   overflowlens: {
-    task: 'Calcule a taxa de erro possível quando o OpenTelemetry juntou atributos de requisições em uma série de overflow.',
+    task: 'Calcular as taxas possíveis de erros e requisições lentas quando o estouro de cardinalidade do OpenTelemetry oculta atributos das requisições.',
     environment: 'App de navegador com processamento local; arquivo autônomo disponível',
     tagline: 'Limites exatos quando o estouro de cardinalidade oculta os resultados.',
     primary: 'Abrir app',
     secondary: [
       {
         label: 'Baixar arquivo autônomo',
-        note: 'O app está disponível no navegador. O arquivo v0.2.1 também pode ser servido localmente.',
+        note: 'O aplicativo está disponível no navegador. O arquivo da versão também pode ser servido localmente.',
       },
     ],
     detail: {
       summary:
-        'Importe um contador de requisições OpenTelemetry salvo e compare suas taxas de erro possíveis com seu limite. Delta analisa um intervalo de coleta; cumulativo compara snapshots correspondentes de antes e depois. Os arquivos são analisados localmente em um Web Worker; contagens e limites são calculados no navegador. O app hospedado baixa seus recursos; arquivos importados, limites e relatórios exportados não são enviados.',
+        'Importe contadores de requisições OpenTelemetry ou histogramas de duração HTTP salvos e compare as taxas possíveis de erros ou requisições lentas com seu limite. Contadores e histogramas HTTP 5xx aceitam intervalos delta e janelas cumulativas; os limites de requisições lentas por rota usam histogramas delta. Os arquivos são analisados localmente em um Web Worker; arquivos importados, limites e relatórios exportados não são enviados a um servidor.',
       audience: ['Desenvolvedores que investigam taxas de erro após estouro de cardinalidade no SDK OpenTelemetry.'],
       scenarios: [
         {
@@ -572,19 +572,31 @@ export const ptBR: ProjectTexts = {
         },
       ],
       limitations: [
-        'Aceita UTF-8 OTLP JSON sem compressão com contadores Sum inteiros e monótonos, até 5 MiB por arquivo. Não é backend de métricas ao vivo nem avaliador geral de SLO.',
+        'Aceita UTF-8 OTLP JSON sem compressão com contadores Sum inteiros e monotônicos e histogramas de duração HTTP compatíveis com limites explícitos de buckets, até 5 MiB por arquivo. Não é um backend de métricas ao vivo nem um avaliador geral de SLO.',
         'Janelas cumulativas exigem snapshots completos correspondentes, atribuição estável e inícios conhecidos sem mudanças, sem reinícios nem contagens decrescentes.',
         'As premissas de origem precisam ser confirmadas. Um arquivo não prova que o processamento preservou todas as contagens e pontos de estouro.',
       ],
       firstRun: [
         'Abra o app e escolha o exemplo delta ou cumulativo. SDK e arquivos próprios não são necessários.',
-        'Para a versão independente já publicada, baixe o ZIP, extraia e inicie um servidor HTTP estático dentro de overflowlens-0.2.1:',
+        'Para uma compilação independente, baixe o ZIP da versão, extraia-o e inicie um servidor HTTP estático dentro da pasta overflowlens-<version>:',
         'Abra http://127.0.0.1:8080, escolha o modo, confirme as premissas de origem e defina a porcentagem máxima de erros. Exporte JSON para salvar a explicação.',
       ],
       downloadSteps: {
         standalone: ['Extraia o ZIP e sirva sua pasta por HTTP. Node.js e Go não são necessários.'],
       },
     },
+  },
+  colophon: {
+    task: 'Manter biblioteca, fila de leitura, histórico e estatísticas em notas comuns do Obsidian.',
+    environment: 'Obsidian 1.9.10+ e Dataview com consultas JavaScript; testado no macOS',
+  },
+  inkdoze: {
+    task: 'Recortar e converter imagens em telas de repouso para leitores digitais, localmente no navegador, com instruções de instalação por modelo.',
+    environment: 'Navegador moderno; processamento de imagens no dispositivo; telas próprias dependem do leitor e do firmware',
+  },
+  rangeprobe: {
+    task: 'Verificar respostas HTTP a intervalos de bytes e comparar downloads parciais com um arquivo local para diagnosticar falhas de busca e retomada.',
+    environment: 'CLI independente para macOS, Linux e Windows (amd64/arm64); página de navegador servida localmente',
   },
   agentkcal: {
     task: 'Mantenha um histórico local e privado do uso de agentes de IA para programar, com estimativas de energia que você pode conferir.',
@@ -599,7 +611,7 @@ export const ptBR: ProjectTexts = {
   'breathly-app': {
     name: 'Breathly (fork)',
     task: 'Exercícios de respiração no Android; este fork adiciona predefinições, atraso de início e exportação para o Health Connect.',
-    environment: 'App em React Native; este fork não tem versões publicadas',
-    forkNote: 'Fork com recursos adicionais; nenhum build é publicado aqui.',
+    environment: 'APK de teste para Android 8.0+ (2.3.0-rc.1); este fork não tem versão estável',
+    forkNote: 'Fork com recursos adicionais; uma versão candidata assinada para Android está publicada para testes.',
   },
 };

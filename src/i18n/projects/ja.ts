@@ -60,7 +60,7 @@ export const ja: ProjectTexts = {
       ],
       limitations: [
         '測定するのは選んだフォルダーで、ディスク全体ではありません。ハードリンク、APFS クローン、圧縮があるため、表示サイズがそのまま解放できる容量とは限りません。',
-        'デスクトップでは 500,000 オブジェクトまたは約 256 MiB のメタデータ、モバイルでは 100,000 オブジェクトで停止し、不完全な結果と表示します。',
+        'スキャンは自動のメモリ予算、または手動設定の16–4096 MiBを使用します。メモリ不足や予算の上限で停止し、部分的な結果を返す場合があります。メモリ枯渇の防止を保証するものではありません。',
         'Windows と macOS のビルドには発行元証明書がありません。macOS は ad-hoc 署名で、公証されていません。',
         'シンボリックリンクと Windows の再解析ポイントはたどりません。',
       ],
@@ -198,7 +198,7 @@ export const ja: ProjectTexts = {
     primary: 'Zotero プラグインをダウンロード',
     detail: {
       summary:
-        'プレプリントや報告書が改訂されても、注釈は古い PDF に残ります。MarginCarry は新しい版からハイライト箇所を探し、元の位置と移動候補を並べ、承認したものだけを書き込みます。原本は変更せず、転送は一件ずつ取り消せます。',
+        'プレプリントや報告書が改訂されても、注釈は古い PDF に残ります。MarginCarry は新しい版からハイライト箇所を探し、元の位置と移動候補を並べ、承認したものだけを書き込みます。原本は変更せず、転送は一件ずつ取り消せます。 Zoteroの子ノートをコピーし、確認済みの注釈リンクを新しいPDFに付け替えることもできます。元のノートは変更しません。',
       audience: ['Zotero で論文に注釈を付け、更新版を受け取る研究者や学生。', '改訂原稿と自分のメモを比較する必要がある査読者。'],
       scenarios: [
         {
@@ -390,8 +390,8 @@ export const ja: ProjectTexts = {
         '未完了の回答は収集せず、ワークスペースのパッケージは npm に公開しません。',
       ],
       firstRun: [
-        'Node.js (22.22.2+、24.15.0+ または 26+)、pnpm 12.10.1、PostgreSQL をインストールし、GitHub OAuth アプリを作成します。',
-        'リポジトリをクローンし、apps/web/.env を設定してマイグレーションを実行し、アプリを起動します。',
+        'Node.js (22.22.2+、24.15.0+ または 26+)、pnpm 12.17.0、PostgreSQL をインストールし、GitHub OAuth アプリを作成します。',
+        'リポジトリをクローンし、apps/web/.envを設定します。マイグレーション前に、同じDATABASE_URLをターミナルでエクスポートしてからアプリを起動します：',
         '別のターミナルでローカルのバックグラウンドジョブサーバーを起動します。',
         'localhost:3000 を開き、フォームを作成・公開してテスト回答を送ります。',
       ],
@@ -465,20 +465,20 @@ export const ja: ProjectTexts = {
     environment: 'セルフホスト：Python 3.10–3.15、PostgreSQL、Redis',
   },
   printwitness: {
-    task: 'HTML から PDF への書き出しで、必要なテキスト、表の行、リンクが失われていないか確認します。',
+    task: '必要なHTMLテキスト、表の行、リンクを、書き出したPDFや既存のPDFと照合する。',
     environment: '単体で動くデスクトップアプリ（Chromium 同梱）。署名なし',
   },
   txnstage: {
-    task: '複数の接続で実際の SQLite トランザクションを 1 ステップずつ実行し、どこでブロックやデータ消失が起きるかを確認します。',
-    environment: 'ローカル Web UI 付きの単一実行ファイル。macOS 版は署名なし',
+    task: '個別の接続で実際のSQLiteトランザクションを段階的に実行し、ロック、データ保持、プロセスクラッシュ後の回復を確認する。',
+    environment: 'ローカルWeb UIを備えた単一の実行ファイル。macOSとWindowsのバイナリは未署名',
   },
   collationdelta: {
-    task: 'ICU、Python、Node.js を更新する前に、文字列の並び順と等価判定の変化を検出します。',
-    environment: 'Python CLI。Python または Node.js の比較関数から記録',
+    task: 'ICU、Node.js、ブラウザー、PostgreSQLを更新する前に文字列の並び順と等価性の変化を検出する。',
+    environment: 'Python 3.10+のCLI。Node.js、ブラウザー、PostgreSQL 15–18で収集。Windowsでのアダプター実行は非対応',
   },
   parquetscope: {
     task: 'DuckDBがHTTP経由でParquetのどのファイルとバイト範囲を読むかを確認し、クエリーやファイル構造を比較する。',
-    environment: 'Python 3.10 以降。GitHub Releases の wheel',
+    environment: 'ローカルブラウザーUIを備えたPython 3.10+のCLI。DuckDB httpfsの初回設定が必要',
   },
   'gha-cache-audit': {
     task: '互換性のないファイルを再利用しかねない GitHub Actions のキャッシュキーと復元プレフィックスを見つけます。',
@@ -489,20 +489,20 @@ export const ja: ProjectTexts = {
     environment: 'Node.js 22 以降の CLI。リリースのアーカイブからインストール',
   },
   lockcone: {
-    task: 'pnpmの依存関係、カタログ、パッチの変更をワークスペースの依存グラフで追跡する。',
+    task: 'Gitコミット間のpnpm lockfileの変更を、依存関係、カタログ、パッチ、overrides、peerコンテキストまで追跡して確認する。',
     environment: 'Node.js 22.12 以降の CLI。リリースのアーカイブからインストール',
   },
   cursorproof: {
     task: 'REST API のカーソルページネーションで、抜け・重複・順序の乱れがないかテストします。',
-    environment: 'Python CLI',
+    environment: 'Python 3.10+のCLI',
   },
   cancellens: {
     task: 'asyncio のキャンセルに起因するバグを、リソースの解放を確認する再実行可能なテストに変えます。',
-    environment: 'Python ライブラリと pytest プラグイン',
+    environment: 'asyncioテスト用のCPython 3.10–3.14ライブラリ。pytestプラグインは不要',
   },
   crondelta: {
-    task: 'Pythonのcronエンジン、バージョン、タイムゾーンデータベースを変更する前に実行時刻を比較する。',
-    environment: 'Python CLI',
+    task: 'PythonやJavaScriptのcronエンジン、バージョン、タイムゾーンデータベースを変更する前に実行日時を比較する。',
+    environment: 'Python 3.10–3.15とuvを使うCLI。JavaScriptの比較にはNode.jsとcron-parserも必要',
   },
   stalefill: {
     task: '更新後に古いデータが Redis や Valkey に再び現れる cache-aside の競合状態を再現します。',
@@ -510,7 +510,7 @@ export const ja: ProjectTexts = {
   },
   exitscope: {
     task: 'ラッパーやタスクランナーが子プロセスやパイプを残さず正しく終了するか確認します。',
-    environment: 'Linux 専用。Cargo でビルド',
+    environment: 'Linux 5.14+、cgroup v2、委譲された書き込み権限が必要。Cargoでビルド',
   },
   unpackproof: {
     task: '使い捨ての Docker コンテナーで TAR 展開コマンドの回帰テストを行います。',
@@ -522,30 +522,30 @@ export const ja: ProjectTexts = {
   },
   protocarry: {
     task: '古いアプリケーションがメッセージの読み書きで新しい Protobuf フィールドを保持するか確認します。',
-    environment: 'macOS arm64 と Linux arm64 向け CLI バイナリ。Go のソース',
+    environment: 'macOSとLinux向けの単体CLIバイナリ、arm64とx86-64。Goソースあり',
   },
   idbshift: {
-    task: '旧版と新版のタブを同時に開いた場合も含め、IndexedDBの更新とロールバックを検証する。',
+    task: 'IndexedDBの更新、ロールバック、中断された移行からの回復を、旧版と新版のタブを同時に開いた状態も含めてテストする。',
     environment: 'Node.js 24.xの24.22.1以降、npm 11.19.1、Playwright Chromium。ソースから実行',
   },
   watchconverge: {
-    task: 'アトミック保存、名前変更、削除の後も、ファイル監視やインデックスがディスクと一致しているか確認します。',
-    environment: 'Node.js 22.18 以降。ソースから実行',
+    task: '保存、名前変更、削除後にファイル索引がディスクと一致するか確認し、失敗を再現可能な小さなシナリオに縮小する。',
+    environment: 'Node.js 22.18+。ローカルWeb UIとCLI、ソースから実行',
   },
   overflowlens: {
-    task: 'OpenTelemetry がリクエスト属性をオーバーフロー系列にまとめたときに、あり得るエラー率を求めます。',
+    task: 'OpenTelemetryのカーディナリティ上限超過でリクエスト属性が失われた際の、エラー率や低速リクエストの割合の範囲を求める。',
     environment: 'ファイルをローカルで処理するブラウザーアプリ。単体アーカイブも利用可能',
     tagline: 'カーディナリティーのオーバーフローで結果が不明になったリクエストの正確な境界。',
     primary: 'アプリを開く',
     secondary: [
       {
         label: '単体アーカイブをダウンロード',
-        note: 'ブラウザーでアプリを利用できます。v0.2.1 アーカイブはローカルでも配信できます。',
+        note: 'ブラウザーで利用できます。リリースのアーカイブをローカル配信することもできます。',
       },
     ],
     detail: {
       summary:
-        '保存した OpenTelemetry リクエストカウンターを読み込み、可能なエラー率をしきい値と比較します。delta は一つの収集区間を分析し、累積モードは対応する前後のスナップショットを比較します。ファイルは Web Worker でローカルに解析し、件数と境界はブラウザーで計算します。公開アプリは自身のリソースをダウンロードしますが、入力ファイル、しきい値、出力レポートは送信しません。',
+        '保存したOpenTelemetryリクエストカウンターやHTTP所要時間ヒストグラムを読み込み、エラー率や低速リクエストの割合の範囲をしきい値と比較します。カウンターとHTTP 5xxヒストグラムはdelta区間と累積ウィンドウに対応し、ルート別の低速リクエストの範囲はdeltaヒストグラムから求めます。ファイルはWeb Workerでローカル処理され、読み込んだファイル、しきい値、エクスポートしたレポートはアップロードされません。',
       audience: ['OpenTelemetry SDK のカーディナリティー上限超過後のエラー率を調べる開発者。'],
       scenarios: [
         {
@@ -569,19 +569,31 @@ export const ja: ProjectTexts = {
         },
       ],
       limitations: [
-        '非圧縮の UTF-8 OTLP JSON で、単調増加する整数 Sum カウンターを受け付けます。1 ファイル 5 MiB までです。ライブメトリクスのバックエンドや SLO 全体の評価器ではありません。',
+        '非圧縮UTF-8 OTLP JSONの単調増加整数Sumカウンターと、対応する明示的バケット境界のHTTP所要時間ヒストグラムを受け付けます。1ファイル5 MiBまでです。ライブメトリクス基盤や汎用SLO評価ツールではありません。',
         '累積区間には、属性の割り当てが安定し、既知の開始時刻が変わらない、対応する完全なスナップショットが必要です。リセットやカウントの減少は扱えません。',
         'データの来歴について前提の確認が必要です。すべてのカウントと上限超過点が処理で保持されたことは、ファイルだけでは証明できません。',
       ],
       firstRun: [
         'アプリを開き、delta または累積サンプルを選びます。SDK や自分のファイルは不要です。',
-        '公開済みの単独配布版は ZIP をダウンロードして展開し、overflowlens-0.2.1 内で静的 HTTP サーバーを起動します。',
+        '単体ビルドを使うにはリリースのZIPをダウンロードし、展開したoverflowlens-<version>ディレクトリで静的HTTPサーバーを起動します：',
         'http://127.0.0.1:8080 を開き、モードを選び、来歴の前提を確認して最大許容エラー率を指定します。説明を保存するには JSON を出力します。',
       ],
       downloadSteps: {
         standalone: ['ZIP を展開し、そのフォルダーを HTTP で配信します。Node.js と Go は不要です。'],
       },
     },
+  },
+  colophon: {
+    task: '通常のObsidianノートで蔵書、読む順番、読書履歴、統計を管理する。',
+    environment: 'Obsidian 1.9.10+とJavaScriptクエリを有効にしたDataview。macOSで検証済み',
+  },
+  inkdoze: {
+    task: 'ブラウザー内で画像を電子書籍リーダーのスリープ画面向けに切り抜き・変換し、モデル別の導入手順を確認する。',
+    environment: 'モダンブラウザー。画像処理は端末内で完結。独自のスリープ画面を使えるかは機種とファームウェアによる',
+  },
+  rangeprobe: {
+    task: 'HTTPバイト範囲レスポンスを確認し、部分ダウンロードをローカルファイルと比較してシークや再開の不具合を調べる。',
+    environment: 'macOS、Linux、Windows向け単体CLI（amd64/arm64）。ブラウザーページはローカル配信',
   },
   agentkcal: {
     task: 'AI コーディングエージェントの利用履歴を手元に非公開で記録し、エネルギー消費の推定も確認できます。',
@@ -596,7 +608,7 @@ export const ja: ProjectTexts = {
   'breathly-app': {
     name: 'Breathly（フォーク）',
     task: 'Android の呼吸エクササイズ。このフォークでプリセット、開始の待ち時間、Health Connect への書き出しを追加。',
-    environment: 'React Native アプリ。このフォークのリリースはなし',
-    forkNote: '機能を追加したフォーク。ここではビルドを公開していません。',
+    environment: 'Android 8.0+向けテストAPK（2.3.0-rc.1）。このフォークの安定版は未公開',
+    forkNote: '機能を追加したフォーク。テスト用に署名済みのAndroidリリース候補版を公開しています。',
   },
 };

@@ -60,7 +60,7 @@ export const de: ProjectTexts = {
       ],
       limitations: [
         'Gemessen wird der gewählte Ordner, nicht die ganze Festplatte. Seine Größe garantiert keinen freigebbaren Speicher: Hardlinks, APFS-Klone und Kompression spielen eine Rolle.',
-        'Desktop-Scans enden bei 500.000 Objekten oder etwa 256 MiB Metadaten, mobile Scans bei 100.000 Objekten. Das Ergebnis wird dann als unvollständig markiert.',
+        'Scans verwenden ein automatisches Speicherbudget oder manuell 16–4096 MiB. Speicherdruck oder das Budget können einen Scan mit einem Teilergebnis beenden; dies garantiert keinen Schutz vor Speichermangel.',
         'Windows- und macOS-Builds haben kein Herausgeberzertifikat; macOS ist ad-hoc-signiert und nicht notarisiert.',
         'Symbolischen Links und Windows-Reparse-Points wird nicht gefolgt.',
       ],
@@ -199,7 +199,7 @@ export const de: ProjectTexts = {
     primary: 'Zotero-Plugin herunterladen',
     detail: {
       summary:
-        'Wird ein Preprint oder Bericht überarbeitet, bleiben deine Anmerkungen im alten PDF. MarginCarry findet jede markierte Passage in der neuen Fassung, zeigt alte und vorgeschlagene Positionen nebeneinander und schreibt nur angenommene Vorschläge. Originale bleiben unverändert, und jeder Transfer lässt sich rückgängig machen.',
+        'Wird ein Preprint oder Bericht überarbeitet, bleiben deine Anmerkungen im alten PDF. MarginCarry findet jede markierte Passage in der neuen Fassung, zeigt alte und vorgeschlagene Positionen nebeneinander und schreibt nur angenommene Vorschläge. Originale bleiben unverändert, und jeder Transfer lässt sich rückgängig machen. Außerdem lässt sich eine untergeordnete Zotero-Notiz kopieren und ihre bestätigten Annotationslinks auf das neue PDF umstellen. Die ursprüngliche Notiz bleibt erhalten.',
       audience: [
         'Forschende und Studierende, die Artikel in Zotero kommentieren und aktualisierte Fassungen erhalten.',
         'Gutachtende, die ihre Notizen mit einem überarbeiteten Manuskript vergleichen müssen.',
@@ -396,8 +396,8 @@ export const de: ProjectTexts = {
         'Unfertige Antworten werden nicht erfasst, und Workspace-Pakete werden nicht auf npm veröffentlicht.',
       ],
       firstRun: [
-        'Installiere Node.js (22.22.2+, 24.15.0+ oder 26+), pnpm 12.10.1 und PostgreSQL und erstelle eine GitHub-OAuth-App.',
-        'Klone das Repository, richte apps/web/.env ein, führe Migrationen aus und starte die App:',
+        'Installiere Node.js (22.22.2+, 24.15.0+ oder 26+), pnpm 12.17.0 und PostgreSQL und erstelle eine GitHub-OAuth-App.',
+        'Klone das Repository, konfiguriere apps/web/.env und exportiere vor den Migrationen dieselbe DATABASE_URL im Terminal. Starte danach die App:',
         'Starte den lokalen Hintergrundaufgabenserver in einem zweiten Terminal:',
         'Öffne localhost:3000, erstelle und veröffentliche ein Formular und sende eine Testantwort.',
       ],
@@ -474,20 +474,21 @@ export const de: ProjectTexts = {
     environment: 'Selbst gehostet: Python 3.10–3.15 mit PostgreSQL und Redis',
   },
   printwitness: {
-    task: 'Prüfen, ob benötigter Text, Tabellenzeilen und Links einen HTML-zu-PDF-Export überstehen.',
+    task: 'Benötigte HTML-Texte, Tabellenzeilen und Links mit einem exportierten oder vorhandenen PDF abgleichen.',
     environment: 'Eigenständige Desktop-App (mit Chromium); nicht signiert',
   },
   txnstage: {
-    task: 'Echte SQLite-Transaktionen auf mehreren Verbindungen schrittweise ausführen und sehen, wo sie blockieren oder Daten verlieren.',
-    environment: 'Einzelne ausführbare Datei mit lokaler Weboberfläche; macOS-Binärdateien nicht signiert',
+    task: 'Echte SQLite-Transaktionen auf getrennten Verbindungen schrittweise ausführen und Sperren, Datenerhalt sowie Wiederherstellung nach Prozessabstürzen prüfen.',
+    environment: 'Einzelne ausführbare Datei mit lokaler Weboberfläche; macOS- und Windows-Binärdateien nicht signiert',
   },
   collationdelta: {
-    task: 'Änderungen an Sortierung und Gleichheit von Zeichenketten erkennen, bevor ICU, Python oder Node.js aktualisiert werden.',
-    environment: 'Python-CLI; Aufnahmen aus Python- oder Node.js-Vergleichern',
+    task: 'Änderungen an Sortierung und Gleichheit von Zeichenketten vor einem Update von ICU, Node.js, Browsern oder PostgreSQL erkennen.',
+    environment:
+      'CLI für Python 3.10+; Erfassung mit Node.js, Browser und PostgreSQL 15–18; Adapterausführung unter Windows nicht unterstützt',
   },
   parquetscope: {
     task: 'Prüfe, welche Dateien und Bytebereiche DuckDB aus Parquet über HTTP liest, und vergleiche Abfragen oder Dateistrukturen.',
-    environment: 'Python 3.10+; Wheel aus GitHub Releases',
+    environment: 'CLI für Python 3.10+ mit lokaler Browseroberfläche; einmalige Einrichtung von DuckDB httpfs erforderlich',
   },
   'gha-cache-audit': {
     task: 'Cache-Schlüssel und Wiederherstellungspräfixe in GitHub Actions finden, die inkompatible Dateien wiederverwenden können.',
@@ -498,20 +499,20 @@ export const de: ProjectTexts = {
     environment: 'CLI für Node.js 22+, Installation aus dem Release-Archiv',
   },
   lockcone: {
-    task: 'Verfolge Änderungen an pnpm-Abhängigkeiten, Katalogen und Patches im Abhängigkeitsgraphen des Workspace.',
+    task: 'pnpm-Lockfile-Änderungen zwischen Git-Commits prüfen und Abhängigkeiten, Kataloge, Patches, Overrides und Peer-Kontexte verfolgen.',
     environment: 'CLI für Node.js 22.12+, Installation aus dem Release-Archiv',
   },
   cursorproof: {
     task: 'Die Cursor-Paginierung einer REST-API auf übersprungene, doppelte oder falsch sortierte Datensätze testen.',
-    environment: 'Python-CLI',
+    environment: 'CLI für Python 3.10+',
   },
   cancellens: {
     task: 'Abbruchfehler in asyncio in wiederholbare Tests verwandeln, die prüfen, ob Ressourcen freigegeben werden.',
-    environment: 'Python-Bibliothek und pytest-Plugin',
+    environment: 'Bibliothek für CPython 3.10–3.14 für asyncio-Tests; kein pytest-Plugin erforderlich',
   },
   crondelta: {
-    task: 'Vergleiche Cron-Ausführungen vor dem Wechsel der Python-Engine, ihrer Version oder Zeitzonendatenbank.',
-    environment: 'Python-CLI',
+    task: 'Cron-Ausführungen vor dem Wechsel einer Python- oder JavaScript-Engine, ihrer Version oder Zeitzonendatenbank vergleichen.',
+    environment: 'CLI für Python 3.10–3.15 mit uv; JavaScript-Vergleiche benötigen auch Node.js und cron-parser',
   },
   stalefill: {
     task: 'Cache-Aside-Wettläufe reproduzieren, bei denen veraltete Daten nach einem Update in Redis oder Valkey wieder auftauchen.',
@@ -519,7 +520,7 @@ export const de: ProjectTexts = {
   },
   exitscope: {
     task: 'Prüfen, ob ein Wrapper oder Task-Runner sauber beendet: keine überlebenden Kindprozesse, keine offenen Pipes.',
-    environment: 'Nur Linux; Build mit Cargo',
+    environment: 'Linux 5.14+ mit cgroup v2 und delegiertem Schreibzugriff; Build mit Cargo',
   },
   unpackproof: {
     task: 'Regressionstests für TAR-Entpackbefehle in Wegwerf-Containern von Docker.',
@@ -531,30 +532,30 @@ export const de: ProjectTexts = {
   },
   protocarry: {
     task: 'Prüfen, ob eine ältere Anwendung neuere Protobuf-Felder beim Lesen und Schreiben einer Nachricht erhält.',
-    environment: 'CLI-Binärdateien für macOS arm64 und Linux arm64; Go-Quellcode',
+    environment: 'Eigenständige CLI-Binärdateien für macOS und Linux, arm64 und x86-64; Go-Quellcode',
   },
   idbshift: {
-    task: 'Prüfe IndexedDB-Upgrades und Rollbacks, auch mit gleichzeitig geöffneten Tabs der alten und neuen Anwendung.',
+    task: 'IndexedDB-Upgrades, Rollbacks und die Wiederherstellung nach abgebrochenen Migrationen testen, auch bei gleichzeitig geöffneten alten und neuen Anwendungstabs.',
     environment: 'Node.js 24.22.1+ innerhalb von 24.x, npm 11.19.1 und Playwright Chromium; Ausführung aus dem Quellcode',
   },
   watchconverge: {
-    task: 'Prüfen, ob ein Dateiwächter oder Index nach atomarem Speichern, Umbenennen und Löschen noch zur Festplatte passt.',
-    environment: 'Node.js 22.18+; Start aus dem Quellcode',
+    task: 'Prüfen, ob ein Dateiindex nach Speichern, Umbenennen und Löschen zur Festplatte passt, und Fehler auf wiederholbare Szenarien verkleinern.',
+    environment: 'Node.js 22.18+; lokale Weboberfläche und CLI, Start aus dem Quellcode',
   },
   overflowlens: {
-    task: 'Die mögliche Fehlerrate berechnen, wenn OpenTelemetry Anfrageattribute in eine Overflow-Reihe zusammengefasst hat.',
+    task: 'Mögliche Fehlerquoten und Anteile langsamer Anfragen berechnen, wenn OpenTelemetry Anfrageattribute durch Kardinalitätsüberlauf verliert.',
     environment: 'Browser-App mit lokaler Dateiverarbeitung; eigenständiges Archiv verfügbar',
     tagline: 'Exakte Grenzen, wenn Kardinalitätsüberlauf Anfrageergebnisse verbirgt.',
     primary: 'App öffnen',
     secondary: [
       {
         label: 'Eigenständiges Archiv herunterladen',
-        note: 'Die App ist im Browser verfügbar. Das Archiv v0.2.1 lässt sich auch lokal bereitstellen.',
+        note: 'Die App ist im Browser verfügbar. Das Release-Archiv lässt sich auch lokal bereitstellen.',
       },
     ],
     detail: {
       summary:
-        'Importiere einen gespeicherten OpenTelemetry-Anfragezähler und vergleiche mögliche Fehlerraten mit deinem Grenzwert. Delta analysiert ein Erfassungsintervall; kumulativ vergleicht passende Vorher- und Nachher-Snapshots. Dateien werden lokal in einem Web Worker eingelesen; Zählwerte und Grenzen werden im Browser berechnet. Die gehostete App lädt eigene Ressourcen; importierte Dateien, Grenzwerte und exportierte Berichte werden nicht hochgeladen.',
+        'Importiere gespeicherte OpenTelemetry-Anfragezähler oder HTTP-Dauerhistogramme und vergleiche mögliche Fehlerquoten oder Anteile langsamer Anfragen mit deinem Grenzwert. Zähler und HTTP-5xx-Histogramme unterstützen Delta-Intervalle und kumulative Fenster; Grenzen für langsame Anfragen einer Route verwenden Delta-Histogramme. Dateien werden lokal in einem Web Worker eingelesen; importierte Dateien, Grenzwerte und exportierte Berichte werden nicht hochgeladen.',
       audience: ['Entwickler, die Fehlerraten nach einem Kardinalitätsüberlauf im OpenTelemetry-SDK untersuchen.'],
       scenarios: [
         {
@@ -578,19 +579,31 @@ export const de: ProjectTexts = {
         },
       ],
       limitations: [
-        'Akzeptiert unkomprimiertes UTF-8-OTLP-JSON mit monotonen, ganzzahligen Sum-Zählern bis 5 MiB pro Datei. Kein Backend für Live-Metriken und keine allgemeine SLO-Auswertung.',
+        'Akzeptiert unkomprimiertes UTF-8-OTLP-JSON mit monotonen ganzzahligen Sum-Zählern und unterstützten HTTP-Dauerhistogrammen mit expliziten Bucket-Grenzen, bis 5 MiB pro Datei. Kein Backend für Live-Metriken und keine allgemeine SLO-Auswertung.',
         'Kumulative Fenster erfordern passende vollständige Snapshots mit stabiler Zuordnung, bekannten unveränderten Startzeiten, ohne Resets oder fallende Zähler.',
         'Annahmen zur Herkunft müssen bestätigt werden. Eine Datei beweist nicht, dass die Verarbeitung alle Zählwerte und Überlaufpunkte erhalten hat.',
       ],
       firstRun: [
         'Öffne die App und wähle das Delta- oder kumulative Beispiel. SDK und eigene Dateien sind nicht nötig.',
-        'Lade für den bereits veröffentlichten eigenständigen Build das ZIP herunter, entpacke es und starte einen statischen HTTP-Server in overflowlens-0.2.1:',
+        'Lade für einen eigenständigen Build das Release-ZIP herunter, entpacke es und starte einen statischen HTTP-Server im Verzeichnis overflowlens-<version>:',
         'Öffne http://127.0.0.1:8080, wähle den Modus, bestätige die Herkunftsannahmen und setze den maximalen Fehlerprozentsatz. Exportiere JSON, um die Erklärung zu speichern.',
       ],
       downloadSteps: {
         standalone: ['Entpacke das ZIP und stelle seinen Ordner per HTTP bereit. Node.js und Go sind nicht nötig.'],
       },
     },
+  },
+  colophon: {
+    task: 'Eine Buchbibliothek, Leseliste, Lesehistorie und Statistiken in gewöhnlichen Obsidian-Notizen führen.',
+    environment: 'Obsidian 1.9.10+ und Dataview mit JavaScript-Abfragen; unter macOS getestet',
+  },
+  inkdoze: {
+    task: 'Bilder lokal im Browser in Ruhebildschirme für E-Reader zuschneiden und umwandeln, mit Installationshinweisen für jedes Modell.',
+    environment: 'Moderner Browser; Bildverarbeitung bleibt auf dem Gerät; eigene Ruhebildschirme hängen von Gerät und Firmware ab',
+  },
+  rangeprobe: {
+    task: 'HTTP-Antworten auf Bytebereichsanfragen prüfen und Teil-Downloads mit einer lokalen Datei vergleichen, um Fehler beim Springen und Fortsetzen zu finden.',
+    environment: 'Eigenständige CLI für macOS, Linux und Windows (amd64/arm64); Browserseite über einen lokalen Server',
   },
   agentkcal: {
     task: 'Einen privaten, lokalen Verlauf der Nutzung von KI-Coding-Agenten führen, mit nachvollziehbaren Energieschätzungen.',
@@ -605,7 +618,7 @@ export const de: ProjectTexts = {
   'breathly-app': {
     name: 'Breathly (Fork)',
     task: 'Atemübungen unter Android; dieser Fork ergänzt Vorlagen, eine Startverzögerung und den Export nach Health Connect.',
-    environment: 'React-Native-App; dieser Fork hat keine veröffentlichte Version',
-    forkNote: 'Fork mit zusätzlichen Funktionen; hier wird kein Build veröffentlicht.',
+    environment: 'Test-APK für Android 8.0+ (2.3.0-rc.1); keine stabile Version in diesem Fork',
+    forkNote: 'Fork mit zusätzlichen Funktionen; ein signierter Android-Release-Kandidat ist zum Testen veröffentlicht.',
   },
 };
