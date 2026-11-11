@@ -611,10 +611,4 @@ export const es: ProjectTexts = {
     environment: 'Paquetes de mazos de Anki',
     forkNote: 'Fork del mazo comunitario Ultimate Geography con ediciones localizadas y correcciones.',
   },
-  'breathly-app': {
-    name: 'Breathly (fork)',
-    task: 'Ejercicios de respiración en Android, con ajustes predefinidos, retardo de inicio y exportación a Health Connect añadidos en este fork.',
-    environment: 'APK de prueba para Android 8.0+ (2.3.0-rc.1); este fork no tiene una versión estable',
-    forkNote: 'Fork con funciones adicionales; hay una versión candidata firmada para Android publicada para pruebas.',
-  },
 };

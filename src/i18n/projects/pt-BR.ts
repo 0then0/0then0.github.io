@@ -608,10 +608,4 @@ export const ptBR: ProjectTexts = {
     environment: 'Pacotes de baralhos do Anki',
     forkNote: 'Fork do baralho comunitário Ultimate Geography com edições localizadas e correções.',
   },
-  'breathly-app': {
-    name: 'Breathly (fork)',
-    task: 'Exercícios de respiração no Android; este fork adiciona predefinições, atraso de início e exportação para o Health Connect.',
-    environment: 'APK de teste para Android 8.0+ (2.3.0-rc.1); este fork não tem versão estável',
-    forkNote: 'Fork com recursos adicionais; uma versão candidata assinada para Android está publicada para testes.',
-  },
 };

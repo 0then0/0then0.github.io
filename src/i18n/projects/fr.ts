@@ -617,10 +617,4 @@ export const fr: ProjectTexts = {
     environment: 'Paquets de cartes Anki',
     forkNote: 'Fork du paquet communautaire Ultimate Geography avec des éditions localisées et des corrections.',
   },
-  'breathly-app': {
-    name: 'Breathly (fork)',
-    task: 'Exercices de respiration sur Android ; ce fork ajoute des préréglages, un délai de démarrage et l’export vers Health Connect.',
-    environment: 'APK de test pour Android 8.0+ (2.3.0-rc.1) ; aucune version stable dans ce fork',
-    forkNote: 'Fork avec des fonctions supplémentaires ; une version candidate signée pour Android est publiée pour les tests.',
-  },
 };

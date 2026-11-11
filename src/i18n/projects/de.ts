@@ -615,10 +615,4 @@ export const de: ProjectTexts = {
     environment: 'Anki-Stapelpakete',
     forkNote: 'Fork des Community-Stapels Ultimate Geography mit lokalisierten Ausgaben und Korrekturen.',
   },
-  'breathly-app': {
-    name: 'Breathly (Fork)',
-    task: 'Atemübungen unter Android; dieser Fork ergänzt Vorlagen, eine Startverzögerung und den Export nach Health Connect.',
-    environment: 'Test-APK für Android 8.0+ (2.3.0-rc.1); keine stabile Version in diesem Fork',
-    forkNote: 'Fork mit zusätzlichen Funktionen; ein signierter Android-Release-Kandidat ist zum Testen veröffentlicht.',
-  },
 };

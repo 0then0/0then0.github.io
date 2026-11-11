@@ -994,6 +994,7 @@ export const projects: readonly CatalogEntry[] = [
     environment: 'Python 3.11+ CLI, static analysis only',
     availability: ['package', 'source'],
     license: 'Apache-2.0',
+    icon: 'gha-cache-audit',
     homepage: 'https://pypi.org/project/gha-cache-auditor/',
   },
   {
@@ -1007,6 +1008,7 @@ export const projects: readonly CatalogEntry[] = [
     environment: 'Node.js 22+ CLI, installed from the release tarball',
     availability: ['download', 'source'],
     license: 'Apache-2.0',
+    icon: 'samebyte',
   },
   {
     slug: 'lockcone',
@@ -1060,6 +1062,7 @@ export const projects: readonly CatalogEntry[] = [
     environment: 'Python 3.10–3.15 CLI with uv; JavaScript comparisons also need Node.js and cron-parser',
     availability: ['package', 'source'],
     license: 'Apache-2.0',
+    icon: 'crondelta',
     homepage: 'https://pypi.org/project/crondelta/',
   },
   {
@@ -1073,6 +1076,7 @@ export const projects: readonly CatalogEntry[] = [
     environment: 'CLI binaries; needs a disposable Redis or Valkey',
     availability: ['download', 'source'],
     license: 'Apache-2.0',
+    icon: 'stalefill',
   },
   {
     slug: 'exitscope',
@@ -1085,6 +1089,7 @@ export const projects: readonly CatalogEntry[] = [
     environment: 'Linux 5.14+ with cgroup v2 and delegated write access; build with Cargo',
     availability: ['source'],
     license: 'Apache-2.0',
+    icon: 'exitscope',
   },
   {
     slug: 'unpackproof',
@@ -1110,6 +1115,7 @@ export const projects: readonly CatalogEntry[] = [
     environment: 'Linux with glibc; amd64 and arm64 binaries',
     availability: ['download', 'source'],
     license: 'Apache-2.0',
+    icon: 'bindwitness',
   },
   {
     slug: 'protocarry',
@@ -1300,26 +1306,10 @@ export const projects: readonly CatalogEntry[] = [
     environment: 'Anki deck packages',
     availability: ['download', 'source'],
     license: 'See upstream licenses',
+    icon: 'ultimate-geography',
     fork: {
       upstream: 'anki-geo/ultimate-geography',
       note: 'Fork of the community Ultimate Geography deck with localized editions and corrections.',
-    },
-  },
-  {
-    slug: 'breathly-app',
-    name: 'Breathly (fork)',
-    repo: '0then0/breathly-app',
-    task: 'Breathing exercises on Android, with presets, start delay and Health Connect export added in this fork.',
-    category: 'media',
-    audience: 'everyone',
-    platforms: [],
-    previewPlatforms: ['android'],
-    environment: 'Android 8.0+ test APK (2.3.0-rc.1); no stable release in this fork',
-    availability: ['source'],
-    license: 'MPL-2.0',
-    fork: {
-      upstream: 'mmazzarolo/breathly-app',
-      note: 'Fork with additional features; a signed Android release candidate is published for testing.',
     },
   },
 ];

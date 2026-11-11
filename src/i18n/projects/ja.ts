@@ -605,10 +605,4 @@ export const ja: ProjectTexts = {
     environment: 'Anki デッキパッケージ',
     forkNote: 'コミュニティデッキ Ultimate Geography のフォーク。各言語版と修正を追加しています。',
   },
-  'breathly-app': {
-    name: 'Breathly（フォーク）',
-    task: 'Android の呼吸エクササイズ。このフォークでプリセット、開始の待ち時間、Health Connect への書き出しを追加。',
-    environment: 'Android 8.0+向けテストAPK（2.3.0-rc.1）。このフォークの安定版は未公開',
-    forkNote: '機能を追加したフォーク。テスト用に署名済みのAndroidリリース候補版を公開しています。',
-  },
 };

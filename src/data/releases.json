@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "source": "GitHub REST API: GET /repos/{owner}/{repo}/releases",
-  "checkedAt": "2026-11-11T19:22:44.337Z",
+  "checkedAt": "2026-11-11T19:41:55.348Z",
   "repos": {
     "0then0/agentkcal": {
       "repo": "0then0/agentkcal",
@@ -124,12 +124,6 @@
         ]
       },
       "newerPrereleases": 0
-    },
-    "0then0/breathly-app": {
-      "repo": "0then0/breathly-app",
-      "htmlUrl": "https://github.com/0then0/breathly-app",
-      "latestStable": null,
-      "newerPrereleases": 1
     },
     "0then0/cambridge-dictionary-audio": {
       "repo": "0then0/cambridge-dictionary-audio",
