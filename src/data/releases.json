@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "source": "GitHub REST API: GET /repos/{owner}/{repo}/releases",
-  "checkedAt": "2026-11-11T19:41:55.348Z",
+  "checkedAt": "2026-11-16T15:45:30.884Z",
   "repos": {
     "0then0/agentkcal": {
       "repo": "0then0/agentkcal",
@@ -13,75 +13,75 @@
       "repo": "0then0/batterybridge",
       "htmlUrl": "https://github.com/0then0/batterybridge",
       "latestStable": {
-        "tag": "v0.4.0",
-        "name": "BatteryBridge v0.4.0",
-        "htmlUrl": "https://github.com/0then0/batterybridge/releases/tag/v0.4.0",
-        "publishedAt": "2026-10-31T13:49:53Z",
+        "tag": "v0.4.3",
+        "name": "BatteryBridge v0.4.3",
+        "htmlUrl": "https://github.com/0then0/batterybridge/releases/tag/v0.4.3",
+        "publishedAt": "2026-11-15T19:31:47Z",
         "prerelease": false,
         "assets": [
           {
             "name": "BatteryBridge-linux-x86_64.deb",
-            "size": 7287948,
+            "size": 7299066,
             "contentType": "application/x-debian-package",
-            "downloadUrl": "https://github.com/0then0/batterybridge/releases/download/v0.4.0/BatteryBridge-linux-x86_64.deb",
-            "digest": "sha256:d832f443f2842c01638ba2208ddba4c7dcc0930330107ec0c64c60b06343b1a0",
-            "updatedAt": "2026-10-31T13:49:51Z"
+            "downloadUrl": "https://github.com/0then0/batterybridge/releases/download/v0.4.3/BatteryBridge-linux-x86_64.deb",
+            "digest": "sha256:bc0bb1676af993598e2f6aee60e16a137eda97d67eccd90c5ce89957b6a02a8c",
+            "updatedAt": "2026-11-15T19:31:45Z"
           },
           {
             "name": "BatteryBridge-linux-x86_64.rpm",
-            "size": 9621294,
+            "size": 9641923,
             "contentType": "application/x-rpm",
-            "downloadUrl": "https://github.com/0then0/batterybridge/releases/download/v0.4.0/BatteryBridge-linux-x86_64.rpm",
-            "digest": "sha256:ea64d59e0cab9dd27e31e1ef201a845cca0e48610926dfee964c72b8df0f426b",
-            "updatedAt": "2026-10-31T13:49:52Z"
+            "downloadUrl": "https://github.com/0then0/batterybridge/releases/download/v0.4.3/BatteryBridge-linux-x86_64.rpm",
+            "digest": "sha256:94fe09e7103576ab767260541336a1f9e7f4751ff961f6109a956ad27aeb3101",
+            "updatedAt": "2026-11-15T19:31:45Z"
           },
           {
             "name": "batterybridge-linux-x86_64.tar.gz",
-            "size": 26636198,
+            "size": 26687995,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/batterybridge/releases/download/v0.4.0/batterybridge-linux-x86_64.tar.gz",
-            "digest": "sha256:0f9df898aff23953961eb41e9360b193fd090efe26c469b20b0a655bc08948c5",
-            "updatedAt": "2026-10-31T13:49:53Z"
+            "downloadUrl": "https://github.com/0then0/batterybridge/releases/download/v0.4.3/batterybridge-linux-x86_64.tar.gz",
+            "digest": "sha256:65f4470be8b09e012f6aab6a7c668f0d7b8aea359be92197f482bdf63b57719d",
+            "updatedAt": "2026-11-15T19:31:46Z"
           },
           {
             "name": "BatteryBridge-macos-universal.pkg",
-            "size": 13251448,
+            "size": 13280936,
             "contentType": "application/x-xar",
-            "downloadUrl": "https://github.com/0then0/batterybridge/releases/download/v0.4.0/BatteryBridge-macos-universal.pkg",
-            "digest": "sha256:2a08b232292b4ad1bfaaa072e01a141e51ef3b131d5ee01358b1fabddf5f9e12",
-            "updatedAt": "2026-10-31T13:49:52Z"
+            "downloadUrl": "https://github.com/0then0/batterybridge/releases/download/v0.4.3/BatteryBridge-macos-universal.pkg",
+            "digest": "sha256:1247494ae3a74021bd1c0f937bcfa3fddcc19a1feaa47db056e957777a220314",
+            "updatedAt": "2026-11-15T19:31:46Z"
           },
           {
             "name": "batterybridge-macos-universal.tar.gz",
-            "size": 22485892,
+            "size": 22542435,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/batterybridge/releases/download/v0.4.0/batterybridge-macos-universal.tar.gz",
-            "digest": "sha256:dc9ff13782b42ee24872dfa7b2476b96b1dc4d98fa939fd5dfac6790e08b107b",
-            "updatedAt": "2026-10-31T13:49:53Z"
+            "downloadUrl": "https://github.com/0then0/batterybridge/releases/download/v0.4.3/batterybridge-macos-universal.tar.gz",
+            "digest": "sha256:cd385180946c8df9456c1193ad79ac345afd2dd278dec9b5ea9ba7165ac24597",
+            "updatedAt": "2026-11-15T19:31:47Z"
           },
           {
             "name": "BatteryBridge-windows-x86_64-setup.exe",
-            "size": 6444466,
+            "size": 6460083,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/batterybridge/releases/download/v0.4.0/BatteryBridge-windows-x86_64-setup.exe",
-            "digest": "sha256:c29cd2f62fcd36e3752c10083c31249175af5753859402e4bb20bee173a25351",
-            "updatedAt": "2026-10-31T13:49:51Z"
+            "downloadUrl": "https://github.com/0then0/batterybridge/releases/download/v0.4.3/BatteryBridge-windows-x86_64-setup.exe",
+            "digest": "sha256:049106189985c532ee1001e1602017cdd46d9aec56270636a719d333218241e9",
+            "updatedAt": "2026-11-15T19:31:45Z"
           },
           {
             "name": "batterybridge-windows-x86_64.zip",
-            "size": 16105361,
+            "size": 16146508,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/batterybridge/releases/download/v0.4.0/batterybridge-windows-x86_64.zip",
-            "digest": "sha256:3814574ce7fd08461d599364751d23bef1e4fdd6d324153e1ce38d47311634aa",
-            "updatedAt": "2026-10-31T13:49:52Z"
+            "downloadUrl": "https://github.com/0then0/batterybridge/releases/download/v0.4.3/batterybridge-windows-x86_64.zip",
+            "digest": "sha256:86a8c02d016425c823bc0dd51983fa70b76377aa415f99e7cb90b87481dd92db",
+            "updatedAt": "2026-11-15T19:31:47Z"
           },
           {
             "name": "SHA256SUMS.txt",
             "size": 701,
             "contentType": "text/plain; charset=utf-8",
-            "downloadUrl": "https://github.com/0then0/batterybridge/releases/download/v0.4.0/SHA256SUMS.txt",
-            "digest": "sha256:e53ed2c110cf0c4a716c17c2e16f3e34ab10ece1b3dfb0c8b506910c385f5ab5",
-            "updatedAt": "2026-10-31T13:49:51Z"
+            "downloadUrl": "https://github.com/0then0/batterybridge/releases/download/v0.4.3/SHA256SUMS.txt",
+            "digest": "sha256:3a5a60a1c9a7c5ff411c10a5bc552697467233b8a1dd72f789f028dce338ace9",
+            "updatedAt": "2026-11-15T19:31:45Z"
           }
         ]
       },
@@ -129,275 +129,275 @@
       "repo": "0then0/cambridge-dictionary-audio",
       "htmlUrl": "https://github.com/0then0/cambridge-dictionary-audio",
       "latestStable": {
-        "tag": "v1.0.1",
-        "name": "v1.0.1",
-        "htmlUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/tag/v1.0.1",
-        "publishedAt": "2026-10-31T11:21:20Z",
+        "tag": "v1.1.0",
+        "name": "v1.1.0",
+        "htmlUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/tag/v1.1.0",
+        "publishedAt": "2026-11-15T17:14:32Z",
         "prerelease": false,
         "assets": [
           {
             "name": "android-artifacts.json",
             "size": 265,
             "contentType": "application/json",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/android-artifacts.json",
-            "digest": "sha256:020f97471de60c29bb63e42d158f8803c55addd24b54ff3629c2abab21668b73",
-            "updatedAt": "2026-10-31T11:21:09Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/android-artifacts.json",
+            "digest": "sha256:dd0b3699a66cea57948dde323bacedeb6f503f01917311fd1e57d9e55d482c04",
+            "updatedAt": "2026-11-15T17:14:23Z"
           },
           {
             "name": "android-INSTALL.md",
             "size": 10796,
             "contentType": "text/markdown; charset=utf-8",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/android-INSTALL.md",
-            "digest": "sha256:400e21ef32c52877395b734e9333ee09aa3e36bafecfe1cd98c41b8844681acb",
-            "updatedAt": "2026-10-31T11:21:09Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/android-INSTALL.md",
+            "digest": "sha256:4377507d11f673b35b2b9012af53edd35fe24d36aa267c87c06a5497bbf82eb4",
+            "updatedAt": "2026-11-15T17:14:23Z"
           },
           {
             "name": "android-SHA256SUMS.txt",
             "size": 612,
             "contentType": "text/plain; charset=utf-8",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/android-SHA256SUMS.txt",
-            "digest": "sha256:9696d216cc7c23a74b5a7e22976e651ed53d3d5a2ad95c0d40c6421e608dd445",
-            "updatedAt": "2026-10-31T11:21:09Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/android-SHA256SUMS.txt",
+            "digest": "sha256:337213127a8c94f9ff3f033e96b3ec537fd24e4f20761f0e74c81997039d7749",
+            "updatedAt": "2026-11-15T17:14:23Z"
           },
           {
             "name": "android-signature.txt",
             "size": 103,
             "contentType": "text/plain; charset=utf-8",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/android-signature.txt",
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/android-signature.txt",
             "digest": "sha256:3d0aa51c57dafc42eb2b9a2341e2b69e8c54be75f940bac2a0eb567565fc6aed",
-            "updatedAt": "2026-10-31T11:21:09Z"
+            "updatedAt": "2026-11-15T17:14:23Z"
           },
           {
             "name": "android-source-and-relink-materials.tar.gz",
-            "size": 1866082,
+            "size": 1857148,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/android-source-and-relink-materials.tar.gz",
-            "digest": "sha256:b4bf384cb6a8c962b64925fe022c63b7c7e2363a35a60f80563f014b89562cd1",
-            "updatedAt": "2026-10-31T11:21:10Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/android-source-and-relink-materials.tar.gz",
+            "digest": "sha256:aac4a1d8e54d0c474faf2bb19a1fa758be3b41e9a29eef9bb9e58512cd7a5f43",
+            "updatedAt": "2026-11-15T17:14:24Z"
           },
           {
-            "name": "cambridge_dictionary_audio-1.0.1-py3-none-any.whl",
-            "size": 132656,
+            "name": "cambridge_dictionary_audio-1.1.0-py3-none-any.whl",
+            "size": 143013,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge_dictionary_audio-1.0.1-py3-none-any.whl",
-            "digest": "sha256:c7ca21f37b259f5242d6eefaaf5cace7e010f051419c924b8369bde9ccd5cee7",
-            "updatedAt": "2026-10-31T11:21:17Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge_dictionary_audio-1.1.0-py3-none-any.whl",
+            "digest": "sha256:970831274253787511eb3b93f861aedb7a183964986ba03334e365ee593307ff",
+            "updatedAt": "2026-11-15T17:14:30Z"
           },
           {
-            "name": "cambridge_dictionary_audio-1.0.1.tar.gz",
-            "size": 167374,
+            "name": "cambridge_dictionary_audio-1.1.0.tar.gz",
+            "size": 184912,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge_dictionary_audio-1.0.1.tar.gz",
-            "digest": "sha256:d06ff8902f740ea2115eaf6cc1da6326489dbcc9f561995c19503283d1130991",
-            "updatedAt": "2026-10-31T11:21:17Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge_dictionary_audio-1.1.0.tar.gz",
+            "digest": "sha256:ba271a07c41c198995855a88fa674e2d614608e04aebb5ca40de3dc860bd7e9e",
+            "updatedAt": "2026-11-15T17:14:30Z"
           },
           {
-            "name": "cambridge-audio-1.0.1-android-debug-TEST-ONLY.apk",
-            "size": 32595782,
+            "name": "cambridge-audio-1.1.0-android-debug-TEST-ONLY.apk",
+            "size": 32596604,
             "contentType": "application/vnd.android.package-archive",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-audio-1.0.1-android-debug-TEST-ONLY.apk",
-            "digest": "sha256:2e0a421c852eea217c8de4a1cdb697c6955b0f4d131b632d46362ca0ea614198",
-            "updatedAt": "2026-10-31T11:21:11Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-audio-1.1.0-android-debug-TEST-ONLY.apk",
+            "digest": "sha256:845ec9bbd44c2266c2f14c0966dc55e331e31ffb1560fe32b7aa8e32640cc2b8",
+            "updatedAt": "2026-11-15T17:14:24Z"
           },
           {
-            "name": "cambridge-audio-1.0.1-android-unsigned-NOT-INSTALLABLE.apk",
-            "size": 25360056,
+            "name": "cambridge-audio-1.1.0-android-unsigned-NOT-INSTALLABLE.apk",
+            "size": 25360796,
             "contentType": "application/vnd.android.package-archive",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-audio-1.0.1-android-unsigned-NOT-INSTALLABLE.apk",
-            "digest": "sha256:143b37ed0fab85062bf27375a6cfb1878563740c26a3508c45a47838c5ab8e6e",
-            "updatedAt": "2026-10-31T11:21:10Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-audio-1.1.0-android-unsigned-NOT-INSTALLABLE.apk",
+            "digest": "sha256:12b93b6ec49325f4a5e4be2dc9bae418a5f6b464cba9a25b8a94f35207cfc205",
+            "updatedAt": "2026-11-15T17:14:24Z"
           },
           {
-            "name": "cambridge-audio-1.0.1-ios-device-unsigned-REQUIRES-SIGNING.tar.gz",
-            "size": 2238751,
+            "name": "cambridge-audio-1.1.0-ios-device-unsigned-REQUIRES-SIGNING.tar.gz",
+            "size": 2197136,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-audio-1.0.1-ios-device-unsigned-REQUIRES-SIGNING.tar.gz",
-            "digest": "sha256:1efc6ae3d522958c27658a16a48852ba4afa43eacb8fa18bab67f6a6da58ea10",
-            "updatedAt": "2026-10-31T11:21:10Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-audio-1.1.0-ios-device-unsigned-REQUIRES-SIGNING.tar.gz",
+            "digest": "sha256:4bc7569025f88c8812186caa58ac2031caaac3853eb67d08aa145a0724f57f77",
+            "updatedAt": "2026-11-15T17:14:24Z"
           },
           {
-            "name": "cambridge-audio-1.0.1-ios-simulator-NOT-FOR-DEVICE.tar.gz",
-            "size": 8933935,
+            "name": "cambridge-audio-1.1.0-ios-simulator-NOT-FOR-DEVICE.tar.gz",
+            "size": 8916476,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-audio-1.0.1-ios-simulator-NOT-FOR-DEVICE.tar.gz",
-            "digest": "sha256:6e2890d9d7de30eaf804a3befa2067d2c918993d4324f5a32ef99a5fcef04986",
-            "updatedAt": "2026-10-31T11:21:10Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-audio-1.1.0-ios-simulator-NOT-FOR-DEVICE.tar.gz",
+            "digest": "sha256:8d55f081bac7f41c97398189f8d8a2865ee6c5cff50bf34d9aa67aa8500f5814",
+            "updatedAt": "2026-11-15T17:14:24Z"
           },
           {
-            "name": "cambridge-audio-chrome-1.0.1.zip",
-            "size": 25642,
+            "name": "cambridge-audio-chrome-1.1.0.zip",
+            "size": 24372,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-audio-chrome-1.0.1.zip",
-            "digest": "sha256:795c838657d48fce1e8584a05c4b51e75afb10902c2faefd850d1ae64aab1c2d",
-            "updatedAt": "2026-10-31T11:21:10Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-audio-chrome-1.1.0.zip",
+            "digest": "sha256:bf6b191fc5c77015f76331551081a6ad85cc9978fdac0cfad6dc41adb1894713",
+            "updatedAt": "2026-11-15T17:14:24Z"
           },
           {
-            "name": "cambridge-audio-firefox-1.0.1.zip",
-            "size": 25741,
+            "name": "cambridge-audio-firefox-1.1.0.zip",
+            "size": 24469,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-audio-firefox-1.0.1.zip",
-            "digest": "sha256:c7ecbf40337565fc38f6a0bbfaf77f4ca2243e5a03627270c2d90aade9a6e616",
-            "updatedAt": "2026-10-31T11:21:10Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-audio-firefox-1.1.0.zip",
+            "digest": "sha256:63ce40702c3e53e15e3ce933d69401e39d8036e5845714ee709ce033e6a00552",
+            "updatedAt": "2026-11-15T17:14:24Z"
           },
           {
-            "name": "cambridge-dictionary-audio_1.0.1_amd64.deb",
-            "size": 76858902,
+            "name": "cambridge-dictionary-audio_1.1.0_amd64.deb",
+            "size": 76931368,
             "contentType": "application/x-debian-package",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-dictionary-audio_1.0.1_amd64.deb",
-            "digest": "sha256:171575c2d2f44c1bcdd5076aa2efb2fef5ded95b0da898ee06366ba25ef89ea2",
-            "updatedAt": "2026-10-31T11:21:19Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-dictionary-audio_1.1.0_amd64.deb",
+            "digest": "sha256:78368cc49a137c3b3eacfbbc6b67f69266b7c582c203e94c16c70f64e30d5b7f",
+            "updatedAt": "2026-11-15T17:14:31Z"
           },
           {
-            "name": "cambridge-dictionary-audio-1.0.1-1.x86_64.rpm",
-            "size": 95353110,
+            "name": "cambridge-dictionary-audio-1.1.0-1.x86_64.rpm",
+            "size": 95406896,
             "contentType": "application/x-rpm",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-dictionary-audio-1.0.1-1.x86_64.rpm",
-            "digest": "sha256:722e69971bc88daf8eb3c2a161cc17306fcf069bfb8e973f6b7f78d88310aac2",
-            "updatedAt": "2026-10-31T11:21:15Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-dictionary-audio-1.1.0-1.x86_64.rpm",
+            "digest": "sha256:1339fabe75822374c5af63d537d910be7d93267a5814aa84e8eda6a43ef3a41d",
+            "updatedAt": "2026-11-15T17:14:28Z"
           },
           {
-            "name": "cambridge-dictionary-audio-1.0.1-linux-x86_64-portable.tar.gz",
-            "size": 95229434,
+            "name": "cambridge-dictionary-audio-1.1.0-linux-x86_64-portable.tar.gz",
+            "size": 95306435,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-dictionary-audio-1.0.1-linux-x86_64-portable.tar.gz",
-            "digest": "sha256:230f20562d8d05066efaa066053366160aa25f64988e0d06e56dfcf1f4afcdbb",
-            "updatedAt": "2026-10-31T11:21:15Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-dictionary-audio-1.1.0-linux-x86_64-portable.tar.gz",
+            "digest": "sha256:afc62ba94d38ee28c8c0f4cef0bff6cc858c35ffc63d57d1e73ca129289e9fc6",
+            "updatedAt": "2026-11-15T17:14:28Z"
           },
           {
-            "name": "cambridge-dictionary-audio-1.0.1-macos-arm64.dmg",
-            "size": 57881687,
+            "name": "cambridge-dictionary-audio-1.1.0-macos-arm64.dmg",
+            "size": 57971181,
             "contentType": "application/x-apple-diskimage",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-dictionary-audio-1.0.1-macos-arm64.dmg",
-            "digest": "sha256:f721c951f3ef54f71a8dd5016ff38a67ff10c35d7289cb52ff110c6bd16bf9ec",
-            "updatedAt": "2026-10-31T11:21:14Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-dictionary-audio-1.1.0-macos-arm64.dmg",
+            "digest": "sha256:006402ae789ff9650e4d701bc4d502e7fab68eb520efdb75d64466d8b4aac95b",
+            "updatedAt": "2026-11-15T17:14:27Z"
           },
           {
-            "name": "cambridge-dictionary-audio-1.0.1-macos-arm64.pkg",
-            "size": 49952324,
+            "name": "cambridge-dictionary-audio-1.1.0-macos-arm64.pkg",
+            "size": 49999760,
             "contentType": "application/x-xar",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-dictionary-audio-1.0.1-macos-arm64.pkg",
-            "digest": "sha256:14fafc2385ea6c2735f3e04751c6421e997960d17c266375d2a31e61ec226d1c",
-            "updatedAt": "2026-10-31T11:21:13Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-dictionary-audio-1.1.0-macos-arm64.pkg",
+            "digest": "sha256:604b7ff9df2a09ad84f4c0a3d4560d8f864c0f4bede1c5e87c08037690330321",
+            "updatedAt": "2026-11-15T17:14:26Z"
           },
           {
-            "name": "cambridge-dictionary-audio-1.0.1-macos-arm64.tar.gz",
-            "size": 49801579,
+            "name": "cambridge-dictionary-audio-1.1.0-macos-arm64.tar.gz",
+            "size": 49843275,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-dictionary-audio-1.0.1-macos-arm64.tar.gz",
-            "digest": "sha256:6410944de879b53f4d307824148f59f90a188ed2facd22e02b3dcf0053fa8522",
-            "updatedAt": "2026-10-31T11:21:13Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-dictionary-audio-1.1.0-macos-arm64.tar.gz",
+            "digest": "sha256:b6db812e168922b09126c4caf4d1c773c457817831f789e6f70021a829ed102d",
+            "updatedAt": "2026-11-15T17:14:27Z"
           },
           {
-            "name": "cambridge-dictionary-audio-1.0.1-macos-x86_64.dmg",
-            "size": 61956261,
+            "name": "cambridge-dictionary-audio-1.1.0-macos-x86_64.dmg",
+            "size": 62012190,
             "contentType": "application/x-apple-diskimage",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-dictionary-audio-1.0.1-macos-x86_64.dmg",
-            "digest": "sha256:2b627da4545b68edeff272935424435fd86056c45e4463bded3d980cfc4c637a",
-            "updatedAt": "2026-10-31T11:21:17Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-dictionary-audio-1.1.0-macos-x86_64.dmg",
+            "digest": "sha256:10ded98d1201ba56038cb0828128bcc0132351849a57e60324774be56d3a38a1",
+            "updatedAt": "2026-11-15T17:14:29Z"
           },
           {
-            "name": "cambridge-dictionary-audio-1.0.1-macos-x86_64.pkg",
-            "size": 53408155,
+            "name": "cambridge-dictionary-audio-1.1.0-macos-x86_64.pkg",
+            "size": 53454585,
             "contentType": "application/x-xar",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-dictionary-audio-1.0.1-macos-x86_64.pkg",
-            "digest": "sha256:33288d6e5521b298417b4d15220936db21e010d87c022312dd04fd3392ee89cc",
-            "updatedAt": "2026-10-31T11:21:16Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-dictionary-audio-1.1.0-macos-x86_64.pkg",
+            "digest": "sha256:4dc272c0a322e931c3631a7103f9ed3e18588ffa661fd3ca5fe1f216887aaa4d",
+            "updatedAt": "2026-11-15T17:14:30Z"
           },
           {
-            "name": "cambridge-dictionary-audio-1.0.1-macos-x86_64.tar.gz",
-            "size": 53157920,
+            "name": "cambridge-dictionary-audio-1.1.0-macos-x86_64.tar.gz",
+            "size": 53204833,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-dictionary-audio-1.0.1-macos-x86_64.tar.gz",
-            "digest": "sha256:79d96b9eb4acc50df66bfa95412717782aacd32e8bfd5c92ae5d66728fb4860e",
-            "updatedAt": "2026-10-31T11:21:16Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-dictionary-audio-1.1.0-macos-x86_64.tar.gz",
+            "digest": "sha256:43b7af79209faa2504978200b8febe17c081f19fb9e6ab02d9952dafac91866f",
+            "updatedAt": "2026-11-15T17:14:29Z"
           },
           {
-            "name": "cambridge-dictionary-audio-1.0.1-windows-x86_64-portable.zip",
-            "size": 66874632,
+            "name": "cambridge-dictionary-audio-1.1.0-windows-x86_64-portable.zip",
+            "size": 66866990,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-dictionary-audio-1.0.1-windows-x86_64-portable.zip",
-            "digest": "sha256:4656cf131bfe00ccc95e81ce0cb224ec5d749b0df49eb16b107a74941336dd5a",
-            "updatedAt": "2026-10-31T11:21:18Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-dictionary-audio-1.1.0-windows-x86_64-portable.zip",
+            "digest": "sha256:0c793b9b431ce15d26c03e995029bfe04a32f5dd63abb39361b39b850782befd",
+            "updatedAt": "2026-11-15T17:14:30Z"
           },
           {
-            "name": "cambridge-dictionary-audio-1.0.1-windows-x86_64-setup.exe",
-            "size": 46773211,
+            "name": "cambridge-dictionary-audio-1.1.0-windows-x86_64-setup.exe",
+            "size": 46697414,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/cambridge-dictionary-audio-1.0.1-windows-x86_64-setup.exe",
-            "digest": "sha256:b40dfb2105f91aa081f24b1f92a2080f1c1cc550c8824ca3597f70e51b882c0b",
-            "updatedAt": "2026-10-31T11:21:17Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/cambridge-dictionary-audio-1.1.0-windows-x86_64-setup.exe",
+            "digest": "sha256:2c97fb6e16cb23ccd952120bb6fdb3d8bf16438f2e4b7d306ede52b133661b4f",
+            "updatedAt": "2026-11-15T17:14:30Z"
           },
           {
             "name": "ffmpeg-lame-sources-linux-x86_64.tar.gz",
-            "size": 13581104,
+            "size": 13581085,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/ffmpeg-lame-sources-linux-x86_64.tar.gz",
-            "digest": "sha256:19f1612e12b0687a0d66164f71c6970f196f5d33102e6c35f1e21f84fd5d79f5",
-            "updatedAt": "2026-10-31T11:21:18Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/ffmpeg-lame-sources-linux-x86_64.tar.gz",
+            "digest": "sha256:f254164163e361546f4139b975b6b6db6b64b247b934fbda12c28217b48cd7e1",
+            "updatedAt": "2026-11-15T17:14:31Z"
           },
           {
             "name": "ffmpeg-lame-sources-macos-arm64.tar.gz",
-            "size": 13574913,
+            "size": 13574919,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/ffmpeg-lame-sources-macos-arm64.tar.gz",
-            "digest": "sha256:423a86a3e95d59bded3d272d8ea4311c1ee9b1e8c42b1ddf5274f383a4f9b129",
-            "updatedAt": "2026-10-31T11:21:18Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/ffmpeg-lame-sources-macos-arm64.tar.gz",
+            "digest": "sha256:b790457f7d6dfff63c8ec07cb05719af129aba30888e96d41a680b4a7e096222",
+            "updatedAt": "2026-11-15T17:14:31Z"
           },
           {
             "name": "ffmpeg-lame-sources-macos-x86_64.tar.gz",
-            "size": 13574935,
+            "size": 13574932,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/ffmpeg-lame-sources-macos-x86_64.tar.gz",
-            "digest": "sha256:49a823f205035ee74a7df19f64256c5a52192f2cf97a644515943fd7ea695660",
-            "updatedAt": "2026-10-31T11:21:18Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/ffmpeg-lame-sources-macos-x86_64.tar.gz",
+            "digest": "sha256:ae251e8c4f09973d5a510cb2d70575efdb0a61c7daafb6632b643e5176abf878",
+            "updatedAt": "2026-11-15T17:14:31Z"
           },
           {
             "name": "ffmpeg-lame-sources-windows-x86_64.tar.gz",
-            "size": 13580927,
+            "size": 13580913,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/ffmpeg-lame-sources-windows-x86_64.tar.gz",
-            "digest": "sha256:c59a6fcfefdab81550b19538b532c01d524ff575525f689cdb206c926bc65f19",
-            "updatedAt": "2026-10-31T11:21:19Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/ffmpeg-lame-sources-windows-x86_64.tar.gz",
+            "digest": "sha256:4aeaf69cf1a857ae3a73f65d0e987d8b50415b94b2370e7daf1c211538ecb4aa",
+            "updatedAt": "2026-11-15T17:14:31Z"
           },
           {
             "name": "ios-artifacts.json",
             "size": 189,
             "contentType": "application/json",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/ios-artifacts.json",
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/ios-artifacts.json",
             "digest": "sha256:eeae31a4059133eb88043fba9dea3eabb9de05390b12d5c697288cf4bbffda6d",
-            "updatedAt": "2026-10-31T11:21:19Z"
+            "updatedAt": "2026-11-15T17:14:32Z"
           },
           {
             "name": "ios-INSTALL.md",
             "size": 10796,
             "contentType": "text/markdown; charset=utf-8",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/ios-INSTALL.md",
-            "digest": "sha256:400e21ef32c52877395b734e9333ee09aa3e36bafecfe1cd98c41b8844681acb",
-            "updatedAt": "2026-10-31T11:21:18Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/ios-INSTALL.md",
+            "digest": "sha256:4377507d11f673b35b2b9012af53edd35fe24d36aa267c87c06a5497bbf82eb4",
+            "updatedAt": "2026-11-15T17:14:31Z"
           },
           {
             "name": "ios-SHA256SUMS.txt",
             "size": 527,
             "contentType": "text/plain; charset=utf-8",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/ios-SHA256SUMS.txt",
-            "digest": "sha256:66b8b68c37d33b886e50b3673baf89e5483b089df66022da4abf3811c171ecb6",
-            "updatedAt": "2026-10-31T11:21:19Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/ios-SHA256SUMS.txt",
+            "digest": "sha256:b638afb0998db70f3b3c3188b9482559093210aaf2fe336936a1b8497324a4ab",
+            "updatedAt": "2026-11-15T17:14:32Z"
           },
           {
             "name": "ios-source-and-relink-materials.tar.gz",
-            "size": 1795416,
+            "size": 1786025,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/ios-source-and-relink-materials.tar.gz",
-            "digest": "sha256:a8b2cf5e4caafb629ca33e616a39a78c24f5df2be886f07da5f2e8b3ac1e4507",
-            "updatedAt": "2026-10-31T11:21:19Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/ios-source-and-relink-materials.tar.gz",
+            "digest": "sha256:288663901bb49696af8d357217c9a116f41df7c2ec0df07bbf0ebbe878d35b67",
+            "updatedAt": "2026-11-15T17:14:32Z"
           },
           {
             "name": "SHA256SUMS.txt",
             "size": 3458,
             "contentType": "text/plain; charset=utf-8",
-            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.0.1/SHA256SUMS.txt",
-            "digest": "sha256:ff58feff448bd7b89a353946d8732a9f06d5f08c727ac84731156862f6a8e242",
-            "updatedAt": "2026-10-31T11:21:09Z"
+            "downloadUrl": "https://github.com/0then0/cambridge-dictionary-audio/releases/download/v1.1.0/SHA256SUMS.txt",
+            "digest": "sha256:8614eca0857e2496d81b56ee6025388ca5eabd92dc76d7bb5aa21ef7fed26ad8",
+            "updatedAt": "2026-11-15T17:14:23Z"
           }
         ]
       },
@@ -407,27 +407,27 @@
       "repo": "0then0/cancellens",
       "htmlUrl": "https://github.com/0then0/cancellens",
       "latestStable": {
-        "tag": "v0.1.0",
-        "name": "CancelLens v0.1.0",
-        "htmlUrl": "https://github.com/0then0/cancellens/releases/tag/v0.1.0",
-        "publishedAt": "2026-10-14T08:33:44Z",
+        "tag": "v0.2.0",
+        "name": "CancelLens v0.2.0",
+        "htmlUrl": "https://github.com/0then0/cancellens/releases/tag/v0.2.0",
+        "publishedAt": "2026-11-13T13:51:51Z",
         "prerelease": false,
         "assets": [
           {
-            "name": "cancellens-0.1.0-py3-none-any.whl",
-            "size": 19151,
+            "name": "cancellens-0.2.0-py3-none-any.whl",
+            "size": 22842,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/cancellens/releases/download/v0.1.0/cancellens-0.1.0-py3-none-any.whl",
-            "digest": "sha256:e80118f7c3f232ebb3772731ed6a3eb0b91ee1d75fdc2fb31ad25e18182adabd",
-            "updatedAt": "2026-10-14T08:33:43Z"
+            "downloadUrl": "https://github.com/0then0/cancellens/releases/download/v0.2.0/cancellens-0.2.0-py3-none-any.whl",
+            "digest": "sha256:b155ef7551caeb1a217058da3d5359c3cf2cb421489f62322b97c537d83eedab",
+            "updatedAt": "2026-11-13T13:51:50Z"
           },
           {
-            "name": "cancellens-0.1.0.tar.gz",
-            "size": 104076,
+            "name": "cancellens-0.2.0.tar.gz",
+            "size": 232028,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/cancellens/releases/download/v0.1.0/cancellens-0.1.0.tar.gz",
-            "digest": "sha256:51e972ddd6e4b188568603debca39f8618c96cacb5fbc7cab52d6e0c2521cbbf",
-            "updatedAt": "2026-10-14T08:33:43Z"
+            "downloadUrl": "https://github.com/0then0/cancellens/releases/download/v0.2.0/cancellens-0.2.0.tar.gz",
+            "digest": "sha256:bad6a8410b3c6e641b33458492e9301bf10f5428b8aef1d006859547b66143bc",
+            "updatedAt": "2026-11-13T13:51:50Z"
           }
         ]
       },
@@ -480,27 +480,27 @@
       "repo": "0then0/colophon",
       "htmlUrl": "https://github.com/0then0/colophon",
       "latestStable": {
-        "tag": "v0.4.0",
-        "name": "Colophon 0.4.0",
-        "htmlUrl": "https://github.com/0then0/colophon/releases/tag/v0.4.0",
-        "publishedAt": "2026-11-11T06:09:42Z",
+        "tag": "v0.6.0",
+        "name": "Colophon 0.6.0",
+        "htmlUrl": "https://github.com/0then0/colophon/releases/tag/v0.6.0",
+        "publishedAt": "2026-11-15T14:28:39Z",
         "prerelease": false,
         "assets": [
           {
-            "name": "colophon-0.4.0.zip",
-            "size": 363162,
+            "name": "colophon-0.6.0.zip",
+            "size": 527567,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/colophon/releases/download/v0.4.0/colophon-0.4.0.zip",
-            "digest": "sha256:f6797ade9f38cae6eee23718a8c34307c2caaae7946e3fb564431f5ac9f3b1a2",
-            "updatedAt": "2026-11-11T06:09:41Z"
+            "downloadUrl": "https://github.com/0then0/colophon/releases/download/v0.6.0/colophon-0.6.0.zip",
+            "digest": "sha256:2619e7a5bd828ebe7dd9875c93ce8bdee6d3e900da73c202360f4c7e58edd43c",
+            "updatedAt": "2026-11-15T14:28:39Z"
           },
           {
-            "name": "colophon-0.4.0.zip.sha256",
+            "name": "colophon-0.6.0.zip.sha256",
             "size": 85,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/colophon/releases/download/v0.4.0/colophon-0.4.0.zip.sha256",
-            "digest": "sha256:b216043f1ad28f95c1f545efd7c0da8abebdd8d7bc464c68c0e219752afd59b0",
-            "updatedAt": "2026-11-11T06:09:41Z"
+            "downloadUrl": "https://github.com/0then0/colophon/releases/download/v0.6.0/colophon-0.6.0.zip.sha256",
+            "digest": "sha256:58ca4ce6f6208a91412649376410920b67c80a722a0d7f15ce14ad2d0446fae2",
+            "updatedAt": "2026-11-15T14:28:38Z"
           }
         ]
       },
@@ -523,27 +523,27 @@
       "repo": "0then0/cursorproof",
       "htmlUrl": "https://github.com/0then0/cursorproof",
       "latestStable": {
-        "tag": "v0.3.0",
-        "name": "v0.3.0",
-        "htmlUrl": "https://github.com/0then0/cursorproof/releases/tag/v0.3.0",
-        "publishedAt": "2026-11-07T17:01:54Z",
+        "tag": "v0.4.0",
+        "name": "v0.4.0",
+        "htmlUrl": "https://github.com/0then0/cursorproof/releases/tag/v0.4.0",
+        "publishedAt": "2026-11-13T08:02:09Z",
         "prerelease": false,
         "assets": [
           {
-            "name": "cursorproof-0.3.0-py3-none-any.whl",
-            "size": 38104,
+            "name": "cursorproof-0.4.0-py3-none-any.whl",
+            "size": 41280,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/cursorproof/releases/download/v0.3.0/cursorproof-0.3.0-py3-none-any.whl",
-            "digest": "sha256:1fe7ad508a3f4e769876b8493a400c01f5b2f022792963a908802cc70fd0d4e9",
-            "updatedAt": "2026-11-07T17:01:53Z"
+            "downloadUrl": "https://github.com/0then0/cursorproof/releases/download/v0.4.0/cursorproof-0.4.0-py3-none-any.whl",
+            "digest": "sha256:2d3068be511f9ead63f3f9b43c28d073ddac9de2f67ba5da777dfc4405cc84e8",
+            "updatedAt": "2026-11-13T08:02:09Z"
           },
           {
-            "name": "cursorproof-0.3.0.tar.gz",
-            "size": 135848,
+            "name": "cursorproof-0.4.0.tar.gz",
+            "size": 149532,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/cursorproof/releases/download/v0.3.0/cursorproof-0.3.0.tar.gz",
-            "digest": "sha256:123b3209ef869464df45e1751ba6a0ae612e7c70497ef8bec041a640c99ed3b4",
-            "updatedAt": "2026-11-07T17:01:53Z"
+            "downloadUrl": "https://github.com/0then0/cursorproof/releases/download/v0.4.0/cursorproof-0.4.0.tar.gz",
+            "digest": "sha256:c879f5d2a452d344e3096db3ccbcd07788d16f8b68b188afe0732c1ccefcde1b",
+            "updatedAt": "2026-11-13T08:02:09Z"
           }
         ]
       },
@@ -596,35 +596,35 @@
       "repo": "0then0/form-forge",
       "htmlUrl": "https://github.com/0then0/form-forge",
       "latestStable": {
-        "tag": "v0.2.0",
-        "name": "Form Forge v0.2.0",
-        "htmlUrl": "https://github.com/0then0/form-forge/releases/tag/v0.2.0",
-        "publishedAt": "2026-10-18T16:47:15Z",
+        "tag": "v0.3.0",
+        "name": "Form Forge v0.3.0",
+        "htmlUrl": "https://github.com/0then0/form-forge/releases/tag/v0.3.0",
+        "publishedAt": "2026-11-13T17:40:05Z",
         "prerelease": false,
         "assets": [
           {
-            "name": "form-forge-0.2.0.tar.gz",
-            "size": 380375,
+            "name": "form-forge-0.3.0.tar.gz",
+            "size": 411955,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/form-forge/releases/download/v0.2.0/form-forge-0.2.0.tar.gz",
-            "digest": "sha256:3ab648dba04cdfb22c10cb59066731812d95238a58d65cf47fc28935c2dddba5",
-            "updatedAt": "2026-10-18T16:47:14Z"
+            "downloadUrl": "https://github.com/0then0/form-forge/releases/download/v0.3.0/form-forge-0.3.0.tar.gz",
+            "digest": "sha256:8f8851ab62d01d393c8ea9ff115e9845e621158b23fda739ba49da6f744829e7",
+            "updatedAt": "2026-11-13T17:40:04Z"
           },
           {
             "name": "SHA256SUMS",
             "size": 168,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/form-forge/releases/download/v0.2.0/SHA256SUMS",
-            "digest": "sha256:80ecd268179022cc2c95f2014664977440ed96b9a1af6dd9227a714f25a51018",
-            "updatedAt": "2026-10-18T16:47:14Z"
+            "downloadUrl": "https://github.com/0then0/form-forge/releases/download/v0.3.0/SHA256SUMS",
+            "digest": "sha256:103082a04c3ac0512cef3c6d5d87dd05918f4295193483506a857c14af7b3805",
+            "updatedAt": "2026-11-13T17:40:04Z"
           },
           {
             "name": "SOURCE.json",
-            "size": 34538,
+            "size": 37028,
             "contentType": "application/json",
-            "downloadUrl": "https://github.com/0then0/form-forge/releases/download/v0.2.0/SOURCE.json",
-            "digest": "sha256:42d0ad8b30e84dfdc9258b2f35479f31fd703592b78e92d796490a9419d6a982",
-            "updatedAt": "2026-10-18T16:47:14Z"
+            "downloadUrl": "https://github.com/0then0/form-forge/releases/download/v0.3.0/SOURCE.json",
+            "digest": "sha256:20915c91794f35171fcbf72b15f8277478fedf02151dbf685b83ff6210ce7b27",
+            "updatedAt": "2026-11-13T17:40:04Z"
           }
         ]
       },
@@ -678,10 +678,10 @@
       "repo": "0then0/idbshift",
       "htmlUrl": "https://github.com/0then0/idbshift",
       "latestStable": {
-        "tag": "v0.3.0",
-        "name": "IDBShift v0.3.0",
-        "htmlUrl": "https://github.com/0then0/idbshift/releases/tag/v0.3.0",
-        "publishedAt": "2026-11-07T17:35:04Z",
+        "tag": "v0.4.0",
+        "name": "IDBShift v0.4.0",
+        "htmlUrl": "https://github.com/0then0/idbshift/releases/tag/v0.4.0",
+        "publishedAt": "2026-11-15T09:20:06Z",
         "prerelease": false,
         "assets": []
       },
@@ -690,7 +690,14 @@
     "0then0/inkdoze": {
       "repo": "0then0/inkdoze",
       "htmlUrl": "https://github.com/0then0/inkdoze",
-      "latestStable": null,
+      "latestStable": {
+        "tag": "v0.1.0",
+        "name": "InkDoze 0.1.0",
+        "htmlUrl": "https://github.com/0then0/inkdoze/releases/tag/v0.1.0",
+        "publishedAt": "2026-11-14T07:00:20Z",
+        "prerelease": false,
+        "assets": []
+      },
       "newerPrereleases": 0
     },
     "0then0/lanpair": {
@@ -837,27 +844,27 @@
       "repo": "0then0/margincarry",
       "htmlUrl": "https://github.com/0then0/margincarry",
       "latestStable": {
-        "tag": "v0.3.0",
-        "name": "MarginCarry v0.3.0",
-        "htmlUrl": "https://github.com/0then0/margincarry/releases/tag/v0.3.0",
-        "publishedAt": "2026-11-06T21:47:18Z",
+        "tag": "v0.4.0",
+        "name": "MarginCarry v0.4.0",
+        "htmlUrl": "https://github.com/0then0/margincarry/releases/tag/v0.4.0",
+        "publishedAt": "2026-11-12T07:06:07Z",
         "prerelease": false,
         "assets": [
           {
-            "name": "margincarry-0.3.0.xpi",
-            "size": 52475,
+            "name": "margincarry-0.4.0.xpi",
+            "size": 57332,
             "contentType": "application/x-xpinstall",
-            "downloadUrl": "https://github.com/0then0/margincarry/releases/download/v0.3.0/margincarry-0.3.0.xpi",
-            "digest": "sha256:5993b17de7d0377c5f55005017799ca77dd868e8d5b952c4f39e50ada18ff305",
-            "updatedAt": "2026-11-06T21:47:18Z"
+            "downloadUrl": "https://github.com/0then0/margincarry/releases/download/v0.4.0/margincarry-0.4.0.xpi",
+            "digest": "sha256:7d0eb0625de54995a9cf98dd1bdd84e3238a6f1ee4b3716c9f29af0b6a016fb2",
+            "updatedAt": "2026-11-12T07:06:07Z"
           },
           {
-            "name": "margincarry-0.3.0.xpi.sha256",
+            "name": "margincarry-0.4.0.xpi.sha256",
             "size": 88,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/margincarry/releases/download/v0.3.0/margincarry-0.3.0.xpi.sha256",
-            "digest": "sha256:118383c40c06330066910be35564068a6a00a8c2178cea7bd5564ce3859f7afb",
-            "updatedAt": "2026-11-06T21:47:18Z"
+            "downloadUrl": "https://github.com/0then0/margincarry/releases/download/v0.4.0/margincarry-0.4.0.xpi.sha256",
+            "digest": "sha256:8090dedb8d0f978c3b53ca8347ff5ad029954896242547effd7925bd4bc39bde",
+            "updatedAt": "2026-11-12T07:06:07Z"
           }
         ]
       },
@@ -897,27 +904,27 @@
       "repo": "0then0/parquetscope",
       "htmlUrl": "https://github.com/0then0/parquetscope",
       "latestStable": {
-        "tag": "v0.3.0",
-        "name": "v0.3.0",
-        "htmlUrl": "https://github.com/0then0/parquetscope/releases/tag/v0.3.0",
-        "publishedAt": "2026-11-07T10:15:30Z",
+        "tag": "v0.4.0",
+        "name": "ParquetScope v0.4.0",
+        "htmlUrl": "https://github.com/0then0/parquetscope/releases/tag/v0.4.0",
+        "publishedAt": "2026-11-12T17:45:21Z",
         "prerelease": false,
         "assets": [
           {
-            "name": "parquetscope-0.3.0-py3-none-any.whl",
-            "size": 308855,
+            "name": "parquetscope-0.4.0-py3-none-any.whl",
+            "size": 322731,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/parquetscope/releases/download/v0.3.0/parquetscope-0.3.0-py3-none-any.whl",
-            "digest": "sha256:4a7e6d5ef4c2e2f1c1c4ffac955609fd0bbff4b562a1ebee4a1c47cdd0fabfcf",
-            "updatedAt": "2026-11-07T10:15:29Z"
+            "downloadUrl": "https://github.com/0then0/parquetscope/releases/download/v0.4.0/parquetscope-0.4.0-py3-none-any.whl",
+            "digest": "sha256:0fa1a7430efe43b50f9895836343ea0d1db5d400a470d1166143ce373f7a3a75",
+            "updatedAt": "2026-11-12T17:45:19Z"
           },
           {
-            "name": "parquetscope-0.3.0.tar.gz",
-            "size": 6352484,
+            "name": "parquetscope-0.4.0.tar.gz",
+            "size": 7423799,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/parquetscope/releases/download/v0.3.0/parquetscope-0.3.0.tar.gz",
-            "digest": "sha256:6e41ceb7ed403daf06612abe6b1721b270fd920fd8d72600b4b5d60631bf4d5d",
-            "updatedAt": "2026-11-07T10:15:30Z"
+            "downloadUrl": "https://github.com/0then0/parquetscope/releases/download/v0.4.0/parquetscope-0.4.0.tar.gz",
+            "digest": "sha256:da325fbebb93889e2e841cd69490d8d090f5d5a4520de3ca8a43e7c63004d9cf",
+            "updatedAt": "2026-11-12T17:45:20Z"
           }
         ]
       },
@@ -1091,67 +1098,67 @@
       "repo": "0then0/rangeprobe",
       "htmlUrl": "https://github.com/0then0/rangeprobe",
       "latestStable": {
-        "tag": "v0.2.0",
-        "name": "RangeProbe 0.2.0",
-        "htmlUrl": "https://github.com/0then0/rangeprobe/releases/tag/v0.2.0",
-        "publishedAt": "2026-11-07T11:36:36Z",
+        "tag": "v0.3.0",
+        "name": "RangeProbe 0.3.0",
+        "htmlUrl": "https://github.com/0then0/rangeprobe/releases/tag/v0.3.0",
+        "publishedAt": "2026-11-11T20:45:22Z",
         "prerelease": false,
         "assets": [
           {
-            "name": "rangeprobe_0.2.0_darwin_amd64.tar.gz",
-            "size": 3799532,
+            "name": "rangeprobe_0.3.0_darwin_amd64.tar.gz",
+            "size": 3808490,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/rangeprobe/releases/download/v0.2.0/rangeprobe_0.2.0_darwin_amd64.tar.gz",
-            "digest": "sha256:db6f42ce1e009aeb2629ecf8e0e601f44d1cbd316351f59bd9f8ffabd3fd6321",
-            "updatedAt": "2026-11-07T11:36:03Z"
+            "downloadUrl": "https://github.com/0then0/rangeprobe/releases/download/v0.3.0/rangeprobe_0.3.0_darwin_amd64.tar.gz",
+            "digest": "sha256:6c4d586917dc96567233a3c2dabd53fe73bbd14fe0a8ad5c9c127c7b6d87b77a",
+            "updatedAt": "2026-11-11T20:45:07Z"
           },
           {
-            "name": "rangeprobe_0.2.0_darwin_arm64.tar.gz",
-            "size": 3493543,
+            "name": "rangeprobe_0.3.0_darwin_arm64.tar.gz",
+            "size": 3502148,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/rangeprobe/releases/download/v0.2.0/rangeprobe_0.2.0_darwin_arm64.tar.gz",
-            "digest": "sha256:8c6c5dfb09219c6ce6d398bf190533b9ecdc3385f9b39be55b254d202e2b5292",
-            "updatedAt": "2026-11-07T11:36:03Z"
+            "downloadUrl": "https://github.com/0then0/rangeprobe/releases/download/v0.3.0/rangeprobe_0.3.0_darwin_arm64.tar.gz",
+            "digest": "sha256:16a012286aa684ce0b9bd88ac352735ab826e9b3660b9a58822633b53fd7dcef",
+            "updatedAt": "2026-11-11T20:45:07Z"
           },
           {
-            "name": "rangeprobe_0.2.0_linux_amd64.tar.gz",
-            "size": 3731037,
+            "name": "rangeprobe_0.3.0_linux_amd64.tar.gz",
+            "size": 3741725,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/rangeprobe/releases/download/v0.2.0/rangeprobe_0.2.0_linux_amd64.tar.gz",
-            "digest": "sha256:2f9ccc63d42fd8740c45ebeda7cb87c1898310a590b3e52342409ac5f1ce97e9",
-            "updatedAt": "2026-11-07T11:36:03Z"
+            "downloadUrl": "https://github.com/0then0/rangeprobe/releases/download/v0.3.0/rangeprobe_0.3.0_linux_amd64.tar.gz",
+            "digest": "sha256:5f32cee30609302779abe26b9188409f60e5e726b27d9e50902dd8cabeb8caf5",
+            "updatedAt": "2026-11-11T20:45:07Z"
           },
           {
-            "name": "rangeprobe_0.2.0_linux_arm64.tar.gz",
-            "size": 3358776,
+            "name": "rangeprobe_0.3.0_linux_arm64.tar.gz",
+            "size": 3368786,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/rangeprobe/releases/download/v0.2.0/rangeprobe_0.2.0_linux_arm64.tar.gz",
-            "digest": "sha256:824ab1b83820c00a0921c79b6f6562ae43cc75cb4fb2df22908806071b611187",
-            "updatedAt": "2026-11-07T11:36:03Z"
+            "downloadUrl": "https://github.com/0then0/rangeprobe/releases/download/v0.3.0/rangeprobe_0.3.0_linux_arm64.tar.gz",
+            "digest": "sha256:18643fb4a3b018f503cea1cb3714589ec55b0e00f76a45be53cdefc6c6756487",
+            "updatedAt": "2026-11-11T20:45:07Z"
           },
           {
-            "name": "rangeprobe_0.2.0_windows_amd64.zip",
-            "size": 3844718,
+            "name": "rangeprobe_0.3.0_windows_amd64.zip",
+            "size": 3858605,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/rangeprobe/releases/download/v0.2.0/rangeprobe_0.2.0_windows_amd64.zip",
-            "digest": "sha256:97eeb3e5db0b068ed590b2574562ac9c16ac8a6f3670bc135ce4c39d8f42c54d",
-            "updatedAt": "2026-11-07T11:36:04Z"
+            "downloadUrl": "https://github.com/0then0/rangeprobe/releases/download/v0.3.0/rangeprobe_0.3.0_windows_amd64.zip",
+            "digest": "sha256:3fbe4036542986995643c989021a73a8b3149210792164947048f95f7f6d784b",
+            "updatedAt": "2026-11-11T20:45:08Z"
           },
           {
-            "name": "rangeprobe_0.2.0_windows_arm64.zip",
-            "size": 3422333,
+            "name": "rangeprobe_0.3.0_windows_arm64.zip",
+            "size": 3434060,
             "contentType": "application/zip",
-            "downloadUrl": "https://github.com/0then0/rangeprobe/releases/download/v0.2.0/rangeprobe_0.2.0_windows_arm64.zip",
-            "digest": "sha256:fb36c8bb10dbd43c627b34411463849fe7e0892ee5bfbaedad1c65a32cb9af0d",
-            "updatedAt": "2026-11-07T11:36:04Z"
+            "downloadUrl": "https://github.com/0then0/rangeprobe/releases/download/v0.3.0/rangeprobe_0.3.0_windows_arm64.zip",
+            "digest": "sha256:8f4d6bdaee16e7e6e12282947de5304db60c6e0625feb29b65ed2b59174127f1",
+            "updatedAt": "2026-11-11T20:45:08Z"
           },
           {
             "name": "SHA256SUMS",
             "size": 612,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/rangeprobe/releases/download/v0.2.0/SHA256SUMS",
-            "digest": "sha256:15c20f6f174124b8737b77b2c533a482a3a07056359ba216ac039f2427704fb7",
-            "updatedAt": "2026-11-07T11:36:03Z"
+            "downloadUrl": "https://github.com/0then0/rangeprobe/releases/download/v0.3.0/SHA256SUMS",
+            "digest": "sha256:d1427d86dd991dea37bf305d591ff6619d79258b6d876c04b89e5f56af937a39",
+            "updatedAt": "2026-11-11T20:45:06Z"
           }
         ]
       },
@@ -1161,27 +1168,27 @@
       "repo": "0then0/samebyte",
       "htmlUrl": "https://github.com/0then0/samebyte",
       "latestStable": {
-        "tag": "v0.1.2",
-        "name": "v0.1.2",
-        "htmlUrl": "https://github.com/0then0/samebyte/releases/tag/v0.1.2",
-        "publishedAt": "2026-10-30T13:12:26Z",
+        "tag": "v0.2.0",
+        "name": "v0.2.0",
+        "htmlUrl": "https://github.com/0then0/samebyte/releases/tag/v0.2.0",
+        "publishedAt": "2026-11-12T22:24:47Z",
         "prerelease": false,
         "assets": [
           {
-            "name": "samebyte-0.1.2.tgz",
-            "size": 32538,
+            "name": "samebyte-0.2.0.tgz",
+            "size": 39599,
             "contentType": "application/x-gtar",
-            "downloadUrl": "https://github.com/0then0/samebyte/releases/download/v0.1.2/samebyte-0.1.2.tgz",
-            "digest": "sha256:f11068188bbbbe05c435b96631d25cadc937a629609450ac18036f937de8a312",
-            "updatedAt": "2026-10-30T13:12:26Z"
+            "downloadUrl": "https://github.com/0then0/samebyte/releases/download/v0.2.0/samebyte-0.2.0.tgz",
+            "digest": "sha256:5eb061fc98c877b77bf8f47f786c0b2b78eb2f6ea53a2d2471adef8d1f282b54",
+            "updatedAt": "2026-11-12T22:24:46Z"
           },
           {
             "name": "SHA256SUMS",
             "size": 85,
             "contentType": "application/octet-stream",
-            "downloadUrl": "https://github.com/0then0/samebyte/releases/download/v0.1.2/SHA256SUMS",
-            "digest": "sha256:5c1fae9c8b42bc85b8140055254fc1b9d967c412bb5776e7eb06f9023b949428",
-            "updatedAt": "2026-10-30T13:12:26Z"
+            "downloadUrl": "https://github.com/0then0/samebyte/releases/download/v0.2.0/SHA256SUMS",
+            "digest": "sha256:d6c6000f2f9cbbcac2b67b03a0f57c7bf71486414670f73a8df9b3fbfba51e90",
+            "updatedAt": "2026-11-12T22:24:46Z"
           }
         ]
       },
